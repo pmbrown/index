@@ -1,0 +1,58 @@
+:where(table) {
+  color-scheme: var(--table-scheme, inherit);
+  color: var(--table-fg, var(--text, CanvasText));
+  font-variant-numeric: tabular-nums;
+  inline-size: 100%;
+  margin-block-end: var(--table-mb, 1rem);
+  border-collapse: collapse;
+  background-color: var(--table-bg, var(--background, Canvas));
+  
+  caption, th {
+    text-align: inherit;
+  }
+  
+  caption {
+    color: var(--caption-fg, var(--table-fg, var(--text, CanvasText)));
+    font-size: var(--caption-fs, 0.938rem);
+    font-weight: var(--caption-fw);
+    padding-block: var(--table-py, 0.35rem);
+    padding-inline: var(--table-px, 0.75rem);
+    background-color: var(--caption-bg, var(--table-bg, var(--background, Canvas)));
+    border: var(--table-bd-width, 1px) solid var(--table-bd-color, var(--surf-3));
+    border-block-end: none;
+  }
+  
+  th {
+    color: var(--thead-fg, var(--table-fg, var(--text, CanvasText)));
+    font-size: var(--thead-fs, inherit);
+    font-weight: var(--thead-fw, revert);
+    background-color: var(--thead-bg, var(--table-bg, var(--surf-1)));
+  }
+  
+  thead, tbody, tfoot, tr, td, th {
+    vertical-align: top;
+    border: var(--table-bd-width, 1px) solid var(--table-bd-color, var(--surf-3));
+  }
+  
+  th, td {
+    padding-block: var(--table-py, 0.4rem);
+    padding-inline: var(--table-px, 0.75rem);
+  }
+  
+  :is(.table-striped tr, .table-combo tr):nth-child(even) {
+    background-color: var(--table-stripes, color-mix(in srgb, var(--surf-1), transparent 50%));
+  }
+  
+  :is(.table-hover tbody tr, .table-combo tbody tr):hover {
+    background-color: var(--table-hover, color-mix(in srgb, var(--surf-1), transparent 20%));
+  }
+}
+
+:where(.table-wrap) {
+  overflow-x: auto;
+  margin-block-end: var(--table-wrap-mb, 1rem);
+  
+  table {
+    margin-block-end: 0;
+  }
+}

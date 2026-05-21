@@ -1,0 +1,190 @@
+// ------------------------------------------------------------
+// Colors
+// ------------------------------------------------------------
+@use "sass:map";
+$tokens-class: ':where(html)' !default;
+$custom-tokens: () !default;
+$custom-color-tokens: () !default;
+$custom-gradients: () !default;
+$custom-color-utilities: () !default;
+
+// -------------------------------------------------------
+// Theme and surface colors
+// -------------------------------------------------------
+$text:            light-dark(#000, #fff) !default;
+$background:      light-dark(#f1f2f4, #1f2428) !default;
+$link:            light-dark(#1c3db5, #9fbfdf) !default;
+$link-visited:    light-dark(#4f6fe3, #b3cce6) !default;
+$link-hover:      light-dark(#385de0, #c6d8ec) !default;
+$surface-1:       color-mix(in srgb, CanvasText 5%, var(--background)) !default;
+$surface-2:       color-mix(in srgb, CanvasText 10%, var(--background)) !default;
+$surface-3:       color-mix(in srgb, CanvasText 20%, var(--background)) !default;
+$surface-4:       color-mix(in srgb, CanvasText 30%, var(--background)) !default;
+$surface-5:       color-mix(in srgb, CanvasText 40%, var(--background)) !default;
+
+$theme-colors: (
+  "text": $text,
+  "background": $background,
+  "link": $link,
+  "link-visited": $link-visited,
+  "link-hover": $link-hover,
+) !default;
+
+$surface-colors: (
+  "surf-1": $surface-1,
+  "surf-2": $surface-2,
+  "surf-3": $surface-3,
+  "surf-4": $surface-4,
+  "surf-5": $surface-5,
+) !default;
+
+// -------------------------------------------------------
+// Palette colors
+// -------------------------------------------------------
+$blue:          oklch(50% 0.25 250) !default;
+$green:         oklch(50% 0.22 160) !default;
+$red:           oklch(50% 0.22 26) !default;
+$cyan:          oklch(82% 0.18 185) !default;
+$yellow:        oklch(92% 0.20 99) !default;
+$gray:          oklch(80% 0.02 245) !default;
+
+$color-mix:     lab !default; // change to suit colors above
+$middle-token:  5 !default; // change to suit scale below
+
+$lighten-values: (
+  "1": 70%,
+  "2": 55%,
+  "3": 40%,
+  "4": 20%,
+) !default;
+
+$darken-values: (
+  "6": 12%,
+  "7": 25%,
+  "8": 37%,
+  "9": 45%,
+) !default;
+
+$color-tokens: (
+  "blue": $blue,
+  "green": $green,
+  "red": $red,
+  "cyan": $cyan,
+  "yellow": $yellow,
+  "gray": $gray,
+) !default;
+
+// -------------------------------------------------------
+// Color modifiers
+// -------------------------------------------------------
+// name, color-scheme, text, background, hover/focus, border
+$color-modifiers:
+  "blue" dark #fff var(--blue-5) var(--blue-6) var(--blue-4),
+  "green" dark #fff var(--green-5) var(--green-6) var(--green-4),   
+  "red" dark #fff var(--red-5) var(--red-6) var(--red-4),
+  "cyan" light #000 var(--cyan-5) var(--cyan-4) var(--cyan-6),
+  "yellow" light #000 var(--yellow-5) var(--yellow-4) var(--yellow-6),
+  "gray" light #000 var(--gray-5) var(--gray-4) var(--gray-6),
+!default;
+
+// name, color-scheme, text, background, thead, border
+$color-tables:
+  "blue" dark #fff var(--blue-5) var(--blue-6) var(--blue-4),
+  "green" dark #fff var(--green-5) var(--green-6) var(--green-4), 
+  "red" dark #fff var(--red-5) var(--red-6) var(--red-4),
+  "cyan" light #000 var(--cyan-4) var(--cyan-5) var(--cyan-6),
+  "yellow" light #000 var(--yellow-4) var(--yellow-5) var(--yellow-6),
+  "gray" light #000 var(--gray-4) var(--gray-5) var(--gray-6),
+!default;
+
+// -------------------------------------------------------
+// Color gradients
+// -------------------------------------------------------
+$blue-gradient:     linear-gradient(180deg, var(--blue-4), var(--blue-5), var(--blue-6)) !default;
+$green-gradient:    linear-gradient(180deg, var(--green-4), var(--green-5), var(--green-6)) !default;
+$red-gradient:      linear-gradient(180deg, var(--red-4), var(--red-5), var(--red-6)) !default;
+$cyan-gradient:     linear-gradient(180deg, var(--cyan-4), var(--cyan-5), var(--cyan-6)) !default;
+$yellow-gradient:   linear-gradient(180deg, var(--yellow-4), var(--yellow-5), var(--yellow-6)) !default;
+$gray-gradient:     linear-gradient(180deg, var(--gray-4), var(--gray-5), var(--gray-6)) !default;
+
+$color-gradients:
+  "blue"    #fff $blue-gradient,
+  "green"   #fff $green-gradient,
+  "red"     #fff $red-gradient,
+  "cyan"    #000 $cyan-gradient,
+  "yellow"  #000 $yellow-gradient,
+  "gray"    #000 $gray-gradient,
+!default;
+
+// -------------------------------------------------------
+// Color utilities 
+// -------------------------------------------------------
+$utility-color-values: (
+  "blue": #fff,
+  "blue-1":  #000,
+  "blue-2": #000,
+  "blue-3": #000,
+  "blue-4": #fff,
+  "blue-5": #fff,
+  "blue-6": #fff,
+  "blue-7": #fff,
+  "blue-8": #fff,
+  "blue-9": #fff,
+  
+  "green":  #fff,
+  "green-1": #000,
+  "green-2": #000,
+  "green-3": #000,
+  "green-4": #fff,
+  "green-5": #fff,
+  "green-6": #fff,
+  "green-7": #fff,
+  "green-8": #fff,
+  "green-9": #fff,
+  
+  "red": #fff,
+  "red-1": #000,
+  "red-2": #000,
+  "red-3": #000,
+  "red-4": #fff,
+  "red-5": #fff,
+  "red-6": #fff, 
+  "red-7": #fff, 
+  "red-8": #fff,
+  "red-9": #fff,
+  
+  "cyan": #000,
+  "cyan-1": #000,
+  "cyan-2": #000,
+  "cyan-3": #000,
+  "cyan-4": #000,
+  "cyan-5": #000,
+  "cyan-6": #000,
+  "cyan-7": #000,
+  "cyan-8": #000,
+  "cyan-9": #000,
+  
+  "yellow": #000,
+  "yellow-1": #000,
+  "yellow-2": #000,
+  "yellow-3": #000,
+  "yellow-4": #000,
+  "yellow-5": #000,
+  "yellow-6": #000,
+  "yellow-7": #000,
+  "yellow-8": #000,
+  "yellow-9": #000,
+
+  "gray": #000,
+  "gray-1": #000,
+  "gray-2": #000,
+  "gray-3": #000,
+  "gray-4": #000,
+  "gray-5": #000,
+  "gray-6": #000,
+  "gray-7": #000,
+  "gray-8": #000,
+  "gray-9": #000,
+) !default;
+
+

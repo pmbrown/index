@@ -1,0 +1,69 @@
+// ------------------------------------------------------------
+// Tokens
+// ------------------------------------------------------------
+@use "config" as *;
+@use "colors" as *;
+@use "props" as *;
+
+#{$tokens-class} {
+
+  @each $name, $value in $theme-colors {
+    --#{$name}: #{$value};
+  }
+
+  @each $name, $value in $surface-colors {
+    --#{$name}: #{$value};
+  }
+
+  @if $enable-color-tokens {
+    @each $color, $value in $color-tokens {
+      --#{$color}: #{$value};
+      
+      @each $token, $percent in $lighten-values {
+        --#{$color}-#{$token}: color-mix(in #{$color-mix}, var(--#{$color}), #fff #{$percent});
+      }
+      
+      --#{$color}-#{$middle-token}: var(--#{$color});
+      
+      @each $token, $percent in $darken-values {
+        --#{$color}-#{$token}: color-mix(in #{$color-mix}, var(--#{$color}), #000 #{$percent});
+      }
+    }  
+  }
+  
+  // Custom color tokens
+  @each $color, $value in $custom-color-tokens {
+    --#{$color}: #{$value};
+        
+    @each $token, $percent in $lighten-values {
+      --#{$color}-#{$token}: color-mix(in #{$color-mix}, var(--#{$color}), #fff #{$percent});
+    }
+        
+    --#{$color}-#{$middle-token}: var(--#{$color});
+        
+    @each $token, $percent in $darken-values {
+      --#{$color}-#{$token}: color-mix(in #{$color-mix}, var(--#{$color}), #000 #{$percent});
+    }
+  }
+  
+  @if $enable-color-gradients {
+    @each $name, $color, $value in $color-gradients {
+      --#{$name}-gradient: #{$value};
+    }
+  }
+  
+  @if $enable-gradients {
+    @each $name, $value in $gradients {
+      --#{$name}: #{$value};
+    }
+  }
+  
+  @each $name, $value in $custom-gradients {
+    --#{$name}-gradient: #{$value};
+  }
+  
+  @each $name, $value in $custom-tokens {
+    --#{$name}: #{$value};
+  }
+}
+
