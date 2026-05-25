@@ -1,90 +1,42 @@
 // ------------------------------------------------------------
-// Props
+// Layouts
 // ------------------------------------------------------------
 @use "sass:map";
 
 // ------------------------------------------------------------
 // Breakpoints & containers
 // ------------------------------------------------------------
+$breakpoint-xl:     1536px !default;
+$breakpoint-lg:     1280px !default;
+$breakpoint-md:     1024px !default;
+$breakpoint-sm:     768px !default;
+$breakpoint-xs:     480px !default;
+
+$rem-size-xl:       100rem !default;
+$rem-size-lg:       80rem !default;
+$rem-size-md:       64rem !default;
+$rem-size-sm:       48rem !default;
+$rem-size-xs:       30rem !default;
+
 $breakpoint-query:  'width <' !default; 
 
-$breakpoint-widths: (
-  "xl": 1536px,
-  "lg": 1280px,
-  "md": 1024px,
-  "sm": 768px,
-  "xs": 480px,
+$breakpoint-sizes: (
+  "xl": $breakpoint-xl,
+  "lg": $breakpoint-lg,
+  "md": $breakpoint-md,
+  "sm": $breakpoint-sm,
+  "xs": $breakpoint-xs,
 ) !default;
 
-$rem-widths: (
-  "rem-xl": 100rem,
-  "rem-lg": 80rem,
-  "rem-md": 64rem,
-  "rem-sm": 48rem,
-  "rem-xs": 30rem,
+$rem-sizes: (
+  "rem-xl": $rem-size-xl,
+  "rem-lg": $rem-size-lg,
+  "rem-md": $rem-size-md,
+  "rem-sm": $rem-size-sm,
+  "rem-xs": $rem-size-xs,
 ) !default;
 
-$container-values:  map.merge($breakpoint-widths, $rem-widths) !default;
-
-// -------------------------------------------------------
-// Gradients
-// -------------------------------------------------------
-$gradient-1:    linear-gradient(180deg, rgba(white, .175), rgba(white, 0)) !default;
-$gradient-2:    linear-gradient(180deg, rgba(white, .225), rgba(white, 0)) !default;
-$gradient-3:    linear-gradient(180deg, rgba(white, .33), rgba(white, 0)) !default;
-
-$gradients: (
-  "gradient-1": $gradient-1,
-  "gradient-2": $gradient-2,
-  "gradient-3": $gradient-3,
-) !default;
-
-// ---------------------------------------------------------- 
-// Borders
-// ----------------------------------------------------------
-$border-width:    var(--bd-width, 1px) !default;
-$border-color:    var(--bd-color, var(--surf-3)) !default;
-$border-style:    var(--bd-style, solid) !default;
-
-$border-style-values: (
-  "border": border-style,
-  "border-t": border-block-start-style,
-  "border-b": border-block-end-style,
-  "border-s": border-inline-start-style,
-  "border-e": border-inline-end-style,
-  "border-y": border-block-style,
-  "border-x": border-inline-style,
-) !default;
-
-// ---------------------------------------------------------- 
-// Radius
-// ----------------------------------------------------------
-$radius-1:  0.188rem !default;
-$radius-2:  0.313rem !default;
-$radius-3:  0.5rem !default;
-$radius-4:  0.75rem !default;
-$radius-5:  1rem !default;
-
-$border-radius-values: (
-  "radius-0": 0,
-  "radius-1": $radius-1,
-  "radius-2": $radius-2,
-  "radius-3": $radius-3,
-  "radius-4": $radius-4,
-  "radius-5": $radius-5,
-) !default;
-
-$border-radius-single-values: (
-  "radius-pill": 50rem,
-  "radius-circle": 50%,
-) !default;
-
-$radius-props:
-  "t" border-start-start-radius border-start-end-radius,
-  "b" border-end-start-radius border-end-end-radius,
-  "s" border-start-start-radius border-end-start-radius,
-  "e" border-start-end-radius border-end-end-radius,
-!default;
+$container-sizes:  map.merge($breakpoint-sizes, $rem-sizes) !default;
 
 // ------------------------------------------------------------
 // Display

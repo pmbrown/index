@@ -1,6 +1,7 @@
 // ------------------------------------------------------------
-// Config
+// Includes
 // ------------------------------------------------------------
+$enable-colors:                     true !default; // false disables all colors
 $enable-color-tokens:               true !default;
 $enable-color-forms:                true !default;
 $enable-color-buttons:              true !default;
@@ -17,9 +18,13 @@ $enable-color-backgrounds:          true !default;
 $enable-color-borders:              true !default; // 'border-color' values only
 $enable-color-gradients:            true !default;
 
+$enable-text:                       true !default;
 $enable-gradients:                  true !default;
 $enable-borders:                    true !default;
 $enable-radius:                     true !default;
+$enable-ratios:                     true !default; // aspect-ratio & object-fit
+$enable-icon-tokens:                false !default;
+$enable-icon-utilities:             true !default;
 
 $enable-containers:                 true !default;
 $enable-display:                    true !default;
@@ -33,8 +38,10 @@ $enable-spacing:                    true !default;
 $enable-sizes:                      true !default;
 
 $enable-breakpoints:                true !default;
-$enable-borders-breakpoints:        true !default;
-$enable-radius-breakpoints:         true !default;
+$enable-ratios-breakpoints:         false !default;
+$enable-text-breakpoints:           false !default;
+$enable-borders-breakpoints:        false !default;
+$enable-radius-breakpoints:         false !default;
 $enable-display-breakpoints:        true !default;
 $enable-flex-breakpoints:           true !default;
 $enable-grid-breakpoints:           true !default;
@@ -44,4 +51,3 @@ $enable-positioning-breakpoints:    true !default;
 $enable-overflow-breakpoints:       true !default;
 $enable-spacing-breakpoints:        true !default;
 $enable-sizes-breakpoints:          true !default;
-

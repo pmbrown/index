@@ -1,5 +1,5 @@
 .theme-switch {
-  --btn-px: 0.65em;
+  --btn-px: 0.66em;
   
   &:before {
     display: inline-block;

@@ -9,7 +9,7 @@
 :where(html) {
   color-scheme: light dark;
   color: var(--text, CanvasText);
-  font-size: var(--html-fs, clamp(100%, 40% + 0.666vw, 140%));
+  font-size: var(--html-fs, clamp(100%, 37.5% + 0.666vw, 137.5%));
   font-family: var(--font, system-ui, -apple-system, sans-serif);
   background-color: var(--background, Canvas);
   block-size: 100%;
@@ -53,27 +53,27 @@
   margin-block-end: var(--heading-mb, 0.85rem);
 }
 
-:where(h1), .h1 {
+:where(h1) {
   font-size: var(--h1-fs, 2.125rem);
 }
 
-:where(h2), .h2 {
+:where(h2) {
   font-size: var(--h2-fs, 1.75rem);
 }
 
-:where(h3), .h3 {
+:where(h3) {
   font-size: var(--h3-fs, 1.5rem);
 }
 
-:where(h4), .h4 {
+:where(h4) {
   font-size: var(--h4-fs, 1.375rem);
 }
 
-:where(h5), .h5 {
+:where(h5) {
   font-size: var(--h5-fs, 1.25rem);
 }
 
-:where(h6), .h6 {
+:where(h6) {
   --heading-lh: 1.25;
   font-size: var(--h6-fs, 1.063rem);
 }
@@ -207,6 +207,10 @@
   border: 0;
 }
 
+.decoration-none, [class*=decoration-none-group] * {
+  --link-decoration: none;
+}
+
 .vis-hidden, .vis-hidden-focus:not(:focus):not(:focus-within) {
   position: absolute;
   block-size: 1px;
@@ -229,12 +233,26 @@
   color: var(--fg);
 }
 
+.fg-text {
+  color: CanvasText;
+}
+
 .bg-color {
   color: var(--fg);
   background-color: var(--bg);
 }
 
 .bg-page {
-  color: var(--text);
+  color: var(--fg, CanvasText);
   background-color: var(--background);
+}
+
+.bg-white {
+  color: var(--fg, #000);
+  background-color: #fff;
+}
+
+.bg-black {
+  color: var(--fg, #fff);
+  background-color: #000;
 }

@@ -1,14 +1,12 @@
 .btn-group, .btn-group-column {
+  --marker: "";
+  --li-ps: 0;
+  --dd-ms: 0;
+  --list-mb: 0;
   display: flex;
   
   :focus {
     outline: none;
-  }
-  
-  &:where(ol, ul) {
-    list-style-type: "";
-    margin-block-end: 0;
-    padding-inline-start: 0;
   }
   
   *, *:is(li) :is(.btn, button, [type=button], [type=submit], [type=reset]) {

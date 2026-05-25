@@ -1,9 +1,11 @@
 // ------------------------------------------------------------
 // Tokens
+// Compiles the Sass colors and utility tokens (CSS variables)
+// enabled in the 'config/includes.scss' document.
 // ------------------------------------------------------------
 @use "config" as *;
-@use "colors" as *;
-@use "props" as *;
+@use "version" as *;
+@include version;
 
 #{$tokens-class} {
 
@@ -15,7 +17,7 @@
     --#{$name}: #{$value};
   }
 
-  @if $enable-color-tokens {
+  @if $enable-colors and $enable-color-tokens {
     @each $color, $value in $color-tokens {
       --#{$color}: #{$value};
       
@@ -28,9 +30,9 @@
       @each $token, $percent in $darken-values {
         --#{$color}-#{$token}: color-mix(in #{$color-mix}, var(--#{$color}), #000 #{$percent});
       }
-    }  
+    }
   }
-  
+
   // Custom color tokens
   @each $color, $value in $custom-color-tokens {
     --#{$color}: #{$value};
@@ -46,7 +48,7 @@
     }
   }
   
-  @if $enable-color-gradients {
+  @if $enable-colors and $enable-color-gradients {
     @each $name, $color, $value in $color-gradients {
       --#{$name}-gradient: #{$value};
     }
@@ -56,6 +58,12 @@
     @each $name, $value in $gradients {
       --#{$name}: #{$value};
     }
+  }
+
+  @if $enable-icon-tokens {
+    @each $name, $value in $icon-values {
+      --#{$name}: #{$value};
+    }   
   }
   
   @each $name, $value in $custom-gradients {

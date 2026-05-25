@@ -1,13 +1,54 @@
 // ------------------------------------------------------------
 // Breakpoints
+// Compiles the responsive Sass utilities and layout styles 
+// enabled in the 'config/includes.scss' document. 
 // ------------------------------------------------------------
 @use "config" as *;
-@use "props" as *;
 
-@each $breakpoint, $width in $breakpoint-widths {
+@each $breakpoint, $width in $breakpoint-sizes {
   @if $enable-breakpoints {
     @media (#{$breakpoint-query} #{$width}) {
-    
+
+      // Text
+      @if $enable-text-breakpoints {
+        @each $name, $value in $font-weights {
+          .fw-#{$name}-#{$breakpoint} {
+            font-weight: #{$value};
+          }
+        }
+        
+        @each $name, $value in $font-sizes {
+          .fs-#{$name}-#{$breakpoint} {
+            font-size: #{$value};
+          }
+        }
+        
+        @each $name, $prop, $value in $static-text-utilities {
+          .#{$name}-#{$breakpoint}, .#{$name}-group-#{$breakpoint} * {
+            #{$prop}: #{$value};
+          }
+        }
+      }
+      
+      // Aspect-ratios & object-fit
+      @if $enable-ratios-breakpoints {
+        .ratio-#{$breakpoint}, .ratio-group-#{$breakpoint} *:not(figcaption) {
+          aspect-ratio: var(--ratio);
+        }
+        
+        @each $name, $value in $aspect-ratio-values {
+          .ratio-#{$name}-#{$breakpoint}, .ratio-group-#{$name}-#{$breakpoint} *:not(figcaption) {
+            aspect-ratio: $value;     
+          }    
+        }
+        
+        @each $name, $value in $object-fit-values {
+          .object-fit-#{$name}-#{$breakpoint}, .object-fit-group-#{$name}-#{$breakpoint} * {
+            object-fit: $value;       
+          }
+        }
+      }
+      
       // Borders
       @if $enable-borders-breakpoints {
               
@@ -206,31 +247,33 @@
       }
       
       // Height and width sizes
-      @each $class, $prop in $height-props {
-        @each $name, $value in $height-values {
-          .#{$class}-#{$name}-#{$breakpoint} {
-            #{$prop}: #{$value};        
+      @if $enable-sizes-breakpoints {
+        @each $class, $prop in $height-props {
+          @each $name, $value in $height-values {
+            .#{$class}-#{$name}-#{$breakpoint} {
+              #{$prop}: #{$value};        
+            }
           }
         }
-      }
-      
-      @each $name, $prop, $value in $variable-heights {
-        .#{$name}-#{$breakpoint} {
-          #{$prop}: #{$value};
-        }
-      }
-      
-      @each $class, $prop in $width-props {
-        @each $name, $value in $width-values {  
-          .#{$class}-#{$name}-#{$breakpoint} {
-            #{$prop}: #{$value};        
+        
+        @each $name, $prop, $value in $variable-heights {
+          .#{$name}-#{$breakpoint} {
+            #{$prop}: #{$value};
           }
         }
-      }
-      
-      @each $name, $prop, $value in $variable-widths {
-        .#{$name}-#{$breakpoint} {
-          #{$prop}: #{$value};
+        
+        @each $class, $prop in $width-props {
+          @each $name, $value in $width-values {  
+            .#{$class}-#{$name}-#{$breakpoint} {
+              #{$prop}: #{$value};        
+            }
+          }
+        }
+        
+        @each $name, $prop, $value in $variable-widths {
+          .#{$name}-#{$breakpoint} {
+            #{$prop}: #{$value};
+          }
         }
       }
     } // end-media

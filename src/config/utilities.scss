@@ -1,0 +1,161 @@
+// ------------------------------------------------------------
+// Utilities
+// ------------------------------------------------------------
+@use "sass:map";
+
+$font-weights: (
+  "normal": normal,
+  "lighter": lighter,
+  "bold": bold, 
+  "semibold": 600,
+  "heavy": 800,
+) !default;
+
+$font-size-1:       0.75rem !default;
+$font-size-2:       0.875rem !default;
+$font-size-3:       1rem !default;
+$font-size-4:       1.063rem !default;
+$font-size-5:       1.125rem !default;
+$font-size-6:       1.25rem !default;
+$font-size-7:       1.375rem;
+$font-size-8:       1.5rem;
+$font-size-9:       1.75rem;
+$font-size-10:      2.125rem;
+
+$font-sizes: (
+  "1": $font-size-1,
+  "2": $font-size-2,
+  "3": $font-size-3,
+  "4": $font-size-4,
+  "5": $font-size-5,
+  "6": $font-size-6,
+  "7": $font-size-7,
+  "8": $font-size-8,
+  "9": $font-size-9,
+  "10": $font-size-10,
+) !default;
+
+$static-text-utilities:
+  "text-center" text-align center,
+  "text-left" text-align left,
+  "text-right" text-align right,
+  "text-balance" text-wrap balance,
+  "text-pretty" text-wrap pretty,
+!default;
+
+$variable-text-utilities:
+  "font-family" font-family var(--ff),
+  "font-size" font-size var(--fs),
+  "font-weight" font- var(--fw),
+  "line-height" line-height var(--lh),
+  "font-variant" font-variant var(--fv),
+  "text-transform" text-transform var(--tt),
+  "letter-space" letter-spacing var(--ls),
+  "word-space" word-spacing var(--ws),
+!default;
+
+// ---------------------------------------------------------- 
+// Aspect-ratio and object-fit
+// ----------------------------------------------------------
+$aspect-ratio-values: (
+  "auto": auto,
+  "1x1": #{"1 / 1"},
+  "16x9": #{"16 / 9"},
+  "5x2": #{"5 / 2"},
+  "4x1": #{"4 / 1"},
+  "3x4": #{"3 / 4"},
+) !default;
+
+$object-fit-values: (
+  "contain": contain,
+  "cover": cover,
+  "fill": fill,
+  "scale": scale-down,
+  "none": none,
+) !default;
+
+// -------------------------------------------------------
+// Gradients
+// -------------------------------------------------------
+$gradient-1:    linear-gradient(180deg, rgba(white, .175), rgba(white, 0)) !default;
+$gradient-2:    linear-gradient(180deg, rgba(white, .225), rgba(white, 0)) !default;
+$gradient-3:    linear-gradient(180deg, rgba(white, .33), rgba(white, 0)) !default;
+
+$gradients: (
+  "gradient-1": $gradient-1,
+  "gradient-2": $gradient-2,
+  "gradient-3": $gradient-3,
+) !default;
+
+// ---------------------------------------------------------- 
+// Borders
+// ----------------------------------------------------------
+$border-width:    var(--bd-width, 1px) !default;
+$border-color:    var(--bd-color, var(--surf-3)) !default;
+$border-style:    var(--bd-style, solid) !default;
+
+$border-style-values: (
+  "border": border-style,
+  "border-t": border-block-start-style,
+  "border-b": border-block-end-style,
+  "border-s": border-inline-start-style,
+  "border-e": border-inline-end-style,
+  "border-y": border-block-style,
+  "border-x": border-inline-style,
+) !default;
+
+// ---------------------------------------------------------- 
+// Radius
+// ----------------------------------------------------------
+$radius-1:  0.188rem !default;
+$radius-2:  0.313rem !default;
+$radius-3:  0.5rem !default;
+$radius-4:  0.75rem !default;
+$radius-5:  1rem !default;
+
+$border-radius-values: (
+  "radius-0": 0,
+  "radius-1": $radius-1,
+  "radius-2": $radius-2,
+  "radius-3": $radius-3,
+  "radius-4": $radius-4,
+  "radius-5": $radius-5,
+) !default;
+
+$border-radius-single-values: (
+  "radius-pill": 50rem,
+  "radius-circle": 50%,
+) !default;
+
+$radius-props:
+  "t" border-start-start-radius border-start-end-radius,
+  "b" border-end-start-radius border-end-end-radius,
+  "s" border-start-start-radius border-end-start-radius,
+  "e" border-start-end-radius border-end-end-radius,
+!default;
+
+// ----------------------------------------------------------
+// Icons
+// ----------------------------------------------------------
+$menu-svg:      url("data:image/svg+xml,<svg viewBox='0 0 16 16' fill='currentColor' xmlns='http://www.w3.org/2000/svg'><path d='m2 2v2h12v-2h-12zm0 5v2h12v-2h-12zm0 5v2h12v-2h-12z'/></svg>");
+$close-svg:     url("data:image/svg+xml,<svg viewBox='0 0 16 16' fill='currentColor' xmlns='http://www.w3.org/2000/svg'><path d='m2.47 3.53 1.06-1.06 4.47 4.47 4.47-4.47 1.06 1.06-4.47 4.47 4.47 4.47-1.06 1.06-4.47-4.47-4.47 4.47-1.06-1.06 4.47-4.47z'/></svg>");
+$search-svg:    url("data:image/svg+xml,<svg viewBox='0 0 16 16' fill='currentColor' xmlns='http://www.w3.org/2000/svg'><path d='m11.3 10.1a5.69 5.69 0 1 0-1.22 1.22h-8.75e-4q0.0385 0.0525 0.0858 0.101l3.37 3.37a0.875 0.875 0 0 0 1.24-1.24l-3.37-3.37a0.875 0.875 0 0 0-0.101-0.0875zm0.226-3.36a4.81 4.81 0 1 1-9.62 0 4.81 4.81 0 0 1 9.62 00'/></svg>");
+
+// Maps
+$icon-values: ( 
+  "menu": $menu-svg,
+  "close": $close-svg,
+  "search": $search-svg,
+) !default;
+
+// Utility
+@mixin icon-utility {
+  display: inline-block;
+  content: "";
+  block-size: var(--ico-xy, 1em);
+  inline-size: var(--ico-xy, 1em);
+  vertical-align: var(--ico-va, -.16em);
+  background-color: var(--ico, CurrentColor);
+  mask: var(--svg) no-repeat;
+  opacity: var(--ico-op, 1);
+}

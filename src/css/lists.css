@@ -1,14 +1,14 @@
-.ul-none, .ol-none, .ul-inline, .ol-inline, .list-comma, .list-divider {
-  list-style-type: "";
-  padding-inline-start: 0;
+.list-none, .list-inline, .list-comma, .list-divider, .dl-comma, .dl-comma-inline, .dd-inline {
+  --marker: "";
+  --li-ps: 0;
+  --dd-ms: 0;
+  &:not(.list-none) {
+    display: flex;
+    flex-wrap: wrap;  
+  }
 }
 
-.ul-inline, .ol-inline, .list-comma, .list-divider, .dl-comma, .dl-comma-inline, .dd-inline {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.ul-inline, .ol-inline, .dd-inline {
+.list-inline, .dl-meta, .dd-inline {
   column-gap: var(--gap, 0.75rem);
 }
 
@@ -31,23 +31,17 @@
   }
 }
 
-:is(.dl-none, .dl-meta, .dl-comma, .dl-comma-inline, .dd-inline) dd {
-  margin-inline-start: 0;
-}
-
 .dt-bold {
-  dt {
-    font-weight: var(--dt-bold, bold);
-  }
-  :is(.dl-meta, .dl-comma-inline) dt:after {
+  --dt-fw: bold;
+  dt:after {
     font-weight: 400;
   }
 }
 
 .dl-meta {
+  --dd-ms: 0;
   display: grid;
   grid-template-columns: minmax(0, auto) minmax(0, 1fr);
-  column-gap: var(--gap, 0.75rem);
 }
 
 .dl-comma-inline dt {
@@ -55,16 +49,13 @@
 }
 
 :is(.dl-meta, .dl-comma-inline) dt:after {
-  font-weight: 400;
   content: var(--dt-colon, ":");
 }
 
 .dl-comma, .dd-inline {
+  --dt-mt: 0.25rem;
   dt {
     inline-size: 100%;
-  }
-  dt:not(:first-child) {
-    margin-block-start: var(--dt-mt, 0.25rem);
   }
 }
 

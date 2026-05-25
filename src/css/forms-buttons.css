@@ -104,6 +104,8 @@
 
 :where(fieldset) {
   inline-size: fit-content;
+  padding-block: var(--fieldset-py, 0.75rem);
+  padding-inline: var(--fieldset-px, 1rem);
 }
 
 :where(legend) {

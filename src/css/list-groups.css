@@ -1,16 +1,15 @@
 .list-group, .list-links,
 [class*=list-group-], [class*=list-links-] {
-  --list-group-inner: calc(var(--list-group-radius, 0.188rem) - var(--list-group-bd-width, 1px));
+  --marker: "";
+  --li-ps: 0;
+  --dd-ms: 0;
+  --dt-fw: 600;
+  --list-group-radius-inner: calc(var(--list-group-radius, 0.188rem) - var(--list-group-bd-width, 1px));
   color: var(--list-group-fg, CanvasText);
   max-inline-size: var(--list-group-width);
   border: var(--list-group-bd-width, 1px) solid var(--list-group-bd-color, var(--surf-3));
   border-radius: var(--list-group-radius, 0.188rem);
   background-color: var(--list-group-bg, var(--background, Canvas));
-  
-  &:is(ul, ol) {
-    list-style-type: "";
-    padding-inline-start: 0;
-  }
   
   *:not(:first-child) {
     border-block-start: var(--list-group-bd-width, 1px) solid var(--list-group-bd-color, var(--surf-3));
@@ -36,14 +35,6 @@
     padding-inline: var(--list-group-px, 0.75rem);
   }
   
-  dt {
-    font-weight: var(--dt-fw, 600);
-  }
-  
-  dd {
-    margin-inline-start: 0;
-  }
-  
   &:is(.list-links, [class*=list-links-]) {
     a {
       color: var(--list-links-fg, var(--link));
@@ -62,13 +53,13 @@
     }
     
     *:first-child a:is(:hover, :focus) {
-      border-start-start-radius: var(--list-group-inner);
-      border-start-end-radius: var(--list-group-inner);
+      border-start-start-radius: var(--list-group-radius-inner);
+      border-start-end-radius: var(--list-group-radius-inner);
     }
     
     *:last-child a:is(:hover, :focus) {
-      border-end-start-radius: var(--list-group-inner);
-      border-end-end-radius: var(--list-group-inner);
+      border-end-start-radius: var(--list-group-radius-inner);
+      border-end-end-radius: var(--list-group-radius-inner);
     }
   }
 }
