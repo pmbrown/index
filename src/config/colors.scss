@@ -75,26 +75,40 @@ $color-tokens: (
 ) !default;
 
 // -------------------------------------------------------
+// Color utilities 
+// -------------------------------------------------------
+$color-utility-values:  9 !default; // change to suit scale above
+
+$color-utilities: (
+  "blue": blue,
+  "green": green,
+  "red": red,
+  "cyan": cyan,
+  "yellow": yellow,
+  "gray": gray,
+) !default;
+
+// -------------------------------------------------------
 // Color modifiers
 // -------------------------------------------------------
-// name, color-scheme, text, background, hover/focus, border
+// name, color-scheme, background, hover/focus, border
 $color-modifiers:
-  "blue" dark #fff var(--blue-5) var(--blue-6) var(--blue-4),
-  "green" dark #fff var(--green-5) var(--green-6) var(--green-4),   
-  "red" dark #fff var(--red-5) var(--red-6) var(--red-4),
-  "cyan" light #000 var(--cyan-5) var(--cyan-4) var(--cyan-6),
-  "yellow" light #000 var(--yellow-5) var(--yellow-4) var(--yellow-6),
-  "gray" light #000 var(--gray-5) var(--gray-4) var(--gray-6),
+  "blue" dark var(--blue-5) var(--blue-6) var(--blue-4),
+  "green" dark var(--green-5) var(--green-6) var(--green-4),   
+  "red" dark var(--red-5) var(--red-6) var(--red-4),
+  "cyan" light var(--cyan-5) var(--cyan-4) var(--cyan-6),
+  "yellow" light var(--yellow-5) var(--yellow-4) var(--yellow-6),
+  "gray" light var(--gray-5) var(--gray-4) var(--gray-6),
 !default;
 
-// name, color-scheme, text, background, thead, border
+// name, color-scheme, background, thead, border
 $color-tables:
-  "blue" dark #fff var(--blue-5) var(--blue-6) var(--blue-4),
-  "green" dark #fff var(--green-5) var(--green-6) var(--green-4), 
-  "red" dark #fff var(--red-5) var(--red-6) var(--red-4),
-  "cyan" light #000 var(--cyan-4) var(--cyan-5) var(--cyan-6),
-  "yellow" light #000 var(--yellow-4) var(--yellow-5) var(--yellow-6),
-  "gray" light #000 var(--gray-4) var(--gray-5) var(--gray-6),
+  "blue" dark var(--blue-5) var(--blue-6) var(--blue-4),
+  "green" dark var(--green-5) var(--green-6) var(--green-4), 
+  "red" dark var(--red-5) var(--red-6) var(--red-4),
+  "cyan" light var(--cyan-4) var(--cyan-5) var(--cyan-6),
+  "yellow" light var(--yellow-4) var(--yellow-5) var(--yellow-6),
+  "gray" light var(--gray-4) var(--gray-5) var(--gray-6),
 !default;
 
 // -------------------------------------------------------
@@ -115,76 +129,3 @@ $color-gradients:
   "yellow"  #000 $yellow-gradient,
   "gray"    #000 $gray-gradient,
 !default;
-
-// -------------------------------------------------------
-// Color utilities 
-// -------------------------------------------------------
-$utility-color-values: (
-  "blue": #fff,
-  "blue-1":  #000,
-  "blue-2": #000,
-  "blue-3": #000,
-  "blue-4": #000,
-  "blue-5": #fff,
-  "blue-6": #fff,
-  "blue-7": #fff,
-  "blue-8": #fff,
-  "blue-9": #fff,
-  
-  "green":  #fff,
-  "green-1": #000,
-  "green-2": #000,
-  "green-3": #000,
-  "green-4": #000,
-  "green-5": #fff,
-  "green-6": #fff,
-  "green-7": #fff,
-  "green-8": #fff,
-  "green-9": #fff,
-  
-  "red": #fff,
-  "red-1": #000,
-  "red-2": #000,
-  "red-3": #000,
-  "red-4": #000,
-  "red-5": #fff,
-  "red-6": #fff, 
-  "red-7": #fff, 
-  "red-8": #fff,
-  "red-9": #fff,
-  
-  "cyan": #000,
-  "cyan-1": #000,
-  "cyan-2": #000,
-  "cyan-3": #000,
-  "cyan-4": #000,
-  "cyan-5": #000,
-  "cyan-6": #000,
-  "cyan-7": #000,
-  "cyan-8": #000,
-  "cyan-9": #fff,
-  
-  "yellow": #000,
-  "yellow-1": #000,
-  "yellow-2": #000,
-  "yellow-3": #000,
-  "yellow-4": #000,
-  "yellow-5": #000,
-  "yellow-6": #000,
-  "yellow-7": #000,
-  "yellow-8": #000,
-  "yellow-9": #000,
-
-  "gray": #000,
-  "gray-1": #000,
-  "gray-2": #000,
-  "gray-3": #000,
-  "gray-4": #000,
-  "gray-5": #000,
-  "gray-6": #000,
-  "gray-7": #000,
-  "gray-8": #fff,
-  "gray-9": #fff,
-) !default;
-
-

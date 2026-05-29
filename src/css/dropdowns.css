@@ -34,7 +34,7 @@ details:has(.dropdown, [class*=dropdown-], [class*=dropdown-body-]) {
   }
   
   .dropdown, [class*=dropdown-], [class*=dropdown-body-] {
-    color: var(--dropdown-fg, CanvasText);
+    color: var(--dropdown-fg, contrast-color(var(--dropdown-bg, var(--background, Canvas))));
     position: absolute;
     inline-size: var(--dropdown-min, fit-content);
     max-inline-size: var(--dropdown-max, 14rem);

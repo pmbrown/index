@@ -1,6 +1,6 @@
 .popover,
 [class*=popover-] {
-  color: var(--popover-fg, var(--text, CanvasText));
+  color: var(--popover-fg, contrast-color(var(--popover-bg, var(--background, Canvas))));
   block-size: var(--popover-block, fit-content);
   max-block-size: var(--popover-height, calc(100dvh - 2rem));
   inline-size: var(--popover-inline, calc(100% - 6px - 2em));

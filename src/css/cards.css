@@ -1,6 +1,6 @@
 .card, .card-link,
 [class*=card-], [class*=card-link-] {
-  color: var(--card-fg, var(--text, CanvasText));
+  color: var(--card-fg, contrast-color(var(--card-bg, var(--background, Canvas))));
   max-inline-size: var(--card-width);
   padding-block: var(--card-py, 1rem);
   padding-inline: var(--card-px, 1rem);

@@ -188,7 +188,7 @@ $position-values: (
   "fixed": fixed,
   "relative": relative,
   "sticky": sticky,
-  "position-revert": revert,
+  "revert": revert,
 ) !default;
 
 $inset-values: (
@@ -223,8 +223,8 @@ $overflow-values: (
   "auto": auto,
   "scroll": scroll,
   "hidden": hidden,
-  "clip": clip,
   "visible": visible,
+  "clip": clip,
   "revert": revert,
 ) !default;
 

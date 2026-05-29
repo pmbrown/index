@@ -1,6 +1,6 @@
 .badge,
 [class*=badge-] {
-  color: var(--badge-fg, var(--text, CanvasText));
+  color: var(--badge-fg, contrast-color(var(--badge-bg, var(--background, Canvas))));
   font-size: var(--badge-fs, 0.75em);
   font-weight: var(--badge-fw);
   text-align: center;

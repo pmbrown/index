@@ -136,7 +136,7 @@
 }
 
 :where(blockquote) {
-  color: var(--blockquote-fg, var(--text, CanvasText));
+  color: var(--blockquote-fg, contrast-color(var(--blockquote-bg, var(--background, Canvas))));
   padding-block: 0.75rem;
   padding-inline: 1rem;
   margin-block-end: var(--blockquote-mb, 1rem);

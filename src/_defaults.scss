@@ -126,10 +126,12 @@
 
 @if $enable-colors {
   @if $enable-color-backgrounds {
-    @each $name, $color in $utility-color-values {
-      .bg-#{$name} {
-        color: #{$color};
-        background-color: var(--#{$name});
+    @each $class, $name in $color-utilities {
+      @for $value from 1 through $color-utility-values { 
+        .bg-#{$class}-#{$value} {
+          color: contrast-color(var(--#{$name}-#{$value}));
+          background-color: var(--#{$name}-#{$value});
+        }    
       }
     }
   }
@@ -144,18 +146,30 @@
   }
   
   @if $enable-color-borders {
-    @each $name, $color in $utility-color-values {
-      .bd-#{$name} {
-        border-color: var(--#{$name});
+    @each $class, $name in $color-utilities {
+      @for $value from 1 through $color-utility-values { 
+        .bd-#{$class}-#{$value} {
+          border-color: var(--#{$name}-#{$value});
+        }    
       }
     }
   }
 }
 
-@each $name, $color in $custom-color-utilities {
-  .bg-#{$name} {
-    color: #{$color};
-    background-color: var(--#{$name});
+@each $class, $name in $custom-color-utilities {
+  @for $value from 1 through $color-utility-values { 
+    .bg-#{$class}-#{$value} {
+      color: contrast-color(var(--#{$name}-#{$value}));
+      background-color: var(--#{$name}-#{$value});
+    }    
+  }
+}
+  
+@each $class, $name in $custom-color-utilities {
+  @for $value from 1 through $color-utility-values { 
+    .bd-#{$class}-#{$value} {
+      border-color: var(--#{$name}-#{$value});
+    }    
   }
 }
 
@@ -163,12 +177,6 @@
   .gradient-#{$name} {
     background-image: #{$value};
   }   
-}
-
-@each $name, $color in $custom-color-utilities {
-  .bd-#{$name} {
-    border-color: var(--#{$name});
-  }
 }
 
 // -------------------------------------------------------
@@ -212,10 +220,9 @@
 // -------------------------------------------------------
 @if $enable-colors {
   @if $enable-color-forms {
-    @each $name, $scheme, $text, $background, $border in $color-modifiers {
+    @each $name, $scheme, $background, $border in $color-modifiers {
       .form-#{$name} {
         color-scheme: #{$scheme};
-        --form-fg: #{$text};
         --form-bg: #{$background};
         --form-bd-color: #{$border};
         --form-outline-color: #{$border};
@@ -224,9 +231,8 @@
   }
   
   @if $enable-color-buttons {
-    @each $name, $scheme, $text, $background, $hover, $border in $color-modifiers {
+    @each $name, $scheme, $background, $hover, $border in $color-modifiers {
       .btn-#{$name} {
-        --btn-fg: #{$text};
         --btn-bg: #{$background};
         --btn-bg-hover: #{$hover};
         --btn-bd-color: #{$border};
@@ -236,10 +242,9 @@
   }
   
   @if $enable-color-tables {
-    @each $name, $scheme, $text, $background, $thead, $border in $color-tables {
+    @each $name, $scheme, $background, $thead, $border in $color-tables {
       .table-#{$name} {
         color-scheme: #{$scheme};
-        --table-fg: #{$text};
         --table-bg: #{$background};
         --thead-bg: #{$thead};
         --table-bd-color: #{$border};
@@ -250,10 +255,9 @@
   }
   
   @if $enable-color-accordions {
-    @each $name, $scheme, $text, $background, $focus, $border in $color-modifiers {
+    @each $name, $scheme, $background, $focus, $border in $color-modifiers {
       .accordion-#{$name} {
         color-scheme: #{$scheme};
-        --accordion-fg: #{$text};
         --accordion-bg: #{$background};
         --accordion-bd-color: #{$border};
         --accordion-bg-focus: #{$focus};
@@ -262,10 +266,9 @@
   }
   
   @if $enable-color-alerts {
-    @each $name, $scheme, $text, $background, $border in $color-modifiers {
+    @each $name, $scheme, $background, $border in $color-modifiers {
       .alert-#{$name} {
         color-scheme: #{$scheme};
-        --alert-fg: #{$text};
         --alert-bg: #{$background};
         --alert-bd-color: #{$border};
       }
@@ -273,10 +276,9 @@
   }
   
   @if $enable-color-badges {
-    @each $name, $scheme, $text, $background, $border in $color-modifiers {
+    @each $name, $scheme, $background, $border in $color-modifiers {
       .badge-#{$name} {
         color-scheme: #{$scheme};
-        --badge-fg: #{$text};
         --badge-bg: #{$background};
         --badge-bd-color: #{$border};
       }
@@ -284,10 +286,9 @@
   }
   
   @if $enable-color-cards {
-    @each $name, $scheme, $text, $background, $hover, $border in $color-modifiers {
+    @each $name, $scheme, $background, $hover, $border in $color-modifiers {
       .card-#{$name}, .card-link-#{$name} {
         color-scheme: #{$scheme};
-        --card-fg: #{$text};
         --card-bg: #{$background};
         --card-bd-color: #{$border};
         --card-bg-hover: #{$hover};
@@ -297,11 +298,10 @@
   }
   
   @if $enable-color-dropdowns {
-    @each $name, $scheme, $text, $background, $hover, $border in $color-modifiers {
+    @each $name, $scheme, $background, $hover, $border in $color-modifiers {
       .dropdown-#{$name} {
         color-scheme: #{$scheme};
         --dropdown-links-fg: #{$text};
-        --dropdown-fg: #{$text};
         --dropdown-bg: #{$background};
         --dropdown-bd-color: #{$border};
         --dropdown-bg-hover: #{$hover};
@@ -310,11 +310,10 @@
   }
   
   @if $enable-color-list-groups {
-    @each $name, $scheme, $text, $background, $hover, $border in $color-modifiers {
+    @each $name, $scheme, $background, $hover, $border in $color-modifiers {
       .list-group-#{$name}, .list-links-#{$name} {
         color-scheme: #{$scheme};
         --list-links-fg: #{$text};
-        --list-group-fg: #{$text};
         --list-group-bg: #{$background};
         --list-group-bd-color: #{$border};
         --list-group-bg-hover: #{$hover};
@@ -323,10 +322,9 @@
   }
   
   @if $enable-color-dialogs {
-    @each $name, $scheme, $text, $background, $border in $color-modifiers {
+    @each $name, $scheme, $background, $border in $color-modifiers {
       .dialog-#{$name} {
         color-scheme: #{$scheme};
-        --dialog-fg: #{$text};
         --dialog-bg: #{$background};
         --dialog-bd-color: #{$border};
       }
@@ -334,16 +332,14 @@
   }
   
   @if $enable-color-popovers {
-    @each $name, $scheme, $text, $background, $border in $color-modifiers {
+    @each $name, $scheme, $background, $border in $color-modifiers {
       .popover-#{$name} {
         color-scheme: #{$scheme};
-        --popover-fg: #{$text};
         --popover-bg: #{$background};
         --popover-bd-color: #{$border};
       }
     }
   }
-
 }
 
 // -------------------------------------------------------
@@ -466,7 +462,7 @@
 //  ------------------------------------------------------------
 @if $enable-positioning {
   @each $name, $value in $position-values {
-    .#{$name} {
+    .position-#{$name} {
       position: #{$value};
     }
   }

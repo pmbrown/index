@@ -15,7 +15,7 @@
 }
 
 :where(optgroup, select, textarea, input:not([type=button], [type=submit], [type=reset])) {
-  color: var(--form-fg, var(--text, CanvasText));
+  color: var(--form-fg, contrast-color(var(--form-bg, var(--background, Canvas))));
   font-size: var(--form-fs, inherit);
   padding-block: var(--form-py, 0.313rem);
   padding-inline: var(--form-px, 0.65rem);
@@ -33,13 +33,13 @@
   }
   
   &::-webkit-input-placeholder {
-    color: color-mix(in srgb, var(--form-fg, var(--text, CanvasText)), transparent 50%);
+    color: color-mix(in srgb, contrast-color(var(--accordion-bg, var(--background, Canvas))), transparent 50%);
   }
 }
 
 :where(button, [type=button], [type=submit], [type=reset]),
 ::file-selector-button, .btn {
-  color: var(--btn-fg, var(--text, CanvasText));
+  color: var(--btn-fg, contrast-color(var(--btn-bg, var(--surf-1))));
   font-size: var(--btn-fs, inherit);
   padding-block: var(--btn-py, 0.313rem);
   padding-inline: var(--btn-px, 0.85rem);

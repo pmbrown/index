@@ -1,6 +1,6 @@
 :where(table) {
   color-scheme: var(--table-scheme, inherit);
-  color: var(--table-fg, var(--text, CanvasText));
+  color: var(--table-fg, contrast-color(var(--table-bg, var(--background, Canvas))));
   font-variant-numeric: tabular-nums;
   inline-size: 100%;
   margin-block-end: var(--table-mb, 1rem);
@@ -12,7 +12,7 @@
   }
   
   caption {
-    color: var(--caption-fg, var(--table-fg, var(--text, CanvasText)));
+    color: var(--caption-fg, contrast-color(var(--caption-bg, var(--table-bg, var(--background, Canvas)))));
     font-size: var(--caption-fs, 0.938rem);
     font-weight: var(--caption-fw);
     padding-block: var(--table-py, 0.35rem);
@@ -23,7 +23,7 @@
   }
   
   th {
-    color: var(--thead-fg, var(--table-fg, var(--text, CanvasText)));
+    color: var(--thead-fg, contrast-color(var(--thead-bg, var(--table-bg, var(--background, Canvas)))));
     font-size: var(--thead-fs, inherit);
     font-weight: var(--thead-fw, revert);
     background-color: var(--thead-bg, var(--table-bg, var(--surf-1)));

@@ -1,6 +1,6 @@
 .alert,
 [class*=alert-] {
-  color: var(--alert-fg, var(--text, CanvasText));
+  color: var(--alert-fg, contrast-color(var(--alert-bg, var(--background, Canvas))));
   margin-block-end: var(--alert-mb, 1rem);
   padding-block: var(--alert-py, 0.75rem);
   padding-inline: var(--alert-px, 1rem);

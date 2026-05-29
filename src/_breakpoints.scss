@@ -169,7 +169,7 @@
       // Positioning - position, inset, z-index
       @if $enable-positioning-breakpoints {
         @each $name, $value in $position-values {
-          .#{$name}-#{$breakpoint} {
+          .position-#{$name}-#{$breakpoint} {
             position: #{$value};
           }
         }
