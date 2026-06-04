@@ -1,0 +1,150 @@
+// ------------------------------------------------------------
+// indexcss utilities
+// ------------------------------------------------------------
+@use "../config" as *;
+
+// -------------------------------------------------------
+// Text
+// -------------------------------------------------------
+@if $enable-text {
+  @each $name, $value in $font-weights {
+    .fw-#{$name} {
+      font-weight: #{$value};
+    }
+  }
+  
+  @each $name, $value in $font-sizes {
+    .fs-#{$name} {
+      font-size: #{$value};
+    }
+  }
+  
+  @each $name, $prop, $value in $static-text-utilities {
+    .#{$name}, .#{$name}-group * {
+      #{$prop}: #{$value};
+    }
+  }
+  
+  @each $name, $prop, $value in $variable-text-utilities {
+    .#{$name}, .#{$name}-group * {
+      #{$prop}: #{$value};
+    }
+  }
+}
+
+// ---------------------------------------------------------- 
+// Aspect ratio and object-fit
+// ----------------------------------------------------------
+@if $enable-ratios {
+  .ratio, .ratio-group *:not(figcaption) {
+    aspect-ratio: var(--ratio);
+  }
+  
+  @each $name, $value in $aspect-ratio-values {
+    .ratio-#{$name}, .ratio-group-#{$name} *:not(figcaption) {
+      aspect-ratio: $value;     
+    }    
+  }
+  
+  @each $name, $value in $object-fit-values {
+    .object-fit-#{$name}, .object-fit-group-#{$name} * {
+      object-fit: $value;       
+    }
+  }
+}
+
+// -------------------------------------------------------
+// Borders
+// -------------------------------------------------------
+@if $enable-borders {
+  .border, 
+  [class*=border-] {
+    border-width: $border-width;
+    border-color: $border-color;
+  }
+        
+  @each $name, $value in $border-style-values {
+    .#{$name} {
+      #{$value}: $border-style;        
+    }
+  }
+        
+  @each $name, $value in $border-style-values { 
+    .#{$name}-none {
+      #{$value}: none;        
+    }
+  }
+}
+
+// -------------------------------------------------------
+// Radius
+// -------------------------------------------------------
+@if $enable-radius {
+  @each $name, $value in $border-radius-values {
+    .#{$name} {
+      border-radius: #{$value};
+    }
+  }
+  
+  @each $name, $value in $border-radius-single-values {
+    .#{$name} {
+      border-radius: #{$value};
+    }
+  }
+  
+  @each $name, $value in $border-radius-values {
+    @each $class, $start, $end in $radius-props {
+      .#{$name}-#{$class} {
+        #{$start}: #{$value};
+        #{$end}: #{$value};
+      }
+    }
+  }
+}
+
+// -------------------------------------------------------
+// Gradients
+// -------------------------------------------------------
+@if $enable-gradients {
+  @each $name, $value in $gradients {
+    .#{$name} {
+      background-image: var(--#{$name});
+    }
+  }
+}
+
+// -------------------------------------------------------
+// Icons
+// -------------------------------------------------------
+@if $enable-icon-utilities {
+  :is(.ico, .ico-b, .ico-btn):before, .ico-a:after {
+    @include icon-utility;
+  }
+
+  .ico-b:before { 
+    margin-inline-end: var(--ico-me, 0.25em);
+  }
+      
+  .ico-a:after {
+    margin-inline-start: var(--ico-ms, 0.25em);
+  }
+  
+  .ico-btn {
+    --btn-px: 0.66em;
+  }
+
+  @if $enable-icon-tokens {
+    @each $name, $value in $icon-values {
+      .ico-#{$name} {
+        --svg: var(--ico-#{$name});        
+      }
+    }     
+  } 
+  @else {
+    @each $name, $value in $icon-values {
+      .ico-#{$name} {
+        --svg: #{$value};        
+      }
+    }  
+  } 
+}

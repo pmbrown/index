@@ -1,16 +1,10 @@
 // ------------------------------------------------------------
-// Colors
+// indexcss colors
 // ------------------------------------------------------------
-@use "sass:map";
-$tokens-class: ':where(html)' !default;
-$custom-tokens: () !default;
-$custom-color-tokens: () !default;
-$custom-gradients: () !default;
-$custom-color-utilities: () !default;
 
-// -------------------------------------------------------
-// Theme and surface colors
-// -------------------------------------------------------
+// ------------------------------------------------------------
+// Color-scheme and surface colors
+// ------------------------------------------------------------
 $text:            light-dark(#000, #fff) !default;
 $background:      light-dark(#f1f2f4, #1f2428) !default;
 $link:            light-dark(#1c3db5, #9fbfdf) !default;
@@ -38,18 +32,19 @@ $surface-colors: (
   "surf-5": $surface-5,
 ) !default;
 
-// -------------------------------------------------------
-// Palette colors
-// -------------------------------------------------------
-$blue:          oklch(50% 0.25 250) !default;
-$green:         oklch(50% 0.22 160) !default;
-$red:           oklch(50% 0.22 26) !default;
-$cyan:          oklch(82% 0.18 185) !default;
-$yellow:        oklch(92% 0.20 99) !default;
-$gray:          oklch(80% 0.02 245) !default;
+// ------------------------------------------------------------
+// Primary colors
+// ------------------------------------------------------------
+$blue:              oklch(50% 0.25 250) !default;
+$green:             oklch(50% 0.22 160) !default;
+$red:               oklch(50% 0.22 26) !default;
+$cyan:              oklch(82% 0.18 185) !default;
+$yellow:            oklch(92% 0.20 99) !default;
+$gray:              oklch(80% 0.02 245) !default;
 
-$color-mix:     lab !default; // change to suit colors above
-$middle-token:  5 !default; // change to suit scale below
+$color-mix:         lab !default; // change to suit colors above
+$middle-token:      5 !default; // change to suit scale below
+$color-utilities:   9 !default; // change to suit scale below
 
 $lighten-values: (
   "1": 70%,
@@ -74,46 +69,29 @@ $color-tokens: (
   "gray": $gray,
 ) !default;
 
-// -------------------------------------------------------
-// Color utilities 
-// -------------------------------------------------------
-$color-utility-values:  9 !default; // change to suit scale above
-
-$color-utilities: (
-  "blue": blue,
-  "green": green,
-  "red": red,
-  "cyan": cyan,
-  "yellow": yellow,
-  "gray": gray,
-) !default;
-
-// -------------------------------------------------------
-// Color modifiers
-// -------------------------------------------------------
-// name, color-scheme, background, hover/focus, border
-$color-modifiers:
+// Color modifiers (forms, buttons, components)
+// "name" | color-scheme | background | hover/focus | border
+$color-modifiers: (
   "blue" dark var(--blue-5) var(--blue-6) var(--blue-4),
   "green" dark var(--green-5) var(--green-6) var(--green-4),   
   "red" dark var(--red-5) var(--red-6) var(--red-4),
   "cyan" light var(--cyan-5) var(--cyan-4) var(--cyan-6),
   "yellow" light var(--yellow-5) var(--yellow-4) var(--yellow-6),
   "gray" light var(--gray-5) var(--gray-4) var(--gray-6),
-!default;
+) !default;
 
-// name, color-scheme, background, thead, border
-$color-tables:
+// Tables color modifiers
+// "name" | color-scheme | background | thead | border
+$color-tables: (
   "blue" dark var(--blue-5) var(--blue-6) var(--blue-4),
   "green" dark var(--green-5) var(--green-6) var(--green-4), 
   "red" dark var(--red-5) var(--red-6) var(--red-4),
   "cyan" light var(--cyan-4) var(--cyan-5) var(--cyan-6),
   "yellow" light var(--yellow-4) var(--yellow-5) var(--yellow-6),
   "gray" light var(--gray-4) var(--gray-5) var(--gray-6),
-!default;
+) !default;
 
-// -------------------------------------------------------
 // Color gradients
-// -------------------------------------------------------
 $blue-gradient:     linear-gradient(180deg, var(--blue-4), var(--blue-5), var(--blue-6)) !default;
 $green-gradient:    linear-gradient(180deg, var(--green-4), var(--green-5), var(--green-6)) !default;
 $red-gradient:      linear-gradient(180deg, var(--red-4), var(--red-5), var(--red-6)) !default;
@@ -121,11 +99,20 @@ $cyan-gradient:     linear-gradient(180deg, var(--cyan-4), var(--cyan-5), var(--
 $yellow-gradient:   linear-gradient(180deg, var(--yellow-4), var(--yellow-5), var(--yellow-6)) !default;
 $gray-gradient:     linear-gradient(180deg, var(--gray-4), var(--gray-5), var(--gray-6)) !default;
 
-$color-gradients:
-  "blue"    #fff $blue-gradient,
-  "green"   #fff $green-gradient,
-  "red"     #fff $red-gradient,
-  "cyan"    #000 $cyan-gradient,
-  "yellow"  #000 $yellow-gradient,
-  "gray"    #000 $gray-gradient,
-!default;
+$color-gradients: (
+  "blue" #fff $blue-gradient,
+  "green" #fff $green-gradient,
+  "red" #fff $red-gradient,
+  "cyan" #000 $cyan-gradient,
+  "yellow" #000 $yellow-gradient,
+  "gray" #000 $gray-gradient,
+) !default;
+
+// ------------------------------------------------------------
+// Custom colors - include with overrides
+// Follow the default Sass map styles above.
+// ------------------------------------------------------------
+$custom-color-tokens: () !default; // see $color-tokens
+$custom-color-modifiers: () !default; // see $color-modifiers
+$custom-color-tables: () !default; // see $color-tables
+$custom-color-gradients: () !default; // see $color-gradients

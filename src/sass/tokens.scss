@@ -1,9 +1,7 @@
 // ------------------------------------------------------------
-// Tokens
-// Compiles the Sass colors and utility tokens (CSS variables)
-// enabled in the 'config/includes.scss' document.
+// indexcss tokens
 // ------------------------------------------------------------
-@use "config" as *;
+@use "../config" as *;
 @use "version" as *;
 @include version;
 
@@ -33,7 +31,6 @@
     }
   }
 
-  // Custom color tokens
   @each $color, $value in $custom-color-tokens {
     --#{$color}: #{$value};
         
@@ -62,11 +59,11 @@
 
   @if $enable-icon-tokens {
     @each $name, $value in $icon-values {
-      --#{$name}: #{$value};
+      --ico-#{$name}: #{$value};
     }   
   }
   
-  @each $name, $value in $custom-gradients {
+  @each $name, $color, $value in $custom-color-gradients {
     --#{$name}-gradient: #{$value};
   }
   
@@ -74,4 +71,3 @@
     --#{$name}: #{$value};
   }
 }
-

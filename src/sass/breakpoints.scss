@@ -1,9 +1,7 @@
 // ------------------------------------------------------------
-// Breakpoints
-// Compiles the responsive Sass utilities and layout styles 
-// enabled in the 'config/includes.scss' document. 
+// indexcss breakpoints
 // ------------------------------------------------------------
-@use "config" as *;
+@use "../config" as *;
 
 @each $breakpoint, $width in $breakpoint-sizes {
   @if $enable-breakpoints {

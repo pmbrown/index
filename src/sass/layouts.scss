@@ -1,0 +1,238 @@
+// ------------------------------------------------------------
+// indexcss layouts
+// ------------------------------------------------------------
+@use "../config" as *;
+
+// -------------------------------------------------------
+// Containers
+// -------------------------------------------------------
+@if $enable-containers {
+  .container,
+  [class*=container-] {
+    inline-size: 100%;
+    max-inline-size: var(--container);
+  }
+  
+  @each $name, $value in $container-sizes {
+    .container-#{$name} {
+      --container: #{$value};
+    }
+  }
+}
+
+// -------------------------------------------------------
+// Display
+// -------------------------------------------------------
+@if $enable-display {
+  @each $name, $value in $display-values {
+    .#{$name} {
+      display: #{$value};
+    }
+  }
+}
+
+// -------------------------------------------------------
+// Flex
+// -------------------------------------------------------
+@if $enable-flex {
+  @each $name, $prop, $value in $flex-utility-values {
+    .#{$name} {
+      #{$prop}: #{$value};
+    }
+  }
+}
+
+// -------------------------------------------------------
+// Grids
+// -------------------------------------------------------
+@if $enable-grid {
+  .grid-columns, .grid-autofit,
+    [class*=grid-columns-], [class*=grid-autofit-] {
+    --rows: repeat(var(--gtr, 1), minmax(0, 1fr));
+    display: grid;
+    grid-template-rows: var(--rows);
+  }
+  
+  @each $name, $prop, $value in $grid-utility-values {
+    .#{$name} {
+      #{$prop}: $value;
+    }
+  }
+  
+  @for $value from 1 through $grid-column-values {
+    .g-#{$value} {
+      --cols: #{$value};
+    }
+  }
+  
+  @each $class, $prop, $span in $grid-column-props {
+    @for $value from 1 through $grid-column-values {
+      .#{$class}-#{$value} {
+        #{$prop}: #{$span} $value;
+      }
+    }
+  }
+    
+  @each $class, $prop, $span in $grid-row-props {
+    @for $value from 1 through $grid-row-values {
+      .#{$class}-#{$value} {
+        #{$prop}: #{$span} $value;
+      }
+    }
+  }
+}
+
+// -------------------------------------------------------
+// Alignment - align, justify, place
+// -------------------------------------------------------
+@if $enable-alignment {
+  @each $name, $value in $content-items-values {
+    @each $class, $prop in $items-props {
+      .#{$class}-#{$name} {
+        #{$prop}: #{$value};
+      }
+    }
+  }
+  
+  @each $name, $value in $content-space-values {
+    @each $class, $prop in $content-props {
+      .#{$class}-#{$name} {
+        #{$prop}: #{$value};
+      }
+    }
+  }
+}
+
+// -------------------------------------------------------
+// Columns
+// -------------------------------------------------------
+@if $enable-columns {
+  .columns {
+    columns: var(--cols);
+  }
+
+  @for $value from 1 through $column-values {
+    .columns-#{$value} {
+      columns: $value;
+    }
+  }
+}
+
+//  ------------------------------------------------------------
+//  Position, inset, z-index
+//  ------------------------------------------------------------
+@if $enable-positioning {
+  @each $name, $value in $position-values {
+    .position-#{$name} {
+      position: #{$value};
+    }
+  }
+  
+  @each $name, $value in $inset-values {
+    .#{$name} {
+      #{$value}: var(--#{$name}, 0);
+    }
+  }
+  
+  @each $name, $value in $inset-values {
+    @each $reset, $type in $inset-reset-values {
+      .#{$name}-#{$reset} {
+        #{$value}: #{$type};
+      }
+    }
+  }
+  
+  @each $name, $value in $zindex-values {
+    .#{$name} {
+      z-index: #{$value};
+    }
+  }
+}
+
+//  ------------------------------------------------------------
+//  Overflow, overscroll, scrollbar width and color
+//  ------------------------------------------------------------
+@if $enable-overflow {
+  @each $name, $value in $overflow-values {
+    @each $class, $prop in $overflow-props {
+      .#{$class}-#{$name} {
+        #{$prop}: #{$value};
+      }
+    }
+  }
+  
+  @each $name, $value in $overscroll-values {
+    .#{$name} {
+      overscroll-behavior: #{$value};
+    }
+  }
+  
+  @each $name, $value in $scrollbar-widths {
+    .#{$name} {
+      scrollbar-width: #{$value};
+    }
+  }
+}
+
+// -------------------------------------------------------
+// Spacing
+// -------------------------------------------------------
+@if $enable-spacing {
+  @each $name, $value in $gap-values {
+    @each $class, $prop in $gap-props {
+      .#{$class}-#{$name} {
+        #{$prop}: #{$value};        
+      }
+    }
+  }
+  
+  @each $name, $value in $margin-values {
+    @each $class, $prop in $margin-props {
+      .#{$class}-#{$name} {
+        #{$prop}: #{$value};        
+      }
+    }
+  }
+  
+  @each $name, $value in $padding-values {
+    @each $class, $prop in $padding-props {
+      .#{$class}-#{$name} {
+        #{$prop}: #{$value};        
+      }
+    }
+  }
+}
+
+// ------------------------------------------------------------
+// Sizing
+// ------------------------------------------------------------
+@if $enable-sizes {
+  @each $class, $prop in $height-props {
+    @each $name, $value in $height-values {
+      .#{$class}-#{$name} {
+        #{$prop}: #{$value};        
+      }
+    }
+  }
+  
+  @each $name, $prop, $value in $variable-heights {
+    .#{$name} {
+      #{$prop}: #{$value};
+    }
+  }
+  
+  @each $class, $prop in $width-props {
+    @each $name, $value in $width-values {  
+      .#{$class}-#{$name} {
+        #{$prop}: #{$value};        
+      }
+    }
+  }
+  
+  @each $name, $prop, $value in $variable-widths {
+    .#{$name} {
+      #{$prop}: #{$value};
+    }
+  }
+}
+

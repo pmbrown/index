@@ -1,45 +1,36 @@
 // ------------------------------------------------------------
-// Layouts
+// indexcss layouts
 // ------------------------------------------------------------
 @use "sass:map";
 
 // ------------------------------------------------------------
-// Breakpoints & containers
+// Breakpoints
 // ------------------------------------------------------------
-$breakpoint-xl:     1536px !default;
-$breakpoint-lg:     1280px !default;
-$breakpoint-md:     1024px !default;
-$breakpoint-sm:     768px !default;
-$breakpoint-xs:     480px !default;
-
-$rem-size-xl:       100rem !default;
-$rem-size-lg:       80rem !default;
-$rem-size-md:       64rem !default;
-$rem-size-sm:       48rem !default;
-$rem-size-xs:       30rem !default;
-
 $breakpoint-query:  'width <' !default; 
 
 $breakpoint-sizes: (
-  "xl": $breakpoint-xl,
-  "lg": $breakpoint-lg,
-  "md": $breakpoint-md,
-  "sm": $breakpoint-sm,
-  "xs": $breakpoint-xs,
+  "xl": 1536px,
+  "lg": 1280px,
+  "md": 1024px,
+  "sm": 768px,
+  "xs": 480px,
 ) !default;
 
+// ------------------------------------------------------------
+// Containers
+// ------------------------------------------------------------
 $rem-sizes: (
-  "rem-xl": $rem-size-xl,
-  "rem-lg": $rem-size-lg,
-  "rem-md": $rem-size-md,
-  "rem-sm": $rem-size-sm,
-  "rem-xs": $rem-size-xs,
+  "rem-xl": 100rem,
+  "rem-lg": 80rem,
+  "rem-md": 64rem,
+  "rem-sm": 48rem,
+  "rem-xs": 30rem,
 ) !default;
 
 $container-sizes:  map.merge($breakpoint-sizes, $rem-sizes) !default;
 
 // ------------------------------------------------------------
-// Display
+// Display - also see flex and grids below
 // ------------------------------------------------------------
 $display-values: (
   "block": block,

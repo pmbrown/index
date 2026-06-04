@@ -4,12 +4,12 @@
   font-size: var(--badge-fs, 0.75em);
   font-weight: var(--badge-fw);
   text-align: center;
-  line-height: 1.1;
+  line-height: 1.2;
   display: inline-block; 
   position: relative;
-  inset-block-start: -0.12em;
+  inset-block-start: -0.125em;
   padding-block: var(--badge-py, 0.375em);
-  padding-inline: var(--badge-px, 0.65em);
+  padding-inline: var(--badge-px, 0.625em);
   border: var(--badge-bd-width, 1px) solid var(--badge-bd-color, var(--surf-3));
   border-radius: var(--badge-radius, 0.188rem);
   background-color: var(--badge-bg, var(--surf-1));
@@ -22,4 +22,14 @@
     --badge-px: 1em;
     --badge-radius: 10rem;
   }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  .badge,
+  [class*=badge-] {
+    --badge-fs: 0.625em;
+    --badge-fw: normal;
+    --badge-py: 0.25em;
+    --badge-px: 0.5em; 
+  }   
 }
