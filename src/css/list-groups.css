@@ -5,11 +5,11 @@
   --dd-ms: 0;
   --dt-fw: 600;
   --list-group-radius-inner: calc(var(--list-group-radius, 0.188rem) - var(--list-group-bd-width, 1px));
-  color: var(--list-group-fg, contrast-color(var(--list-group-bg, var(--background, Canvas))));
+  color: var(--list-group-fg, contrast-color(var(--list-group-bg, var(--canvas, Canvas))));
   max-inline-size: var(--list-group-width);
   border: var(--list-group-bd-width, 1px) solid var(--list-group-bd-color, var(--surf-3));
   border-radius: var(--list-group-radius, 0.188rem);
-  background-color: var(--list-group-bg, var(--background, Canvas));
+  background-color: var(--list-group-bg, var(--canvas, Canvas));
   
   *:not(:first-child) {
     border-block-start: var(--list-group-bd-width, 1px) solid var(--list-group-bd-color, var(--surf-3));
@@ -44,7 +44,7 @@
       padding-inline: var(--list-group-px, 0.75rem);
       
       &:is(:hover, :focus) {
-        background-color: var(--list-group-bg-hover, var(--surf-1));
+        background-color: var(--list-group-bg-hover, var(--surf-2));
       }
       
       &:focus-visible {

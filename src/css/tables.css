@@ -1,32 +1,32 @@
 :where(table) {
   color-scheme: var(--table-scheme, inherit);
-  color: var(--table-fg, contrast-color(var(--table-bg, var(--background, Canvas))));
+  color: var(--table-fg, contrast-color(var(--table-bg, var(--canvas, Canvas))));
   font-variant-numeric: tabular-nums;
   inline-size: 100%;
   margin-block-end: var(--table-mb, 1rem);
   border-collapse: collapse;
-  background-color: var(--table-bg, var(--background, Canvas));
+  background-color: var(--table-bg, var(--canvas, Canvas));
   
   caption, th {
     text-align: inherit;
   }
   
   caption {
-    color: var(--caption-fg, contrast-color(var(--caption-bg, var(--table-bg, var(--background, Canvas)))));
+    color: var(--caption-fg, contrast-color(var(--caption-bg, var(--canvas, Canvas))));
     font-size: var(--caption-fs, 0.938rem);
     font-weight: var(--caption-fw);
     padding-block: var(--table-py, 0.35rem);
     padding-inline: var(--table-px, 0.75rem);
-    background-color: var(--caption-bg, var(--table-bg, var(--background, Canvas)));
     border: var(--table-bd-width, 1px) solid var(--table-bd-color, var(--surf-3));
     border-block-end: none;
+    background-color: var(--caption-bg, var(--canvas, Canvas));
   }
   
   th {
-    color: var(--thead-fg, contrast-color(var(--thead-bg, var(--table-bg, var(--background, Canvas)))));
+    color: var(--thead-fg, contrast-color(var(--thead-bg, var(--surf-1))));
     font-size: var(--thead-fs, inherit);
     font-weight: var(--thead-fw, revert);
-    background-color: var(--thead-bg, var(--table-bg, var(--surf-1)));
+    background-color: var(--thead-bg, var(--surf-1));
   }
   
   thead, tbody, tfoot, tr, td, th {

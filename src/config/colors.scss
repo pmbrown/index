@@ -6,19 +6,19 @@
 // Color-scheme and surface colors
 // ------------------------------------------------------------
 $text:            light-dark(#000, #fff) !default;
-$background:      light-dark(#f1f2f4, #1f2428) !default;
+$canvas:          light-dark(#f1f2f4, #1f2428) !default;
 $link:            light-dark(#1c3db5, #9fbfdf) !default;
 $link-visited:    light-dark(#4f6fe3, #b3cce6) !default;
 $link-hover:      light-dark(#385de0, #c6d8ec) !default;
-$surface-1:       color-mix(in srgb, CanvasText 5%, var(--background)) !default;
-$surface-2:       color-mix(in srgb, CanvasText 10%, var(--background)) !default;
-$surface-3:       color-mix(in srgb, CanvasText 20%, var(--background)) !default;
-$surface-4:       color-mix(in srgb, CanvasText 30%, var(--background)) !default;
-$surface-5:       color-mix(in srgb, CanvasText 40%, var(--background)) !default;
+$surface-1:       color-mix(in srgb, CanvasText 5%, var(--canvas)) !default;
+$surface-2:       color-mix(in srgb, CanvasText 10%, var(--canvas)) !default;
+$surface-3:       color-mix(in srgb, CanvasText 20%, var(--canvas)) !default;
+$surface-4:       color-mix(in srgb, CanvasText 30%, var(--canvas)) !default;
+$surface-5:       color-mix(in srgb, CanvasText 40%, var(--canvas)) !default;
 
 $theme-colors: (
   "text": $text,
-  "background": $background,
+  "canvas": $canvas,
   "link": $link,
   "link-visited": $link-visited,
   "link-hover": $link-hover,
@@ -37,7 +37,7 @@ $surface-colors: (
 // ------------------------------------------------------------
 $blue:              oklch(50% 0.25 250) !default;
 $green:             oklch(50% 0.22 160) !default;
-$red:               oklch(50% 0.22 26) !default;
+$red:               oklch(52% 0.25 26) !default;
 $cyan:              oklch(82% 0.18 185) !default;
 $yellow:            oklch(92% 0.20 99) !default;
 $gray:              oklch(80% 0.02 245) !default;

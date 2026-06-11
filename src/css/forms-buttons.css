@@ -15,13 +15,13 @@
 }
 
 :where(optgroup, select, textarea, input:not([type=button], [type=submit], [type=reset])) {
-  color: var(--form-fg, contrast-color(var(--form-bg, var(--background, Canvas))));
+  color: var(--form-fg, contrast-color(var(--form-bg, var(--canvas, Canvas))));
   font-size: var(--form-fs, inherit);
   padding-block: var(--form-py, 0.313rem);
   padding-inline: var(--form-px, 0.65rem);
   border: var(--form-bd-width, 1px) solid var(--form-bd-color, var(--surf-3));
   border-radius: var(--form-radius, 0.188em);
-  background-color: var(--form-bg, var(--background, Canvas));
+  background-color: var(--form-bg, var(--canvas, Canvas));
   
   &:focus {
     outline: var(--form-outline-width, 1.75px) solid var(--form-outline-color, var(--surf-3));
@@ -33,7 +33,7 @@
   }
   
   &::-webkit-input-placeholder {
-    color: color-mix(in srgb, contrast-color(var(--accordion-bg, var(--background, Canvas))), transparent 50%);
+    color: color-mix(in srgb, contrast-color(var(--accordion-bg, var(--canvas, Canvas))), transparent 50%);
   }
 }
 
@@ -127,7 +127,7 @@
 
 :where(input):autofill,
 :where(input):-webkit-autofill {
-  -webkit-box-shadow: 0 0 0 1.5rem color-mix(in srgb, CanvasText 2%, var(--background, Canvas)) inset;
+  -webkit-box-shadow: 0 0 0 1.5rem color-mix(in srgb, CanvasText 2%, var(--canvas, Canvas)) inset;
 }
 
 .btn-outline {

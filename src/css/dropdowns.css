@@ -34,14 +34,14 @@ details:has(.dropdown, [class*=dropdown-], [class*=dropdown-body-]) {
   }
   
   .dropdown, [class*=dropdown-], [class*=dropdown-body-] {
-    color: var(--dropdown-fg, contrast-color(var(--dropdown-bg, var(--background, Canvas))));
+    color: var(--dropdown-fg, contrast-color(var(--dropdown-bg, var(--canvas, Canvas))));
     position: absolute;
     inline-size: var(--dropdown-min, fit-content);
     max-inline-size: var(--dropdown-max, 14rem);
     margin-block-start: var(--dropdown-top, 0.25rem);
     border: var(--dropdown-bd-width, 1px) solid var(--dropdown-bd-color, var(--surf-3));
     border-radius: var(--dropdown-radius, 0.188rem);
-    background-color: var(--dropdown-bg, var(--background, Canvas));
+    background-color: var(--dropdown-bg, var(--canvas, Canvas));
     z-index: 2;
   }
   
@@ -70,7 +70,7 @@ details:has(.dropdown, [class*=dropdown-], [class*=dropdown-body-]) {
     a, button {
       padding-block: var(--dropdown-py, 0.375rem);
       padding-inline: var(--dropdown-px, 0.9rem);
-      background-color: var(--dropdown-bg, var(--background, Canvas));
+      background-color: var(--dropdown-bg, var(--canvas, Canvas));
       
       &:is(:hover, :focus) {
         outline: none;

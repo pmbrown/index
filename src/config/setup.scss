@@ -8,12 +8,9 @@ $custom-tokens: () !default;
 $tokens-class: ':where(html)' !default;
 
 // ------------------------------------------------------------
-// Primary colors - see 'config/colors.scss'
+// Default primary colors - see 'config/colors.scss'
 // ------------------------------------------------------------
-$enable-colors:                     true !default;
-$enable-color-tokens:               true !default;
-
-// Requires tokens (default or custom)
+$enable-colors:                     true !default; // enable/disable all (default only)
 $enable-color-forms:                true !default;
 $enable-color-buttons:              true !default;
 $enable-color-tables:               true !default;
@@ -32,18 +29,18 @@ $enable-color-gradients:            true !default;
 // ------------------------------------------------------------
 // Custom colors - see 'config/colors.scss'
 // ------------------------------------------------------------
-$enable-custom-color-forms:         false !default;
-$enable-custom-color-buttons:       false !default;
-$enable-custom-color-accordions:    false !default;
-$enable-custom-color-alerts:        false !default;
-$enable-custom-color-badges:        false !default;
-$enable-custom-color-cards:         false !default;
-$enable-custom-color-dropdowns:     false !default;
-$enable-custom-color-list-groups:   false !default;
-$enable-custom-color-dialogs:       false !default;
-$enable-custom-color-popovers:      false !default;
-$enable-custom-color-backgrounds:   false !default;
-$enable-custom-color-borders:       false !default;
+$enable-custom-color-forms:         true !default;
+$enable-custom-color-buttons:       true !default;
+$enable-custom-color-accordions:    true !default;
+$enable-custom-color-alerts:        true !default;
+$enable-custom-color-badges:        true !default;
+$enable-custom-color-cards:         true !default;
+$enable-custom-color-dropdowns:     true !default;
+$enable-custom-color-list-groups:   true !default;
+$enable-custom-color-dialogs:       true !default;
+$enable-custom-color-popovers:      true !default;
+$enable-custom-color-backgrounds:   true !default;
+$enable-custom-color-borders:       true !default;
 
 // ------------------------------------------------------------
 // Utilities - see 'config/utilities.scss'

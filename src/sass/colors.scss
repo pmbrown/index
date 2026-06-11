@@ -13,6 +13,16 @@
 }
 
 @if $enable-colors {
+    @each $name, $scheme, $s1, $s2, $s3 in $color-modifiers {
+      .#{$name} {
+        color-scheme: #{$scheme};
+        --canvas: #{$s1};
+        --surf-1: #{$s1};
+        --surf-2: #{$s2};
+        --surf-3: #{$s3};
+      }
+    }
+
   @if $enable-color-backgrounds {
     @each $name, $token in $color-tokens {
       .bg-#{$name} {

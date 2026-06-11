@@ -1,6 +1,6 @@
 .badge,
 [class*=badge-] {
-  color: var(--badge-fg, contrast-color(var(--badge-bg, var(--background, Canvas))));
+  color: var(--badge-fg, contrast-color(var(--badge-bg, var(--surf-1))));
   font-size: var(--badge-fs, 0.75em);
   font-weight: var(--badge-fw);
   text-align: center;
@@ -15,7 +15,7 @@
   background-color: var(--badge-bg, var(--surf-1));
   
   &:is(.badge-outline) {
-    --badge-bg: var(--background, Canvas);
+    --badge-bg: var(--canvas, Canvas);
   }
   
   &:is(.badge-pill) {

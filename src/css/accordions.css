@@ -1,11 +1,11 @@
 .accordion,
 [class*=accordion-] {
   --accordion-inner: calc(var(--accordion-radius, 0.188rem) - var(--accordion-bd-width, 1px));
-  color: var(--accordion-fg, contrast-color(var(--accordion-bg, var(--background, Canvas))));
+  color: var(--accordion-fg, contrast-color(var(--accordion-bg, var(--canvas, Canvas))));
   margin-block-end: var(--accordion-mb, 1rem);
   border: var(--accordion-bd-width, 1px) solid var(--accordion-bd-color, var(--surf-3));
   border-radius: var(--accordion-radius, 0.188rem);
-  background-color: var(--accordion-bg, var(--background, Canvas));
+  background-color: var(--accordion-bg, var(--canvas, Canvas));
     
   details {
     margin-block-end: 0;
@@ -73,6 +73,6 @@
   }
   
   [open]::details-content {
-    background-color: var(--accordion-content-bg, var(--accordion-bg, var(--background, Canvas)));
+    background-color: var(--accordion-content-bg, var(--accordion-bg, var(--canvas, Canvas)));
   }
 }
