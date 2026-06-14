@@ -4,6 +4,49 @@
 @use "../config" as *;
 
 // -------------------------------------------------------
+// Theme utilities
+// -------------------------------------------------------
+@if $enable-colors {
+  @each $name, $scheme, $s1, $s2, $s3 in $color-modifiers {
+    .theme-#{$name} {
+      color-scheme: #{$scheme};
+      --canvas: #{$s1};
+      --surf-1: #{$s1};
+      --surf-2: #{$s2};
+      --surf-3: #{$s3};
+    }
+  }
+}
+
+@each $name, $scheme, $s1, $s2, $s3 in $custom-color-modifiers {
+  .theme-#{$name} {
+    color-scheme: #{$scheme};
+    --canvas: #{$s1};
+    --surf-1: #{$s1};
+    --surf-2: #{$s2};
+    --surf-3: #{$s3};
+  }
+}
+
+.theme-reset {
+  --canvas: #{$canvas};
+  --surf-1: #{$surface-1};
+  --surf-2: #{$surface-2};
+  --surf-3: #{$surface-3};
+  --surf-4: #{$surface-4};
+  --surf-5: #{$surface-5};
+}
+
+.theme-none {
+  --canvas: Canvas;
+  --surf-1: #{$surface-1};
+  --surf-2: #{$surface-2};
+  --surf-3: #{$surface-3};
+  --surf-4: #{$surface-4};
+  --surf-5: #{$surface-5};
+}
+
+// -------------------------------------------------------
 // Color utilities
 // -------------------------------------------------------
 @each $name, $color in $surface-colors {
@@ -13,16 +56,6 @@
 }
 
 @if $enable-colors {
-    @each $name, $scheme, $s1, $s2, $s3 in $color-modifiers {
-      .#{$name} {
-        color-scheme: #{$scheme};
-        --canvas: #{$s1};
-        --surf-1: #{$s1};
-        --surf-2: #{$s2};
-        --surf-3: #{$s3};
-      }
-    }
-
   @if $enable-color-backgrounds {
     @each $name, $token in $color-tokens {
       .bg-#{$name} {

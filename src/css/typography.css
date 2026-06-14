@@ -207,10 +207,6 @@
   border: 0;
 }
 
-.decoration-none, [class*=decoration-none-group] * {
-  --link-decoration: none;
-}
-
 .vis-hidden, .vis-hidden-focus:not(:focus):not(:focus-within) {
   position: absolute;
   block-size: 1px;
@@ -229,12 +225,31 @@
   color-scheme: dark;
 }
 
-.fg-color {
-  color: var(--fg);
+.decoration-none, [class*=decoration-none-group] * {
+  --link-decoration: none;
 }
 
-.fg-text {
-  color: CanvasText;
+.fg-text, .fg-text *, .fg-white, .fg-white *, .fg-black, .fg-black * {
+  --link: var(--fg);
+  --link-visited: var(--fg);
+  --link-hover: var(--fg);
+  color: var(--fg);
+  
+  &:is(.fg-text, .fg-text *) {
+    --fg: CanvasText;
+  }
+
+  &:is(.fg-white, .fg-white *) {
+    --fg: #fff;
+  }
+    
+  &:is(.fg-black, .fg-black *) {
+    --fg: #000;
+  }
+}
+
+.fg-color, .fg-color * {
+  color: var(--fg);
 }
 
 .bg-color {
