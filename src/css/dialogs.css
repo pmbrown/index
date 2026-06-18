@@ -2,7 +2,6 @@
 [class*=dialog-] {
   --backdrop-light: color-mix(in srgb, #000 10%, transparent);
   --backdrop-dark: color-mix(in srgb, #000 40%, transparent);
-  color: var(--dialog-fg, var(--text, CanvasText));
   color: var(--dialog-fg, contrast-color(var(--dialog-bg, var(--canvas, Canvas))));
   block-size: var(--dialog-block, fit-content);
   max-block-size: var(--dialog-height, calc(100dvh - 2rem));

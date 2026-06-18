@@ -1,12 +1,11 @@
 // ------------------------------------------------------------
 // indexcss tokens
 // ------------------------------------------------------------
-@use "../config" as *;
-@use "version" as *;
+@use "config" as *;
 @include version;
 
 #{$tokens-class} {
-
+  
   @each $name, $value in $theme-colors {
     --#{$name}: #{$value};
   }

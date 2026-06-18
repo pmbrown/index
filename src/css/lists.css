@@ -1,7 +1,13 @@
+.list-default {
+  --marker: initial;
+  --li-ps: 2rem;
+  --dd-ms: 1rem;
+}
+
 .list-none, .list-inline, .list-comma, .list-divider, .dl-comma, .dl-comma-inline, .dd-inline {
   --marker: "";
   --li-ps: 0;
-  --dd-ms: 0;
+  --dd-ms: 0;   
   &:not(.list-none) {
     display: flex;
     flex-wrap: wrap;  
@@ -68,3 +74,5 @@
     content: "";
   }
 }
+
+

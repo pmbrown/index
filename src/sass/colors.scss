@@ -29,29 +29,86 @@
 }
 
 .theme-reset {
-  --canvas: #{$canvas};
-  --surf-1: #{$surface-1};
-  --surf-2: #{$surface-2};
-  --surf-3: #{$surface-3};
-  --surf-4: #{$surface-4};
-  --surf-5: #{$surface-5};
+  --canvas: #{$theme-canvas};
+  --surf-1: #{$theme-surface-1};
+  --surf-2: #{$theme-surface-2};
+  --surf-3: #{$theme-surface-3};
+  --surf-4: #{$theme-surface-4};
+  --surf-5: #{$theme-surface-5};
 }
 
 .theme-none {
   --canvas: Canvas;
-  --surf-1: #{$surface-1};
-  --surf-2: #{$surface-2};
-  --surf-3: #{$surface-3};
-  --surf-4: #{$surface-4};
-  --surf-5: #{$surface-5};
+  --surf-1: #{$theme-surface-1};
+  --surf-2: #{$theme-surface-2};
+  --surf-3: #{$theme-surface-3};
+  --surf-4: #{$theme-surface-4};
+  --surf-5: #{$theme-surface-5};
 }
 
 // -------------------------------------------------------
 // Color utilities
 // -------------------------------------------------------
+.light {
+  color-scheme: light;
+}
+  
+.dark {
+  color-scheme: dark;
+}
+
+.fg-text, .fg-text *, .fg-white, .fg-white *, .fg-black, .fg-black * {
+  --link: var(--fg);
+  --link-visited: var(--fg);
+  --link-hover: var(--fg);
+  color: var(--fg);
+}
+
+.fg-text, .fg-text * {
+  --fg: CanvasText;
+}
+
+.fg-white, .fg-white * {
+  --fg: #fff;
+}
+    
+.fg-black, .fg-black * {
+  --fg: #000;
+}
+
+.fg-color, .fg-color * {
+  color: var(--fg);
+}
+
+.bg-color {
+  color: var(--fg);
+  background-color: var(--bg);
+}
+
+.bg-page {
+  color: var(--fg, CanvasText);
+  background-color: var(--canvas);
+}
+
+.bg-white {
+  color: var(--fg, #000);
+  background-color: #fff;
+}
+
+.bg-black {
+  color: var(--fg, #fff);
+  background-color: #000;
+}
+
 @each $name, $color in $surface-colors {
   .bg-#{$name} {
     background-color: var(--#{$name});
+  }
+}
+
+@each $name, $color in $surface-colors {
+  .bd-#{$name} {
+    border-color: var(--#{$name});
   }
 }
 
@@ -182,7 +239,7 @@
     @each $name, $scheme, $background, $hover, $border in $color-modifiers {
       .dropdown-#{$name} {
         color-scheme: #{$scheme};
-        --dropdown-links-fg: #{$text};
+        --dropdown-links-fg: #{$theme-text};
         --dropdown-bg: #{$background};
         --dropdown-bd-color: #{$border};
         --dropdown-bg-hover: #{$hover};
@@ -194,7 +251,7 @@
     @each $name, $scheme, $background, $hover, $border in $color-modifiers {
       .list-group-#{$name}, .list-links-#{$name} {
         color-scheme: #{$scheme};
-        --list-links-fg: #{$text};
+        --list-links-fg: #{$theme-text};
         --list-group-bg: #{$background};
         --list-group-bd-color: #{$border};
         --list-group-bg-hover: #{$hover};
@@ -346,7 +403,7 @@
   @each $name, $scheme, $background, $hover, $border in $custom-color-modifiers {
     .dropdown-#{$name} {
       color-scheme: #{$scheme};
-      --dropdown-links-fg: #{$text};
+      --dropdown-links-fg: #{$theme-text};
       --dropdown-bg: #{$background};
       --dropdown-bd-color: #{$border};
       --dropdown-bg-hover: #{$hover};
@@ -358,7 +415,7 @@
   @each $name, $scheme, $background, $hover, $border in $custom-color-modifiers {
     .list-group-#{$name}, .list-links-#{$name} {
       color-scheme: #{$scheme};
-      --list-links-fg: #{$text};
+      --list-links-fg: #{$theme-text};
       --list-group-bg: #{$background};
       --list-group-bd-color: #{$border};
       --list-group-bg-hover: #{$hover};

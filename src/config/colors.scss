@@ -3,33 +3,33 @@
 // ------------------------------------------------------------
 
 // ------------------------------------------------------------
-// Color-scheme and surface colors
+// Theme color-scheme and surface colors
 // ------------------------------------------------------------
-$text:            light-dark(#000, #fff) !default;
-$link:            light-dark(#1c3db5, #9fbfdf) !default;
-$link-visited:    light-dark(#4f6fe3, #b3cce6) !default;
-$link-hover:      light-dark(#385de0, #c6d8ec) !default;
-$canvas:          light-dark(#f1f2f4, #1f2428) !default;
-$surface-1:       color-mix(in srgb, CanvasText 5%, var(--canvas)) !default;
-$surface-2:       color-mix(in srgb, CanvasText 10%, var(--canvas)) !default;
-$surface-3:       color-mix(in srgb, CanvasText 20%, var(--canvas)) !default;
-$surface-4:       color-mix(in srgb, CanvasText 30%, var(--canvas)) !default;
-$surface-5:       color-mix(in srgb, CanvasText 40%, var(--canvas)) !default;
+$theme-text:          light-dark(#000, #fff) !default;
+$theme-canvas:        light-dark(#f1f2f4, #1f2428) !default;
+$theme-link:          light-dark(#1c3db5, #9fbfdf) !default;
+$theme-link-visited:  light-dark(#4f6fe3, #b3cce6) !default;
+$theme-link-hover:    light-dark(#385de0, #c6d8ec) !default;
+$theme-surface-1:     color-mix(in srgb, CanvasText 5%, var(--canvas)) !default;
+$theme-surface-2:     color-mix(in srgb, CanvasText 10%, var(--canvas)) !default;
+$theme-surface-3:     color-mix(in srgb, CanvasText 20%, var(--canvas)) !default;
+$theme-surface-4:     color-mix(in srgb, CanvasText 30%, var(--canvas)) !default;
+$theme-surface-5:     color-mix(in srgb, CanvasText 40%, var(--canvas)) !default;
 
 $theme-colors: (
-  "text": $text,
-  "link": $link,
-  "link-visited": $link-visited,
-  "link-hover": $link-hover,
-  "canvas": $canvas,
+  "text": $theme-text,
+  "link": $theme-link,
+  "link-visited": $theme-link-visited,
+  "link-hover": $theme-link-hover,
+  "canvas": $theme-canvas,
 ) !default;
 
 $surface-colors: (
-  "surf-1": $surface-1,
-  "surf-2": $surface-2,
-  "surf-3": $surface-3,
-  "surf-4": $surface-4,
-  "surf-5": $surface-5,
+  "surf-1": $theme-surface-1,
+  "surf-2": $theme-surface-2,
+  "surf-3": $theme-surface-3,
+  "surf-4": $theme-surface-4,
+  "surf-5": $theme-surface-5,
 ) !default;
 
 // ------------------------------------------------------------
@@ -70,7 +70,7 @@ $color-tokens: (
 ) !default;
 
 // Color modifiers (forms, buttons, components)
-// "name" | color-scheme | background | hover/focus | border
+// "name" | color-scheme | background | hover/focus | border/outline
 $color-modifiers: (
   "blue" dark var(--blue-5) var(--blue-6) var(--blue-4),
   "green" dark var(--green-5) var(--green-6) var(--green-4),   
