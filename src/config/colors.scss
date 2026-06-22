@@ -1,40 +1,6 @@
 // ------------------------------------------------------------
 // indexcss colors
 // ------------------------------------------------------------
-
-// ------------------------------------------------------------
-// Theme color-scheme and surface colors
-// ------------------------------------------------------------
-$theme-text:          light-dark(#000, #fff) !default;
-$theme-canvas:        light-dark(#f1f2f4, #1f2428) !default;
-$theme-link:          light-dark(#1c3db5, #9fbfdf) !default;
-$theme-link-visited:  light-dark(#4f6fe3, #b3cce6) !default;
-$theme-link-hover:    light-dark(#385de0, #c6d8ec) !default;
-$theme-surface-1:     color-mix(in srgb, CanvasText 5%, var(--canvas)) !default;
-$theme-surface-2:     color-mix(in srgb, CanvasText 10%, var(--canvas)) !default;
-$theme-surface-3:     color-mix(in srgb, CanvasText 20%, var(--canvas)) !default;
-$theme-surface-4:     color-mix(in srgb, CanvasText 30%, var(--canvas)) !default;
-$theme-surface-5:     color-mix(in srgb, CanvasText 40%, var(--canvas)) !default;
-
-$theme-colors: (
-  "text": $theme-text,
-  "link": $theme-link,
-  "link-visited": $theme-link-visited,
-  "link-hover": $theme-link-hover,
-  "canvas": $theme-canvas,
-) !default;
-
-$surface-colors: (
-  "surf-1": $theme-surface-1,
-  "surf-2": $theme-surface-2,
-  "surf-3": $theme-surface-3,
-  "surf-4": $theme-surface-4,
-  "surf-5": $theme-surface-5,
-) !default;
-
-// ------------------------------------------------------------
-// Primary colors
-// ------------------------------------------------------------
 $blue:              oklch(50% 0.25 250) !default;
 $green:             oklch(50% 0.22 160) !default;
 $red:               oklch(52% 0.25 26) !default;
@@ -69,18 +35,18 @@ $color-tokens: (
   "gray": $gray,
 ) !default;
 
-// Color modifiers (forms, buttons, components)
-// "name" | color-scheme | background | hover/focus | border/outline
+// Color forms, buttons, components
+// "name" | color-scheme | background | hover/focus | border/outline | subtle | accent
 $color-modifiers: (
-  "blue" dark var(--blue-5) var(--blue-6) var(--blue-4),
-  "green" dark var(--green-5) var(--green-6) var(--green-4),   
-  "red" dark var(--red-5) var(--red-6) var(--red-4),
-  "cyan" light var(--cyan-5) var(--cyan-4) var(--cyan-6),
-  "yellow" light var(--yellow-5) var(--yellow-4) var(--yellow-6),
-  "gray" light var(--gray-5) var(--gray-4) var(--gray-6),
+  "blue" dark var(--blue-5) var(--blue-6) var(--blue-4) var(--blue-3) var(--blue-7),
+  "green" dark var(--green-5) var(--green-6) var(--green-4) var(--green-3) var(--green-7),   
+  "red" dark var(--red-5) var(--red-6) var(--red-4) var(--red-3) var(--red-7),
+  "cyan" light var(--cyan-5) var(--cyan-4) var(--cyan-6) var(--cyan-3) var(--cyan-7),
+  "yellow" light var(--yellow-5) var(--yellow-4) var(--yellow-6) var(--yellow-3) var(--yellow-7),
+  "gray" light var(--gray-5) var(--gray-4) var(--gray-6) var(--gray-3) var(--gray-7),
 ) !default;
 
-// Tables color modifiers
+// Color tables
 // "name" | color-scheme | background | thead | border
 $color-tables: (
   "blue" dark var(--blue-5) var(--blue-6) var(--blue-4),

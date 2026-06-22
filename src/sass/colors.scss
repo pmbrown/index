@@ -7,24 +7,27 @@
 // Theme utilities
 // -------------------------------------------------------
 @if $enable-colors {
-  @each $name, $scheme, $s1, $s2, $s3 in $color-modifiers {
+  @each $name, $scheme, $s1, $s2, $s3, $s4, $s5 in $color-modifiers {
     .theme-#{$name} {
-      color-scheme: #{$scheme};
       --canvas: #{$s1};
       --surf-1: #{$s1};
       --surf-2: #{$s2};
       --surf-3: #{$s3};
+      --surf-4: #{$s4};
+      --surf-5: #{$s5};
     }
   }
 }
 
-@each $name, $scheme, $s1, $s2, $s3 in $custom-color-modifiers {
+@each $name, $scheme, $s1, $s2, $s3, $s4, $s5 in $custom-color-modifiers {
   .theme-#{$name} {
     color-scheme: #{$scheme};
     --canvas: #{$s1};
     --surf-1: #{$s1};
     --surf-2: #{$s2};
     --surf-3: #{$s3};
+    --surf-4: #{$s4};
+    --surf-5: #{$s5};
   }
 }
 
@@ -81,7 +84,7 @@
 }
 
 .bg-color {
-  color: var(--fg);
+  color: contrast-color(var(--bg));
   background-color: var(--bg);
 }
 
@@ -102,6 +105,7 @@
 
 @each $name, $color in $surface-colors {
   .bg-#{$name} {
+    color: contrast-color(var(--#{$name}));
     background-color: var(--#{$name});
   }
 }

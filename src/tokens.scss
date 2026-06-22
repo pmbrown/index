@@ -4,13 +4,22 @@
 @use "config" as *;
 @include version;
 
-#{$tokens-class} {
-  
-  @each $name, $value in $theme-colors {
+#{$token-style} {
+  @each $name, $value in $theme-tokens {
     --#{$name}: #{$value};
   }
 
   @each $name, $value in $surface-colors {
+    --#{$name}: #{$value};
+  }
+
+  @if $enable-gradients {
+    @each $name, $value in $gradients {
+      --#{$name}: #{$value};
+    }
+  }
+  
+  @each $name, $value in $custom-tokens {
     --#{$name}: #{$value};
   }
 
@@ -50,23 +59,7 @@
     }
   }
   
-  @if $enable-gradients {
-    @each $name, $value in $gradients {
-      --#{$name}: #{$value};
-    }
-  }
-
-  @if $enable-icon-tokens {
-    @each $name, $value in $icon-values {
-      --ico-#{$name}: #{$value};
-    }   
-  }
-  
   @each $name, $color, $value in $custom-color-gradients {
     --#{$name}-gradient: #{$value};
-  }
-  
-  @each $name, $value in $custom-tokens {
-    --#{$name}: #{$value};
   }
 }

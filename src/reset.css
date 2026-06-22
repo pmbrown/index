@@ -1,4 +1,4 @@
-:where(:not([popover], dialog)) {
+* {
   margin: 0;
 }
 
@@ -8,24 +8,24 @@
 
 :where(html) {
   color-scheme: light dark;
-  color: var(--text, contrast-color(var(--canvas, Canvas)));
-  font-size: var(--html-fs, clamp(100%, 37.5% + 0.666vw, 137.5%));
-  font-family: var(--font, system-ui);
-  background-color: var(--canvas, Canvas);
+  color: var(--text);
+  font-size: var(--html-fs);
   block-size: 100%;
+  background-color: var(--canvas);
 }
 
 :where(body) {
-  font-size: var(--body-fs, 1rem);
-  line-height: var(--body-lh, 1.5);
+  font-family: var(--font-family);
+  font-size: var(--body-fs);
+  line-height: var(--body-lh);
 }
 
 :where(a) {
   color: var(--link, revert);
-  overflow-wrap: break-word;
   text-decoration: var(--link-decoration, underline);
   text-decoration-thickness: var(--link-decoration-thickness, 1px);
   text-underline-offset: var(--link-decoration-offset, 0.1175em);
+  overflow-wrap: break-word;
   
   &:visited {
     color: var(--link-visited, revert);
@@ -54,28 +54,28 @@
 }
 
 :where(h1) {
-  font-size: var(--h1-fs, 2.125rem);
+  font-size: var(--h1-fs);
 }
 
 :where(h2) {
-  font-size: var(--h2-fs, 1.75rem);
+  font-size: var(--h2-fs);
 }
 
 :where(h3) {
-  font-size: var(--h3-fs, 1.5rem);
+  font-size: var(--h3-fs);
 }
 
 :where(h4) {
-  font-size: var(--h4-fs, 1.375rem);
+  font-size: var(--h4-fs);
 }
 
 :where(h5) {
-  font-size: var(--h5-fs, 1.25rem);
+  font-size: var(--h5-fs);
 }
 
 :where(h6) {
   --heading-lh: 1.25;
-  font-size: var(--h6-fs, 1.063rem);
+  font-size: var(--h6-fs);
 }
 
 :where(p) {
@@ -89,11 +89,11 @@
 }
 
 :where(small) {
-  font-size: var(--sml-fs, 0.875em);
+  font-size: var(--sml-fs);
 }
 
 :where(h1, h2, h3, h4, h5, h6) small {
-  font-size: var(--sml-fs-heading, 0.75em);
+  font-size: var(--sml-fs-heading);
 }
 
 :where(ol, ul, dl) {
@@ -136,13 +136,13 @@
 }
 
 :where(blockquote) {
-  color: var(--blockquote-fg, contrast-color(var(--blockquote-bg, var(--canvas, Canvas))));
+  color: var(--blockquote-fg, contrast-color(var(--blockquote-bg, var(--canvas))));
   padding-block: var(--blockquote-py, 0.75rem);
   padding-inline: var(--blockquote-px, 1rem);
   margin-block-end: var(--blockquote-mb, 1rem);
   border: var(--blockquote-bd-width, 1px) solid var(--blockquote-bd-color, var(--surf-3));
   border-inline-start-width: var(--blockquote-bd-start-width, 10px);
-  background-color: var(--blockquote-bg, var(--canvas, Canvas));
+  background-color: var(--blockquote-bg, var(--canvas));
   
   p {
     margin-block-end: 0.15rem;
@@ -208,7 +208,7 @@
 }
 
 :where(optgroup, select, textarea, input:not([type=button], [type=submit], [type=reset])) {
-  color: var(--form-fg, contrast-color(var(--form-bg, var(--canvas, Canvas))));
+  color: var(--form-fg, contrast-color(var(--form-bg, var(--canvas))));
   font-family: inherit;
   font-size: var(--form-fs, inherit);
   line-height: var(--form-lh, inherit);
@@ -216,7 +216,7 @@
   padding-inline: var(--form-px, 0.65rem);
   border: var(--form-bd-width, 1px) solid var(--form-bd-color, var(--surf-3));
   border-radius: var(--form-radius, 0.188em);
-  background-color: var(--form-bg, var(--canvas, Canvas));
+  background-color: var(--form-bg, var(--canvas));
 
   &:focus {
     outline: var(--form-outline-width, 1.75px) solid var(--form-outline-color, var(--surf-3));
@@ -228,7 +228,7 @@
   }
 
   &::-webkit-input-placeholder {
-    color: color-mix(in srgb, contrast-color(var(--form-bg, var(--canvas, Canvas))), transparent 50%);
+    color: color-mix(in srgb, contrast-color(var(--form-bg, var(--canvas))), transparent 50%);
   }
   
   &:where(optgroup, select, [type=color]) {
@@ -277,7 +277,7 @@
 
 :where(input):autofill,
 :where(input):-webkit-autofill {
-  -webkit-box-shadow: 0 0 0 1.5rem color-mix(in srgb, CanvasText 2%, var(--canvas, Canvas)) inset;
+  -webkit-box-shadow: 0 0 0 1.5rem color-mix(in srgb, CanvasText 2%, var(--canvas)) inset;
 }
 
 :where(input, optgroup, select, textarea):disabled,
@@ -342,26 +342,26 @@
 
 :where(table) {
   color-scheme: var(--table-scheme, inherit);
-  color: var(--table-fg, contrast-color(var(--table-bg, var(--canvas, Canvas))));
+  color: var(--table-fg, contrast-color(var(--table-bg, var(--canvas))));
   font-variant-numeric: tabular-nums;
   inline-size: 100%;
   margin-block-end: var(--table-mb, 1rem);
   border-collapse: collapse;
-  background-color: var(--table-bg, var(--canvas, Canvas));
+  background-color: var(--table-bg, var(--canvas));
   
   caption, th {
     text-align: inherit;
   }
   
   caption {
-    color: var(--caption-fg, contrast-color(var(--caption-bg, var(--canvas, Canvas))));
+    color: var(--caption-fg, contrast-color(var(--caption-bg, var(--canvas))));
     font-size: var(--caption-fs, 0.938rem);
     font-weight: var(--caption-fw);
     padding-block: var(--table-py, 0.35rem);
     padding-inline: var(--table-px, 0.75rem);
     border: var(--table-bd-width, 1px) solid var(--table-bd-color, var(--surf-3));
     border-block-end: none;
-    background-color: var(--caption-bg, var(--canvas, Canvas));
+    background-color: var(--caption-bg, var(--canvas));
   }
   
   th {

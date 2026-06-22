@@ -135,7 +135,7 @@
 // -------------------------------------------------------
 // Icons
 // -------------------------------------------------------
-@if $enable-icon-utilities {
+@if $enable-icons {
   :is(.ico, .ico-b, .ico-btn):before, .ico-a:after {
     @include icon-utility;
   }
@@ -152,18 +152,9 @@
     --btn-px: 0.66em;
   }
 
-  @if $enable-icon-tokens {
-    @each $name, $value in $icon-values {
-      .ico-#{$name} {
-        --svg: var(--ico-#{$name});        
-      }
-    }     
-  } 
-  @else {
-    @each $name, $value in $icon-values {
-      .ico-#{$name} {
-        --svg: #{$value};        
-      }
-    }  
-  } 
+  @each $name, $value in $icon-values {
+    .ico-#{$name} {
+      --svg: #{$value};        
+    }
+  }
 }

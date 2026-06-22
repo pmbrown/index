@@ -2,7 +2,7 @@
 [class*=dialog-] {
   --backdrop-light: color-mix(in srgb, #000 10%, transparent);
   --backdrop-dark: color-mix(in srgb, #000 40%, transparent);
-  color: var(--dialog-fg, contrast-color(var(--dialog-bg, var(--canvas, Canvas))));
+  color: var(--dialog-fg, contrast-color(var(--dialog-bg, var(--canvas))));
   block-size: var(--dialog-block, fit-content);
   max-block-size: var(--dialog-height, calc(100dvh - 2rem));
   inline-size: var(--dialog-inline, calc(100% - 6px - 2em));
@@ -13,7 +13,7 @@
   padding-inline: var(--dialog-px, 1rem);
   border: var(--dialog-bd-width, 1px) solid var(--dialog-bd-color, var(--surf-3));
   border-radius: var(--dialog-radius, 0.188rem);
-  background-color: var(--dialog-bg, var(--canvas, Canvas));
+  background-color: var(--dialog-bg, var(--canvas));
   overflow-y: auto;
   overscroll-behavior: contain;
   

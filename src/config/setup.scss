@@ -1,11 +1,6 @@
 // ------------------------------------------------------------
 // indexcss setup
 // ------------------------------------------------------------
-// For custom variable tokens
-$custom-tokens: () !default;
-
-// Variable tokens 
-$tokens-class: ':where(html)' !default;
 
 // ------------------------------------------------------------
 // Default primary colors - see 'config/colors.scss'
@@ -49,9 +44,8 @@ $enable-text:                       true !default;
 $enable-gradients:                  true !default;
 $enable-borders:                    true !default;
 $enable-radius:                     true !default;
-$enable-ratios:                     true !default; 
-$enable-icon-tokens:                true !default;
-$enable-icon-utilities:             true !default;
+$enable-ratios:                     true !default;
+$enable-icons:                      true !default;
 
 // ------------------------------------------------------------
 // Layouts - see 'config/layouts.scss'

@@ -15,7 +15,7 @@
   background-color: var(--badge-bg, var(--surf-1));
   
   &:is(.badge-outline) {
-    --badge-bg: var(--canvas, Canvas);
+    --badge-bg: var(--canvas);
   }
   
   &:is(.badge-pill) {

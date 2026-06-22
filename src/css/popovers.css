@@ -1,6 +1,6 @@
 .popover,
 [class*=popover-] {
-  color: var(--popover-fg, contrast-color(var(--popover-bg, var(--canvas, Canvas))));
+  color: var(--popover-fg, contrast-color(var(--popover-bg, var(--canvas))));
   block-size: var(--popover-block, fit-content);
   max-block-size: var(--popover-height, calc(100dvh - 2rem));
   inline-size: var(--popover-inline, calc(100% - 6px - 2em));
@@ -11,7 +11,7 @@
   padding-inline: var(--popover-px, 1rem);
   border: var(--popover-bd-width, 1px) solid var(--popover-bd-color, var(--surf-3));
   border-radius: var(--popover-radius, 0.188rem);
-  background-color: var(--popover-bg, var(--canvas, Canvas));
+  background-color: var(--popover-bg, var(--canvas));
   overflow-y: auto;
   overscroll-behavior: contain;
     
