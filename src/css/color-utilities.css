@@ -1,0 +1,43 @@
+.light {
+  color-scheme: light;
+}
+  
+.dark {
+  color-scheme: dark;
+}
+
+[class*=fg-], [class*=fg-] * {
+  --link: var(--fg);
+  --link-visited: var(--fg);
+  --link-hover: var(--fg);
+  color: var(--fg);
+}
+
+.fg-text, .fg-text * {
+  --fg: CanvasText;
+}
+
+.fg-white, .fg-white * {
+  --fg: #fff;
+}
+    
+.fg-black, .fg-black * {
+  --fg: #000;
+}
+
+[class*=bg-] {
+  color: var(--fg, contrast-color(var(--bg)));
+  background-color: var(--bg);
+}
+
+.bg-page {
+  --bg: var(--canvas);
+}
+
+.bg-white {
+  --bg: #fff;
+}
+
+.bg-black {
+  --bg: #000;
+}

@@ -3,9 +3,7 @@
 // ------------------------------------------------------------
 @use "../config" as *;
 
-// -------------------------------------------------------
 // Containers
-// -------------------------------------------------------
 @if $enable-containers {
   .container,
   [class*=container-] {
@@ -20,9 +18,7 @@
   }
 }
 
-// -------------------------------------------------------
 // Display
-// -------------------------------------------------------
 @if $enable-display {
   @each $name, $value in $display-values {
     .#{$name} {
@@ -31,9 +27,7 @@
   }
 }
 
-// -------------------------------------------------------
 // Flex
-// -------------------------------------------------------
 @if $enable-flex {
   @each $name, $prop, $value in $flex-utility-values {
     .#{$name} {
@@ -42,9 +36,7 @@
   }
 }
 
-// -------------------------------------------------------
 // Grids
-// -------------------------------------------------------
 @if $enable-grid {
   .grid-columns, .grid-autofit,
     [class*=grid-columns-], [class*=grid-autofit-] {
@@ -82,9 +74,7 @@
   }
 }
 
-// -------------------------------------------------------
 // Alignment - align, justify, place
-// -------------------------------------------------------
 @if $enable-alignment {
   @each $name, $value in $content-items-values {
     @each $class, $prop in $items-props {
@@ -103,9 +93,7 @@
   }
 }
 
-// -------------------------------------------------------
 // Columns
-// -------------------------------------------------------
 @if $enable-columns {
   .columns {
     columns: var(--cols);
@@ -118,9 +106,7 @@
   }
 }
 
-//  ------------------------------------------------------------
-//  Position, inset, z-index
-//  ------------------------------------------------------------
+// Position, inset, z-index
 @if $enable-positioning {
   @each $name, $value in $position-values {
     .position-#{$name} {
@@ -149,9 +135,8 @@
   }
 }
 
-//  ------------------------------------------------------------
-//  Overflow, overscroll, scrollbar width and color
-//  ------------------------------------------------------------
+
+// Overflow, overscroll, scrollbar width and color
 @if $enable-overflow {
   @each $name, $value in $overflow-values {
     @each $class, $prop in $overflow-props {
@@ -174,9 +159,7 @@
   }
 }
 
-// -------------------------------------------------------
 // Spacing
-// -------------------------------------------------------
 @if $enable-spacing {
   @each $name, $value in $gap-values {
     @each $class, $prop in $gap-props {
@@ -203,9 +186,7 @@
   }
 }
 
-// ------------------------------------------------------------
 // Sizing
-// ------------------------------------------------------------
 @if $enable-sizes {
   @each $class, $prop in $height-props {
     @each $name, $value in $height-values {

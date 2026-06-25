@@ -1,18 +1,7 @@
 // ------------------------------------------------------------
 // indexcss utilities
 // ------------------------------------------------------------
-
-// ------------------------------------------------------------
 // Text
-// ------------------------------------------------------------
-$font-weights: (
-  "normal": normal,
-  "lighter": lighter,
-  "bold": bold, 
-  "semibold": 600,
-  "heavy": 800,
-) !default;
-
 $font-size-1:       0.75rem !default;
 $font-size-2:       0.875rem !default;
 $font-size-3:       0.938rem !default;
@@ -41,16 +30,24 @@ $font-sizes: (
   "12": $font-size-12,
 ) !default;
 
-$static-text-utilities:
+$font-weights: (
+  "normal": normal,
+  "lighter": lighter,
+  "bold": bold, 
+  "semibold": 600,
+  "heavy": 800,
+) !default;
+
+$static-text-utilities: (
   "text-center" text-align center,
   "text-left" text-align left,
   "text-right" text-align right,
   "text-balance" text-wrap balance,
   "text-pretty" text-wrap pretty,
   "decoration-none" text-decoration none,
-!default;
+) !default;
 
-$variable-text-utilities:
+$variable-text-utilities: (
   "font-family" font-family var(--ff),
   "font-size" font-size var(--fs),
   "font-weight" font-weight var(--fw),
@@ -59,11 +56,17 @@ $variable-text-utilities:
   "text-transform" text-transform var(--tt),
   "letter-space" letter-spacing var(--ls),
   "word-space" word-spacing var(--ws),
-!default;
+) !default;
 
-// ---------------------------------------------------------- 
+// Button sizes
+$button-sizes: (
+  "xs" $font-size-1 0.25rem 0.65rem,
+  "sm" $font-size-2 0.25rem 0.75rem,
+  "lg" $font-size-6 0.35rem 0.95rem,
+  "xl" $font-size-7 0.5rem 1.125rem,
+) !default;
+
 // Aspect-ratio and object-fit
-// ----------------------------------------------------------
 $aspect-ratio-values: (
   "auto": auto,
   "1x1": #{"1 / 1"},
@@ -81,9 +84,7 @@ $object-fit-values: (
   "none": none,
 ) !default;
 
-// -------------------------------------------------------
 // Gradients
-// -------------------------------------------------------
 $gradient-1:    linear-gradient(180deg, rgba(white, .175), rgba(white, 0)) !default;
 $gradient-2:    linear-gradient(180deg, rgba(white, .225), rgba(white, 0)) !default;
 $gradient-3:    linear-gradient(180deg, rgba(white, .33), rgba(white, 0)) !default;
@@ -94,9 +95,7 @@ $gradients: (
   "gradient-3": $gradient-3,
 ) !default;
 
-// ---------------------------------------------------------- 
 // Borders
-// ----------------------------------------------------------
 $border-width:    var(--bd-width, 1px) !default;
 $border-color:    var(--bd-color, var(--surf-3)) !default;
 $border-style:    var(--bd-style, solid) !default;
@@ -111,9 +110,7 @@ $border-style-values: (
   "border-x": border-inline-style,
 ) !default;
 
-// ---------------------------------------------------------- 
 // Radius
-// ----------------------------------------------------------
 $radius-1:  0.188rem !default;
 $radius-2:  0.313rem !default;
 $radius-3:  0.5rem !default;
@@ -134,28 +131,24 @@ $border-radius-single-values: (
   "radius-circle": 50%,
 ) !default;
 
-$radius-props:
+$radius-props: (
   "t" border-start-start-radius border-start-end-radius,
   "b" border-end-start-radius border-end-end-radius,
   "s" border-start-start-radius border-end-start-radius,
   "e" border-start-end-radius border-end-end-radius,
-!default;
+) !default;
 
-// ----------------------------------------------------------
 // Icons
-// ----------------------------------------------------------
 $menu-svg:      url("data:image/svg+xml,<svg viewBox='0 0 16 16' fill='currentColor' xmlns='http://www.w3.org/2000/svg'><path d='m2 2v2h12v-2h-12zm0 5v2h12v-2h-12zm0 5v2h12v-2h-12z'/></svg>");
 $close-svg:     url("data:image/svg+xml,<svg viewBox='0 0 16 16' fill='currentColor' xmlns='http://www.w3.org/2000/svg'><path d='m2.47 3.53 1.06-1.06 4.47 4.47 4.47-4.47 1.06 1.06-4.47 4.47 4.47 4.47-1.06 1.06-4.47-4.47-4.47 4.47-1.06-1.06 4.47-4.47z'/></svg>");
 $search-svg:    url("data:image/svg+xml,<svg viewBox='0 0 16 16' fill='currentColor' xmlns='http://www.w3.org/2000/svg'><path d='m11.3 10.1a5.69 5.69 0 1 0-1.22 1.22h-8.75e-4q0.0385 0.0525 0.0858 0.101l3.37 3.37a0.875 0.875 0 0 0 1.24-1.24l-3.37-3.37a0.875 0.875 0 0 0-0.101-0.0875zm0.226-3.36a4.81 4.81 0 1 1-9.62 0 4.81 4.81 0 0 1 9.62 00'/></svg>");
 
-// Maps
 $icon-values: ( 
   "menu": $menu-svg,
   "close": $close-svg,
   "search": $search-svg,
 ) !default;
 
-// Utility
 @mixin icon-utility {
   display: inline-block;
   content: "";

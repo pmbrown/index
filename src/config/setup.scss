@@ -1,11 +1,8 @@
 // ------------------------------------------------------------
 // indexcss setup
 // ------------------------------------------------------------
-
-// ------------------------------------------------------------
-// Default primary colors - see 'config/colors.scss'
-// ------------------------------------------------------------
-$enable-colors:                     true !default; // enable/disable all (default only)
+// Primary colors
+$enable-colors:                     true !default; // disables all (primary colors)
 $enable-color-forms:                true !default;
 $enable-color-buttons:              true !default;
 $enable-color-tables:               true !default;
@@ -21,9 +18,7 @@ $enable-color-backgrounds:          true !default;
 $enable-color-borders:              true !default;
 $enable-color-gradients:            true !default;
 
-// ------------------------------------------------------------
-// Custom colors - see 'config/colors.scss'
-// ------------------------------------------------------------
+// Custom colors
 $enable-custom-color-forms:         true !default;
 $enable-custom-color-buttons:       true !default;
 $enable-custom-color-accordions:    true !default;
@@ -37,9 +32,7 @@ $enable-custom-color-popovers:      true !default;
 $enable-custom-color-backgrounds:   true !default;
 $enable-custom-color-borders:       true !default;
 
-// ------------------------------------------------------------
-// Utilities - see 'config/utilities.scss'
-// ------------------------------------------------------------
+// Utilities
 $enable-text:                       true !default;
 $enable-gradients:                  true !default;
 $enable-borders:                    true !default;
@@ -47,9 +40,7 @@ $enable-radius:                     true !default;
 $enable-ratios:                     true !default;
 $enable-icons:                      true !default;
 
-// ------------------------------------------------------------
-// Layouts - see 'config/layouts.scss'
-// ------------------------------------------------------------
+// Layouts
 $enable-containers:                 true !default;
 $enable-display:                    true !default;
 $enable-flex:                       true !default;
@@ -61,13 +52,8 @@ $enable-overflow:                   true !default;
 $enable-spacing:                    true !default;
 $enable-sizes:                      true !default;
 
-// ------------------------------------------------------------
-// Breakpoints - see 'config/layouts.scss' for breakpoint widths
-// ------------------------------------------------------------
-// Disables breakpoints globally
-$enable-breakpoints:                true !default;
-
-// Requires global breakpoints enabled
+// Breakpoints
+$enable-breakpoints:                true !default; // disables all
 $enable-ratios-breakpoints:         false !default;
 $enable-text-breakpoints:           false !default;
 $enable-borders-breakpoints:        false !default;

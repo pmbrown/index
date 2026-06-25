@@ -3,9 +3,7 @@
 // ------------------------------------------------------------
 @use "sass:map";
 
-// ------------------------------------------------------------
 // Breakpoints
-// ------------------------------------------------------------
 $breakpoint-query:  'width <' !default; 
 
 $breakpoint-sizes: (
@@ -16,9 +14,7 @@ $breakpoint-sizes: (
   "xs": 480px,
 ) !default;
 
-// ------------------------------------------------------------
 // Containers
-// ------------------------------------------------------------
 $rem-sizes: (
   "rem-xl": 100rem,
   "rem-lg": 80rem,
@@ -29,9 +25,7 @@ $rem-sizes: (
 
 $container-sizes:  map.merge($breakpoint-sizes, $rem-sizes) !default;
 
-// ------------------------------------------------------------
-// Display - also see flex and grids below
-// ------------------------------------------------------------
+// Display - see flex and grid below
 $display-values: (
   "block": block,
   "block-inline": inline-block,
@@ -40,9 +34,7 @@ $display-values: (
   "display-none": none,
 ) !default;
 
-// ----------------------------------------------------------
 // Gaps, margins, padding
-// ----------------------------------------------------------
 $space-1:   0.25rem !default;
 $space-2:   0.5rem !default;
 $space-3:   1rem !default;
@@ -89,10 +81,8 @@ $padding-props: (
   "px": padding-inline,
 ) !default;
 
-// ----------------------------------------------------------
 // Flex
-// ----------------------------------------------------------
-$flex-utility-values:
+$flex-utility-values: (
   "flex" display flex,
   "flex-inline" display inline-flex,
   "flex-revert" display revert,
@@ -106,40 +96,36 @@ $flex-utility-values:
   "flex-grow-1" flex-grow 1,
   "flex-shrink-0" flex-shrink 0,
   "flex-shrink-1" flex-shrink 1,
-!default;
+) !default;
 
-// ----------------------------------------------------------
 // Grids
-// ----------------------------------------------------------
 $grid-column-values:    12 !default;
 $grid-row-values:       6 !default;
 $grid-autofit-value:    300px !default;
 $grid-columns:          repeat(var(--cols, #{$grid-column-values}), minmax(0, var(--gmax, 1fr))) !default;
 $grid-autofit:          repeat(auto-fit, minmax(var(--gmin, #{$grid-autofit-value}), 1fr)) !default;
 
-$grid-utility-values:
+$grid-utility-values: (
   "grid" display grid,
   "grid-inline" display inline-grid,
   "grid-revert" display revert,
   "grid-columns" grid-template-columns #{$grid-columns},
   "grid-autofit" grid-template-columns #{$grid-autofit},
-!default;
+) !default;
 
-$grid-column-props:
+$grid-column-props: (
   "col" grid-column auto / span,
   "col-start" grid-column-start null,
   "col-end" grid-column-end null,
-!default;
+) !default;
 
-$grid-row-props:
+$grid-row-props: (
   "row" grid-row auto / span,
   "row-start" grid-row-start null,
   "row-end" grid-row-end null,
-!default;
+) !default;
 
-// ------------------------------------------------------------
 // Alignment - align, justify, place
-// ------------------------------------------------------------
 $content-items-values: (
   "start": start,
   "end": end,
@@ -166,14 +152,10 @@ $items-props: (
   "place-items": place-items,
 ) !default;
 
-// ---------------------------------------------------------- 
 // Columns, e.g. 'columns: 6' (unrelated to grid columns)
-// ----------------------------------------------------------
 $column-values:   6 !default;
 
-// ------------------------------------------------------------
 // Position, inset, z-index
-// ------------------------------------------------------------
 $position-values: (
   "absolute": absolute,
   "fixed": fixed,
@@ -207,9 +189,7 @@ $zindex-values: (
   "z-top": calc(infinity), 
 ) !default;
 
-// ------------------------------------------------------------
 // Overflow, overscroll, scrollbar width and color
-// ------------------------------------------------------------
 $overflow-values: (
   "auto": auto,
   "scroll": scroll,
@@ -237,9 +217,7 @@ $scrollbar-widths: (
   "scrollbar-revert": revert,
 ) !default;
 
-// ------------------------------------------------------------
 // Sizing
-// ------------------------------------------------------------
 $sizing-values: (
   "auto": auto,
   "fit-content": fit-content,
@@ -276,20 +254,20 @@ $width-props: (
 $height-calc:   calc(var(--h, 100dvh) - var(--h-sub)) !default;
 $width-calc:    calc(var(--w, 100dvw) - var(--w-sub)) !default;
 
-$variable-heights:
+$variable-heights: (
   "height" block-size var(--height),
   "min-height" min-block-size var(--min-height),
   "max-height" max-block-size var(--max-height),
   "height-calc" block-size $height-calc,
   "min-height-calc" min-block-size $height-calc,
   "max-height-calc" max-block-size $height-calc,
-!default;
+) !default;
 
-$variable-widths:
+$variable-widths: (
   "width" inline-size var(--width),
   "min-width" min-inline-size var(--min-width),
   "max-width" max-inline-size var(--max-width),
   "width-calc" inline-size $width-calc,
   "min-width-calc" min-inline-size $width-calc,
   "max-width-calc" max-inline-size $width-calc,
-!default;
+) !default;

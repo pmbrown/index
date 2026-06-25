@@ -4,12 +4,11 @@
   font-size: var(--badge-fs, 0.75em);
   font-weight: var(--badge-fw);
   text-align: center;
-  line-height: 1.2;
+  line-height: 1.35;
   display: inline-block; 
   position: relative;
-  inset-block-start: -0.125em;
   padding-block: var(--badge-py, 0.375em);
-  padding-inline: var(--badge-px, 0.625em);
+  padding-inline: var(--badge-px, 0.725em);
   border: var(--badge-bd-width, 1px) solid var(--badge-bd-color, var(--surf-3));
   border-radius: var(--badge-radius, 0.188rem);
   background-color: var(--badge-bg, var(--surf-1));

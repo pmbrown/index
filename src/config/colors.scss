@@ -74,10 +74,8 @@ $color-gradients: (
   "gray" #000 $gray-gradient,
 ) !default;
 
-// ------------------------------------------------------------
 // Custom colors - include with overrides
 // Follow the default Sass map styles above.
-// ------------------------------------------------------------
 $custom-color-tokens: () !default; // see $color-tokens
 $custom-color-modifiers: () !default; // see $color-modifiers
 $custom-color-tables: () !default; // see $color-tables

@@ -49,7 +49,6 @@
       
       // Borders
       @if $enable-borders-breakpoints {
-              
         @each $name, $value in $border-style-values {
           .#{$name}-#{$breakpoint} {
             #{$value}: $border-style;        
@@ -276,4 +275,4 @@
       }
     } // end-media
   } // end-if
-}
+} // end-breakpoints

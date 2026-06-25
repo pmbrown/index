@@ -3,9 +3,7 @@
 // ------------------------------------------------------------
 @use "../config" as *;
 
-// -------------------------------------------------------
 // Theme utilities
-// -------------------------------------------------------
 @if $enable-colors {
   @each $name, $scheme, $s1, $s2, $s3, $s4, $s5 in $color-modifiers {
     .theme-#{$name} {
@@ -49,60 +47,6 @@
   --surf-5: #{$theme-surface-5};
 }
 
-// -------------------------------------------------------
-// Color utilities
-// -------------------------------------------------------
-.light {
-  color-scheme: light;
-}
-  
-.dark {
-  color-scheme: dark;
-}
-
-.fg-text, .fg-text *, .fg-white, .fg-white *, .fg-black, .fg-black * {
-  --link: var(--fg);
-  --link-visited: var(--fg);
-  --link-hover: var(--fg);
-  color: var(--fg);
-}
-
-.fg-text, .fg-text * {
-  --fg: CanvasText;
-}
-
-.fg-white, .fg-white * {
-  --fg: #fff;
-}
-    
-.fg-black, .fg-black * {
-  --fg: #000;
-}
-
-.fg-color, .fg-color * {
-  color: var(--fg);
-}
-
-.bg-color {
-  color: contrast-color(var(--bg));
-  background-color: var(--bg);
-}
-
-.bg-page {
-  color: var(--fg, CanvasText);
-  background-color: var(--canvas);
-}
-
-.bg-white {
-  color: var(--fg, #000);
-  background-color: #fff;
-}
-
-.bg-black {
-  color: var(--fg, #fff);
-  background-color: #000;
-}
-
 @each $name, $color in $surface-colors {
   .bg-#{$name} {
     color: contrast-color(var(--#{$name}));
@@ -116,6 +60,7 @@
   }
 }
 
+// Color utilities
 @if $enable-colors {
   @if $enable-color-backgrounds {
     @each $name, $token in $color-tokens {
@@ -157,9 +102,7 @@
   }
 }
 
-// -------------------------------------------------------
 // Color modifiers
-// -------------------------------------------------------
 @if $enable-colors {
   @if $enable-color-forms {
     @each $name, $scheme, $background, $border in $color-modifiers {
@@ -284,9 +227,7 @@
   }
 }
 
-// -------------------------------------------------------
 // Custom color utilities
-// -------------------------------------------------------
 @if $enable-custom-color-backgrounds {
   @each $name, $token in $custom-color-tokens {
     .bg-#{$name} {
@@ -324,9 +265,7 @@
   }    
 }
 
-// -------------------------------------------------------
 // Custom color modifiers
-// -------------------------------------------------------
 @if $enable-custom-color-forms {
   @each $name, $scheme, $background, $border in $custom-color-modifiers {
     .form-#{$name} {
