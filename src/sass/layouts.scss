@@ -93,6 +93,25 @@
   }
 }
 
+// Aspect ratio and object-fit
+@if $enable-ratios {
+  .ratio, .ratio-group *:not(figcaption) {
+    aspect-ratio: var(--ratio);
+  }
+  
+  @each $name, $value in $aspect-ratio-values {
+    .ratio-#{$name}, .ratio-group-#{$name} *:not(figcaption) {
+      aspect-ratio: $value;     
+    }    
+  }
+  
+  @each $name, $value in $object-fit-values {
+    .object-fit-#{$name}, .object-fit-group-#{$name} * {
+      object-fit: $value;       
+    }
+  }
+}
+
 // Columns
 @if $enable-columns {
   .columns {

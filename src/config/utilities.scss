@@ -38,13 +38,23 @@ $font-weights: (
   "heavy": 800,
 ) !default;
 
-$static-text-utilities: (
+$text-align-wrap: (
   "text-center" text-align center,
   "text-left" text-align left,
   "text-right" text-align right,
   "text-balance" text-wrap balance,
   "text-pretty" text-wrap pretty,
-  "decoration-none" text-decoration none,
+) !default;
+
+$text-styles: (
+  "text-caps" text-transform capitalize,
+  "text-uppercase" text-transform uppercase,
+  "text-lowercase" text-transform lowercase,
+  "font-smallcaps" font-variant small-caps,
+  "font-tabular-nums" font-variant tabular-nums,
+  "font-slashed-zero" font-variant slashed-zero,
+  "font-common-lig" font-variant common-ligatures,
+  "font-no-common-lig" font-variant no-common-ligatures,
 ) !default;
 
 $variable-text-utilities: (
@@ -52,8 +62,6 @@ $variable-text-utilities: (
   "font-size" font-size var(--fs),
   "font-weight" font-weight var(--fw),
   "line-height" line-height var(--lh),
-  "font-variant" font-variant var(--fv),
-  "text-transform" text-transform var(--tt),
   "letter-space" letter-spacing var(--ls),
   "word-space" word-spacing var(--ws),
 ) !default;
@@ -64,24 +72,6 @@ $button-sizes: (
   "sm" $font-size-2 0.25rem 0.75rem,
   "lg" $font-size-6 0.35rem 0.95rem,
   "xl" $font-size-7 0.5rem 1.125rem,
-) !default;
-
-// Aspect-ratio and object-fit
-$aspect-ratio-values: (
-  "auto": auto,
-  "1x1": #{"1 / 1"},
-  "16x9": #{"16 / 9"},
-  "5x2": #{"5 / 2"},
-  "4x1": #{"4 / 1"},
-  "3x4": #{"3 / 4"},
-) !default;
-
-$object-fit-values: (
-  "contain": contain,
-  "cover": cover,
-  "fill": fill,
-  "scale": scale-down,
-  "none": none,
 ) !default;
 
 // Gradients
@@ -148,14 +138,3 @@ $icon-values: (
   "close": $close-svg,
   "search": $search-svg,
 ) !default;
-
-@mixin icon-utility {
-  display: inline-block;
-  content: "";
-  block-size: var(--ico-xy, 1em);
-  inline-size: var(--ico-xy, 1em);
-  vertical-align: var(--ico-va, -.16em);
-  background-color: var(--ico, CurrentColor);
-  mask: var(--svg) no-repeat;
-  opacity: var(--ico-op, 1);
-}

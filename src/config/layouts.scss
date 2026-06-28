@@ -25,15 +25,6 @@ $rem-sizes: (
 
 $container-sizes:  map.merge($breakpoint-sizes, $rem-sizes) !default;
 
-// Display - see flex and grid below
-$display-values: (
-  "block": block,
-  "block-inline": inline-block,
-  "flow-root": flow-root,
-  "display-revert": revert,
-  "display-none": none,
-) !default;
-
 // Gaps, margins, padding
 $space-1:   0.25rem !default;
 $space-2:   0.5rem !default;
@@ -79,6 +70,33 @@ $padding-props: (
   "pe": padding-inline-end,
   "py": padding-block,
   "px": padding-inline,
+) !default;
+
+// Aspect-ratio and object-fit
+$aspect-ratio-values: (
+  "auto": auto,
+  "1x1": #{"1 / 1"},
+  "16x9": #{"16 / 9"},
+  "5x2": #{"5 / 2"},
+  "4x1": #{"4 / 1"},
+  "3x4": #{"3 / 4"},
+) !default;
+
+$object-fit-values: (
+  "contain": contain,
+  "cover": cover,
+  "fill": fill,
+  "scale": scale-down,
+  "none": none,
+) !default;
+
+// Display
+$display-values: (
+  "block": block,
+  "block-inline": inline-block,
+  "flow-root": flow-root,
+  "display-revert": revert,
+  "display-none": none,
 ) !default;
 
 // Flex

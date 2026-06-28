@@ -2,6 +2,7 @@
 // indexcss utilities
 // ------------------------------------------------------------
 @use "../config" as *;
+@use "mixins" as *;
 
 // Buttons
 @each $name, $size, $py, $px in $button-sizes {
@@ -25,47 +26,50 @@
 }
 
 // Text
-@if $enable-text {
-  @each $name, $value in $font-weights {
-    .fw-#{$name} {
-      font-weight: #{$value};
-    }
-  }
-  
+.decoration-none, .decoration-none-group * {
+  @include decoration-none;
+}
+
+.vis-hidden, .vis-hidden-focus:not(:focus):not(:focus-within) {
+  @include vis-hidden;
+}
+
+@if $enable-font-sizes {
   @each $name, $value in $font-sizes {
     .fs-#{$name} {
       font-size: #{$value};
     }
   }
-  
-  @each $name, $prop, $value in $static-text-utilities {
-    .#{$name}, .#{$name}-group * {
-      #{$prop}: #{$value};
+}
+
+@if $enable-font-weights {
+  @each $name, $value in $font-weights {
+    .fw-#{$name} {
+      font-weight: #{$value};
     }
   }
-  
-  @each $name, $prop, $value in $variable-text-utilities {
+}
+
+@if $enable-text-align {
+  @each $name, $prop, $value in $text-align-wrap {
     .#{$name}, .#{$name}-group * {
       #{$prop}: #{$value};
     }
   }
 }
 
-// Aspect ratio and object-fit
-@if $enable-ratios {
-  .ratio, .ratio-group *:not(figcaption) {
-    aspect-ratio: var(--ratio);
+@if $enable-text-styles {
+  @each $name, $prop, $value in $text-styles {
+    .#{$name}, .#{$name}-group * {
+      #{$prop}: #{$value};
+    }
   }
-  
-  @each $name, $value in $aspect-ratio-values {
-    .ratio-#{$name}, .ratio-group-#{$name} *:not(figcaption) {
-      aspect-ratio: $value;     
-    }    
-  }
-  
-  @each $name, $value in $object-fit-values {
-    .object-fit-#{$name}, .object-fit-group-#{$name} * {
-      object-fit: $value;       
+}
+
+@if $enable-text-variables {
+  @each $name, $prop, $value in $variable-text-utilities {
+    .#{$name}, .#{$name}-group * {
+      #{$prop}: #{$value};
     }
   }
 }

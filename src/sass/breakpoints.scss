@@ -2,47 +2,53 @@
 // indexcss breakpoints
 // ------------------------------------------------------------
 @use "../config" as *;
+@use "mixins" as *;
 
 @each $breakpoint, $width in $breakpoint-sizes {
   @if $enable-breakpoints {
     @media (#{$breakpoint-query} #{$width}) {
 
-      // Text
-      @if $enable-text-breakpoints {
-        @each $name, $value in $font-weights {
-          .fw-#{$name}-#{$breakpoint} {
-            font-weight: #{$value};
-          }
+      // Text utilities
+      @if $enable-deco-none-breakpoints {
+        .decoration-none-#{$breakpoint}, .decoration-none-group-#{$breakpoint} * {
+          @include decoration-none;
         }
-        
+      }
+
+      @if $enable-vis-hidden-breakpoints {
+        .vis-hidden-#{$breakpoint}, .vis-hidden-focus-#{$breakpoint}:not(:focus):not(:focus-within) {
+          @include vis-hidden;
+        }
+      }
+
+      @if $enable-font-sizes-breakpoints {
         @each $name, $value in $font-sizes {
           .fs-#{$name}-#{$breakpoint} {
             font-size: #{$value};
           }
         }
-        
-        @each $name, $prop, $value in $static-text-utilities {
+      }
+      
+      @if $enable-font-weights-breakpoints {
+        @each $name, $value in $font-weights {
+          .fw-#{$name}-#{$breakpoint} {
+            font-weight: #{$value};
+          }
+        }
+      }
+      
+      @if $enable-text-align-breakpoints {
+        @each $name, $prop, $value in $text-align-wrap {
           .#{$name}-#{$breakpoint}, .#{$name}-group-#{$breakpoint} * {
             #{$prop}: #{$value};
           }
         }
       }
       
-      // Aspect-ratios & object-fit
-      @if $enable-ratios-breakpoints {
-        .ratio-#{$breakpoint}, .ratio-group-#{$breakpoint} *:not(figcaption) {
-          aspect-ratio: var(--ratio);
-        }
-        
-        @each $name, $value in $aspect-ratio-values {
-          .ratio-#{$name}-#{$breakpoint}, .ratio-group-#{$name}-#{$breakpoint} *:not(figcaption) {
-            aspect-ratio: $value;     
-          }    
-        }
-        
-        @each $name, $value in $object-fit-values {
-          .object-fit-#{$name}-#{$breakpoint}, .object-fit-group-#{$name}-#{$breakpoint} * {
-            object-fit: $value;       
+      @if $enable-text-styles-breakpoints {
+        @each $name, $prop, $value in $text-styles {
+          .#{$name}-#{$breakpoint}, .#{$name}-group-#{$breakpoint} * {
+            #{$prop}: #{$value};
           }
         }
       }
@@ -153,7 +159,26 @@
           }
         }
       }
-  
+
+      // Aspect-ratios & object-fit
+      @if $enable-ratios-breakpoints {
+        .ratio-#{$breakpoint}, .ratio-group-#{$breakpoint} *:not(figcaption) {
+          aspect-ratio: var(--ratio);
+        }
+        
+        @each $name, $value in $aspect-ratio-values {
+          .ratio-#{$name}-#{$breakpoint}, .ratio-group-#{$name}-#{$breakpoint} *:not(figcaption) {
+            aspect-ratio: $value;     
+          }    
+        }
+        
+        @each $name, $value in $object-fit-values {
+          .object-fit-#{$name}-#{$breakpoint}, .object-fit-group-#{$name}-#{$breakpoint} * {
+            object-fit: $value;       
+          }
+        }
+      }
+        
       // Columns
       @if $enable-columns-breakpoints {
         @for $value from 1 through $column-values {
