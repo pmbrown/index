@@ -8,9 +8,12 @@ $cyan:              oklch(82% 0.18 185) !default;
 $yellow:            oklch(92% 0.20 99) !default;
 $gray:              oklch(80% 0.02 245) !default;
 
-$color-mix:         lab !default; // change to suit colors above
-$middle-token:      5 !default; // change to suit scale below
-$color-utilities:   9 !default; // change to suit scale below
+// Change formula to suit default color values
+$color-mix:         lab !default;
+
+// Change values to suit lighten and darken maps
+$middle-token:      5 !default;
+$color-utilities:   9 !default;
 
 $lighten-values: (
   "1": 70%,
@@ -35,29 +38,26 @@ $color-tokens: (
   "gray": $gray,
 ) !default;
 
-// Color forms, buttons, components
-// "name" | color-scheme | background | hover/focus | border/outline | subtle | accent
+// "name" | bg-base | bg-accent | border | lighter | darker
 $color-modifiers: (
-  "blue" dark var(--blue-5) var(--blue-6) var(--blue-4) var(--blue-3) var(--blue-7),
-  "green" dark var(--green-5) var(--green-6) var(--green-4) var(--green-3) var(--green-7),   
-  "red" dark var(--red-5) var(--red-6) var(--red-4) var(--red-3) var(--red-7),
-  "cyan" light var(--cyan-5) var(--cyan-4) var(--cyan-6) var(--cyan-3) var(--cyan-7),
-  "yellow" light var(--yellow-5) var(--yellow-4) var(--yellow-6) var(--yellow-3) var(--yellow-7),
-  "gray" light var(--gray-5) var(--gray-4) var(--gray-6) var(--gray-3) var(--gray-7),
+  "blue" var(--blue-5) var(--blue-6) var(--blue-4) var(--blue-3) var(--blue-7),
+  "green" var(--green-5) var(--green-6) var(--green-4) var(--green-3) var(--green-7),   
+  "red" var(--red-5) var(--red-6) var(--red-4) var(--red-3) var(--red-7),
+  "cyan" var(--cyan-5) var(--cyan-4) var(--cyan-6) var(--cyan-3) var(--cyan-7),
+  "yellow" var(--yellow-5) var(--yellow-4) var(--yellow-6) var(--yellow-3) var(--yellow-7),
+  "gray" var(--gray-5) var(--gray-4) var(--gray-6) var(--gray-3) var(--gray-7),
 ) !default;
 
-// Color tables
-// "name" | color-scheme | background | thead | border
+// "name" | bg-base | bg-thead | border
 $color-tables: (
-  "blue" dark var(--blue-5) var(--blue-6) var(--blue-4),
-  "green" dark var(--green-5) var(--green-6) var(--green-4), 
-  "red" dark var(--red-5) var(--red-6) var(--red-4),
-  "cyan" light var(--cyan-4) var(--cyan-5) var(--cyan-6),
-  "yellow" light var(--yellow-4) var(--yellow-5) var(--yellow-6),
-  "gray" light var(--gray-4) var(--gray-5) var(--gray-6),
+  "blue" var(--blue-5) var(--blue-6) var(--blue-4),
+  "green" var(--green-5) var(--green-6) var(--green-4), 
+  "red" var(--red-5) var(--red-6) var(--red-4),
+  "cyan" var(--cyan-4) var(--cyan-5) var(--cyan-6),
+  "yellow" var(--yellow-4) var(--yellow-5) var(--yellow-6),
+  "gray" var(--gray-4) var(--gray-5) var(--gray-6),
 ) !default;
 
-// Color gradients
 $blue-gradient:     linear-gradient(180deg, var(--blue-4), var(--blue-5), var(--blue-6)) !default;
 $green-gradient:    linear-gradient(180deg, var(--green-4), var(--green-5), var(--green-6)) !default;
 $red-gradient:      linear-gradient(180deg, var(--red-4), var(--red-5), var(--red-6)) !default;
@@ -75,8 +75,7 @@ $color-gradients: (
 ) !default;
 
 // Custom colors - include with overrides
-// Follow the default Sass map styles above.
-$custom-color-tokens: () !default; // see $color-tokens
-$custom-color-modifiers: () !default; // see $color-modifiers
-$custom-color-tables: () !default; // see $color-tables
-$custom-color-gradients: () !default; // see $color-gradients
+$custom-color-tokens: () !default; // Replicate $color-tokens map
+$custom-color-modifiers: () !default; // Replicate $color-modifiers map
+$custom-color-tables: () !default; // Replicate $color-tables map
+$custom-color-gradients: () !default; // Replicate $color-gradients map

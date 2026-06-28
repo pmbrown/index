@@ -13,12 +13,14 @@
 }
 
 .btn-outline {
+  --btn-fg: CanvasText;
   --btn-bg: transparent;
 }
 
 .btn-none {
+  --btn-fg: CanvasText;
   --btn-bg: transparent;
-  --btn-hover: transparent;
+  --btn-bg-hover: transparent;
   --btn-bd-color: transparent;
 }
 

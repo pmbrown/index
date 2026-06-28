@@ -1,19 +1,13 @@
 // ------------------------------------------------------------
 // indexcss theme
 // ------------------------------------------------------------
-$token-style:         ':where(html)' !default;
+$root-tokens:         ':where(html)' !default;
 
-$theme-text:          light-dark(#000, #fff) !default;
-$theme-canvas:        light-dark(#f1f2f4, #1f2428) !default;
-$theme-link:          light-dark(#1c3db5, #9fbfdf) !default;
-$theme-link-visited:  light-dark(#4f6fe3, #b3cce6) !default;
-$theme-link-hover:    light-dark(#385de0, #c6d8ec) !default;
-$theme-surface-1:     color-mix(in srgb, CanvasText 5%, var(--canvas)) !default;
-$theme-surface-2:     color-mix(in srgb, CanvasText 10%, var(--canvas)) !default;
-$theme-surface-3:     color-mix(in srgb, CanvasText 20%, var(--canvas)) !default;
-$theme-surface-4:     color-mix(in srgb, CanvasText 30%, var(--canvas)) !default;
-$theme-surface-5:     color-mix(in srgb, CanvasText 40%, var(--canvas)) !default;
-
+$text-color:          light-dark(#000, #fff) !default;
+$canvas-color:        light-dark(#f1f2f4, #1f2428) !default;
+$link-color:          light-dark(#1c3db5, #9fbfdf) !default;
+$link-visited-color:  light-dark(#4f6fe3, #b3cce6) !default;
+$link-hover-color:    light-dark(#385de0, #c6d8ec) !default;
 $font-family:         system-ui !default;
 $body-font-size:      1rem !default;
 $body-line-height:    1.5 !default;
@@ -26,15 +20,21 @@ $h6-font-size:        1.063rem !default;
 $small-font-size:     0.875em !default;
 $small-font-size-h:   0.75em !default;
 
+$theme-surface-1:     color-mix(in srgb, CanvasText 5%, var(--canvas)) !default;
+$theme-surface-2:     color-mix(in srgb, CanvasText 10%, var(--canvas)) !default;
+$theme-surface-3:     color-mix(in srgb, CanvasText 20%, var(--canvas)) !default;
+$theme-surface-4:     color-mix(in srgb, CanvasText 30%, var(--canvas)) !default;
+$theme-surface-5:     color-mix(in srgb, CanvasText 40%, var(--canvas)) !default;
+
 $theme-tokens: (
-  "text": $theme-text,
-  "canvas": $theme-canvas,
+  "text": $text-color,
+  "canvas": $canvas-color,
   "font-family": $font-family,
   "body-fs": $body-font-size,
   "body-lh": $body-line-height,
-  "link": $theme-link,
-  "link-visited": $theme-link-visited,
-  "link-hover": $theme-link-hover,
+  "link": $link-color,
+  "link-visited": $link-visited-color,
+  "link-hover": $link-hover-color,
   "h1-fs": $h1-font-size,
   "h2-fs": $h2-font-size,
   "h3-fs": $h3-font-size,
@@ -53,4 +53,5 @@ $surface-colors: (
   "surf-5": $theme-surface-5,
 ) !default;
 
+// Custom tokens - include with overrides
 $custom-tokens: () !default;
