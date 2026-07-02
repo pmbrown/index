@@ -128,6 +128,28 @@
   }
 }
 
+@if $enable-shadows {
+  @each $name, $value in $box-shadows {
+    .#{$name} {
+      box-shadow: var(--#{$name});
+    }
+  }
+  
+  @each $name, $value in $text-shadows {
+    .#{$name} {
+      text-shadow: var(--#{$name});
+    }
+  }
+}
+
+@if $enable-opacity {
+  @each $name, $value in $opacity-values {
+    .#{$name} {
+      opacity: #{$value};        
+    }
+  }
+}
+
 // Icons
 @if $enable-icons {
   :is(.ico, .ico-b, .ico-btn):before, .ico-a:after {

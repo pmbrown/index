@@ -85,6 +85,30 @@ $gradients: (
   "gradient-3": $gradient-3,
 ) !default;
 
+// Shadows
+$box-shadow-1:    0 0.125rem 0.25rem rgba(0, 0, 0, 0.1) !default;
+$box-shadow-2:    0 0.25rem 0.75rem rgba(0, 0, 0, 0.15) !default;
+$box-shadow-3:    0 0.5rem 1.25rem rgba(0, 0, 0, 0.15) !default;
+$box-shadow-4:    0 1rem 2.5rem rgba(0, 0, 0, 0.175) !default;
+$text-shadow-1:   1px 1px 2px rgb(0 0 0/0.33) !default;
+$text-shadow-2:   1px 2px 2px rgb(0 0 0/0.4) !default;
+$text-shadow-3:   2px 3px 3px rgb(0 0 0/0.4) !default;
+$text-shadow-4:   2px 4px 4px rgb(0 0 0/0.4) !default;
+
+$box-shadows: (
+  "box-shadow-1": $box-shadow-1,
+  "box-shadow-2": $box-shadow-2,
+  "box-shadow-3": $box-shadow-3,
+  "box-shadow-4": $box-shadow-4,
+) !default;
+
+$text-shadows: (
+  "text-shadow-1": $text-shadow-1,
+  "text-shadow-2": $text-shadow-2,
+  "text-shadow-3": $text-shadow-3,
+  "text-shadow-4": $text-shadow-4,
+) !default;
+
 // Borders
 $border-width:    var(--bd-width, 1px) !default;
 $border-color:    var(--bd-color, var(--surf-3)) !default;
@@ -127,6 +151,15 @@ $radius-props: (
   "s" border-start-start-radius border-end-start-radius,
   "e" border-start-end-radius border-end-end-radius,
 ) !default;
+
+$opacity-values: (
+  "opacity": var(--op),
+  "opacity-100": 1,
+  "opacity-75": 0.75,
+  "opacity-50": 0.5,
+  "opacity-25": 0.25,
+) !default;
+
 
 // Icons
 $menu-svg:      url("data:image/svg+xml,<svg viewBox='0 0 16 16' fill='currentColor' xmlns='http://www.w3.org/2000/svg'><path d='m2 2v2h12v-2h-12zm0 5v2h12v-2h-12zm0 5v2h12v-2h-12z'/></svg>");

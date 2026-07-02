@@ -12,12 +12,6 @@
   @each $name, $value in $surface-colors {
     --#{$name}: #{$value};
   }
-
-  @if $enable-gradients {
-    @each $name, $value in $gradients {
-      --#{$name}: #{$value};
-    }
-  }
   
   @each $name, $value in $custom-tokens {
     --#{$name}: #{$value};
@@ -61,5 +55,27 @@
   
   @each $name, $color, $value in $custom-color-gradients {
     --#{$name}-gradient: #{$value};
+  }
+  
+  @if $enable-font-sizes {
+    @each $name, $value in $font-sizes {
+      --fs-#{$name}: #{$value};
+    }  
+  }
+
+  @if $enable-gradients {
+    @each $name, $value in $gradients {
+      --#{$name}: #{$value};
+    }
+  }
+   
+  @if $enable-shadows {
+    @each $name, $value in $box-shadows {
+      --#{$name}: #{$value};
+    }
+    
+    @each $name, $value in $text-shadows {
+      --#{$name}: #{$value};
+    }
   }
 }

@@ -125,7 +125,7 @@
   }
 }
 
-// Position, inset, z-index
+// Position, inset, z-index, order
 @if $enable-positioning {
   @each $name, $value in $position-values {
     .position-#{$name} {
@@ -152,6 +152,12 @@
       z-index: #{$value};
     }
   }
+  
+  @each $name, $value in $order-values {
+  .#{$name} {
+      order: #{$value};        
+    }
+  }
 }
 
 
@@ -174,6 +180,12 @@
   @each $name, $value in $scrollbar-widths {
     .#{$name} {
       scrollbar-width: #{$value};
+    }
+  }
+  
+  @each $name, $value in $scrollbar-gutter {
+    .#{$name} {
+      scrollbar-gutter: #{$value};
     }
   }
 }

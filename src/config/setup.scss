@@ -38,9 +38,11 @@ $enable-font-weights:               true !default;
 $enable-text-align:                 true !default;
 $enable-text-styles:                true !default;
 $enable-text-variables:             true !default;
-$enable-gradients:                  true !default;
 $enable-borders:                    true !default;
 $enable-radius:                     true !default;
+$enable-gradients:                  true !default;
+$enable-shadows:                    true !default;
+$enable-opacity:                    true !default;
 $enable-icons:                      true !default;
 
 // Layouts
@@ -74,7 +76,7 @@ $enable-display-breakpoints:        true !default;
 $enable-flex-breakpoints:           true !default;
 $enable-grid-breakpoints:           true !default;
 $enable-alignment-breakpoints:      true !default;
-$enable-ratios-breakpoints:         false !default;
+$enable-ratios-breakpoints:         true !default;
 $enable-columns-breakpoints:        true !default;
 $enable-positioning-breakpoints:    true !default;
 $enable-overflow-breakpoints:       true !default;

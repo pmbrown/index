@@ -197,14 +197,27 @@ $inset-reset-values: (
 ) !default;  
 
 $zindex-values: (
-  "z-neg": -1,
+  "z-neg": calc(0 - var(--zmin, 1)),
   "z-0": 0,
   "z-1": 100,
   "z-2": 200,
   "z-3": 300,
   "z-4": 400,
   "z-5": 500,
+  "z-var": var(--z),
   "z-top": calc(infinity), 
+  "z-revert": revert,
+) !default;
+
+$order-values: (
+  "order": var(--order),
+  "order-0": 0,
+  "order-1": 1,
+  "order-2": 2,
+  "order-3": 3,
+  "order-4": 4,
+  "order-5": 5,
+  "order-revert": revert,
 ) !default;
 
 // Overflow, overscroll, scrollbar width and color
@@ -230,9 +243,16 @@ $overscroll-values: (
 ) !default;
 
 $scrollbar-widths: (
-  "scrollbar-auto": auto,
-  "scrollbar-thin": thin,
-  "scrollbar-revert": revert,
+  "scroll-width-auto": auto,
+  "scroll-width-thin": thin,
+  "scroll-width-revert": revert,
+) !default;
+
+$scrollbar-gutter: (
+  "scroll-gutter-stable": stable,
+  "scroll-gutter-stable-edges": stable both-edges,
+  "scroll-gutter-auto": auto,
+  "scroll-gutter-revert": revert,
 ) !default;
 
 // Sizing

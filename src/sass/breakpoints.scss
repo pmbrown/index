@@ -215,6 +215,12 @@
             z-index: #{$value};
           }
         }
+
+        @each $name, $value in $order-values {
+        .#{$name}-#{$breakpoint} {
+            order: #{$value};        
+          }
+        }
       }
       
       // Overflow, overscroll, scrollbar width
@@ -237,6 +243,12 @@
           .#{$name}-#{$breakpoint} {
             scrollbar-width: #{$value};
           }
+        }
+      }
+      
+      @each $name, $value in $scrollbar-gutter {
+        .#{$name}-#{$breakpoint} {
+          scrollbar-gutter: #{$value};
         }
       }
       
