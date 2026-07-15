@@ -1,5 +1,5 @@
 .dialog,
-[class*=dialog-] {
+[class*=dialog-]:not(.dialog-flush, .dialog-flush-border) {
   --backdrop-light: color-mix(in srgb, #000 10%, transparent);
   --backdrop-dark: color-mix(in srgb, #000 40%, transparent);
   color: var(--dialog-fg, contrast-color(var(--dialog-bg, var(--canvas))));
@@ -31,20 +31,26 @@
   }
   
   &:has(.close-dialog) {
-    --close-margin: 5rem;
-    
+    --close-margin: 5rem;    
     &:has(.ico-btn) {
       --close-margin: 3rem;
     }
   }
-  
+
   .close-dialog {
     position: absolute;
     inset-block-start: calc(var(--dialog-py, 1rem) * 0.75);
     inset-inline-end: calc(var(--dialog-px, 1rem) * 0.75);
   }
-      
+
   &::backdrop {
     background-color: var(--dialog-backdrop, light-dark(var(--backdrop-light), var(--backdrop-dark)));
+  }
+}
+
+.dialog-flush, .dialog-flush-border {
+  padding: 0;
+  &:is(.dialog-flush-border) {
+    border: none;
   }
 }

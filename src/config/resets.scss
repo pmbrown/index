@@ -1,0 +1,35 @@
+// ------------------------------------------------------------
+// Resets
+// ------------------------------------------------------------
+$font-family:           system-ui !default;
+$body-font-size:        1rem !default;
+$body-line-height:      1.5 !default;
+$text-color:            light-dark(#000, #fff) !default;
+$canvas-color:          light-dark(#f1f2f4, #1f2428) !default;
+$link-color:            light-dark(#1c3db5, #9fbfdf) !default;
+
+$theme-surface-1:       color-mix(in srgb, CanvasText 5%, var(--canvas)) !default;
+$theme-surface-2:       color-mix(in srgb, CanvasText 10%, var(--canvas)) !default;
+$theme-surface-3:       color-mix(in srgb, CanvasText 20%, var(--canvas)) !default;
+$theme-surface-4:       color-mix(in srgb, CanvasText 30%, var(--canvas)) !default;
+$theme-surface-5:       color-mix(in srgb, CanvasText 40%, var(--canvas)) !default;
+
+$reset-tokens: (
+  "text": $text-color,
+  "link": $link-color,
+  "canvas": $canvas-color,
+  "font-family": $font-family,
+  "body-fs": $body-font-size,
+  "body-lh": $body-line-height,
+) !default;
+
+$surface-colors: (
+  "surf-1": $theme-surface-1,
+  "surf-2": $theme-surface-2,
+  "surf-3": $theme-surface-3,
+  "surf-4": $theme-surface-4,
+  "surf-5": $theme-surface-5,
+) !default;
+
+// Custom tokens - include with overrides
+$custom-tokens: () !default;

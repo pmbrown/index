@@ -1,19 +1,19 @@
 // ------------------------------------------------------------
-// indexcss utilities
+// Utilities
 // ------------------------------------------------------------
 // Text
 $font-size-1:       0.75rem !default;
-$font-size-2:       0.875rem !default;
-$font-size-3:       0.938rem !default;
-$font-size-4:       1rem !default;
-$font-size-5:       1.063rem !default;
-$font-size-6:       1.125rem !default;
-$font-size-7:       1.25rem !default;
-$font-size-8:       1.375rem !default;
-$font-size-9:       1.5rem !default;
-$font-size-10:      1.75rem !default;
-$font-size-11:      2.125rem !default;
-$font-size-12:      2.5rem !default;
+$font-size-2:       0.875rem !default;;
+$font-size-3:       1rem !default;
+$font-size-4:       1.063rem !default;
+$font-size-5:       1.125rem !default;
+$font-size-6:       1.25rem !default;
+$font-size-7:       1.375rem !default;
+$font-size-8:       1.575rem !default;
+$font-size-9:       1.8rem !default;
+$font-size-10:      2.125rem !default;
+$font-size-11:      2.5rem !default;
+$font-size-12:      3rem !default;
 
 $font-sizes: (
   "1": $font-size-1,
@@ -152,6 +152,7 @@ $radius-props: (
   "e" border-start-end-radius border-end-end-radius,
 ) !default;
 
+// Opacity
 $opacity-values: (
   "opacity": var(--op),
   "opacity-100": 1,
@@ -160,14 +161,11 @@ $opacity-values: (
   "opacity-25": 0.25,
 ) !default;
 
+// Backdrop filter
+$backdrop-blur-values:    5 !default; // px
 
-// Icons
-$menu-svg:      url("data:image/svg+xml,<svg viewBox='0 0 16 16' fill='currentColor' xmlns='http://www.w3.org/2000/svg'><path d='m2 2v2h12v-2h-12zm0 5v2h12v-2h-12zm0 5v2h12v-2h-12z'/></svg>");
-$close-svg:     url("data:image/svg+xml,<svg viewBox='0 0 16 16' fill='currentColor' xmlns='http://www.w3.org/2000/svg'><path d='m2.47 3.53 1.06-1.06 4.47 4.47 4.47-4.47 1.06 1.06-4.47 4.47 4.47 4.47-1.06 1.06-4.47-4.47-4.47 4.47-1.06-1.06 4.47-4.47z'/></svg>");
-$search-svg:    url("data:image/svg+xml,<svg viewBox='0 0 16 16' fill='currentColor' xmlns='http://www.w3.org/2000/svg'><path d='m11.3 10.1a5.69 5.69 0 1 0-1.22 1.22h-8.75e-4q0.0385 0.0525 0.0858 0.101l3.37 3.37a0.875 0.875 0 0 0 1.24-1.24l-3.37-3.37a0.875 0.875 0 0 0-0.101-0.0875zm0.226-3.36a4.81 4.81 0 1 1-9.62 0 4.81 4.81 0 0 1 9.62 00'/></svg>");
-
-$icon-values: ( 
-  "menu": $menu-svg,
-  "close": $close-svg,
-  "search": $search-svg,
+$backdrop-filter-values: (
+  "backdrop-blur" backdrop-filter var(--blur),
+  "backdrop-invert" backdrop-filter var(--invert),
+  "backdrop-sepia" backdrop-filter var(--sepia),
 ) !default;

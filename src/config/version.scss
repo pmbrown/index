@@ -1,11 +1,16 @@
 // ----------------------------------------------------------
-// Version, author copyright & license banner
+// Versions, author copyright & license banner
 // ----------------------------------------------------------
-$version:     '0.1.0';
-$copyright:   'Copyright (c) 2026 Phil Brown';
-$license:     'MIT license (https://github.com/pmbrown/indexcss/blob/main/LICENSE)';
-$edition:     null !default;
+$vindex:    '0.2.0';
+$vcons:     '1.0.0';
+$author:    'Phil Brown';
+$license:   'https://github.com/pmbrown/index/blob/main/LICENSE';
+$copyright: '2026';
 
-@mixin version {
-/*! index.css v#{$version}#{$edition} - #{$copyright} - #{$license} */
+@mixin index-version {
+  /*! index.css v#{$vindex} - Copyright (c) #{$copyright} #{$author} - MIT license (#{$license}) */
+}
+
+@mixin icons-version {
+  /*! icons.css v#{$vcons} - Copyright (c) #{$copyright} #{$author} - MIT license (#{$license}) */
 }

@@ -1,17 +1,6 @@
 // ------------------------------------------------------------
 // Mixins
 // ------------------------------------------------------------
-@mixin icon-utility {
-  display: inline-block;
-  content: "";
-  block-size: var(--ico-xy, 1em);
-  inline-size: var(--ico-xy, 1em);
-  vertical-align: var(--ico-va, -.16em);
-  background-color: var(--ico, CurrentColor);
-  mask: var(--svg) no-repeat;
-  opacity: var(--ico-op, 1);
-}
-
 @mixin decoration-none {
   text-decoration: none;
 }

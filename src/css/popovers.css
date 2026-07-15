@@ -1,5 +1,5 @@
 .popover,
-[class*=popover-] {
+[class*=popover-]:not(.popover-flush, .popover-flush-border) {
   color: var(--popover-fg, contrast-color(var(--popover-bg, var(--canvas))));
   block-size: var(--popover-block, fit-content);
   max-block-size: var(--popover-height, calc(100dvh - 2rem));
@@ -40,5 +40,12 @@
     
   &::backdrop {
     background-color: var(--popover-backdrop, transparent);
+  }
+}
+
+.popover-flush, .popover-flush-border {
+  padding: 0;
+  &:is(.popover-flush-border) {
+    border: none;
   }
 }

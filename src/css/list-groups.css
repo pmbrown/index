@@ -1,10 +1,9 @@
-.list-group, .list-links,
-[class*=list-group-], [class*=list-links-] {
+.list-group, .list-group-links {
   --marker: "";
   --li-ps: 0;
   --dd-ms: 0;
   --dt-fw: 600;
-  --list-group-radius-inner: calc(var(--list-group-radius, 0.188rem) - var(--list-group-bd-width, 1px));
+  --list-group-inner: calc(var(--list-group-radius, 0.188rem) - var(--list-group-bd-width, 1px));
   color: var(--list-group-fg, contrast-color(var(--list-group-bg, var(--canvas))));
   max-inline-size: var(--list-group-width);
   border: var(--list-group-bd-width, 1px) solid var(--list-group-bd-color, var(--surf-3));
@@ -23,19 +22,19 @@
     }
   }
   
-  &:is(.list-group, [class*=list-group-]):is(ol) li:before,
-  &:is(.list-links, [class*=list-links-]):is(ol) li a:before {
+  &:is(.list-group):is(ol) li:before,
+  &:is(.list-group-links):is(ol) li a:before {
     content: counter(ol-list) ". ";
     margin-inline-end: 0.25rem;
   }
   
-  &:is(.list-group, [class*=list-group-]) :is(li, dt, dd),
-  &:is(.list-links, [class*=list-links-]) dt:not(:has(a)) {
+  &:is(.list-group) :is(li, dt, dd),
+  &:is(.list-group-links) dt:not(:has(a)) {
     padding-block: var(--list-group-py, 0.5rem);
     padding-inline: var(--list-group-px, 0.75rem);
   }
   
-  &:is(.list-links, [class*=list-links-]) {
+  &:is(.list-group-links) {
     a {
       color: var(--list-links-fg, var(--link));
       text-decoration: none;
@@ -53,13 +52,18 @@
     }
     
     *:first-child a:is(:hover, :focus) {
-      border-start-start-radius: var(--list-group-radius-inner);
-      border-start-end-radius: var(--list-group-radius-inner);
+      border-start-start-radius: var(--list-group-inner);
+      border-start-end-radius: var(--list-group-inner);
     }
     
     *:last-child a:is(:hover, :focus) {
-      border-end-start-radius: var(--list-group-radius-inner);
-      border-end-end-radius: var(--list-group-radius-inner);
+      border-end-start-radius: var(--list-group-inner);
+      border-end-end-radius: var(--list-group-inner);
     }
   }
+}
+
+.list-group-flush {
+  --list-group-inner: 0;
+  border: none;
 }

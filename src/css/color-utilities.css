@@ -41,3 +41,7 @@
 .bg-black {
   --bg: #000;
 }
+
+.bg-none {
+  background: none;
+}

@@ -1,6 +1,8 @@
 // ------------------------------------------------------------
-// indexcss setup
+// Setup
 // ------------------------------------------------------------
+$root-tokens: ':where(html)' !default;
+
 // Primary colors
 $enable-colors:                     true !default; // disables all (primary colors)
 $enable-color-forms:                true !default;
@@ -10,25 +12,31 @@ $enable-color-accordions:           true !default;
 $enable-color-alerts:               true !default;
 $enable-color-badges:               true !default;
 $enable-color-cards:                true !default;
-$enable-color-dropdowns:            true !default;
 $enable-color-list-groups:          true !default;
+$enable-color-dropdowns:            true !default;
 $enable-color-dialogs:              true !default;
 $enable-color-popovers:             true !default;
+$enable-color-disclosures:          true !default;
+$enable-color-toasts:               true !default;
 $enable-color-backgrounds:          true !default;
 $enable-color-borders:              true !default;
 $enable-color-gradients:            true !default;
 
 // Custom colors
+// Tables and gradient colors use their own custom maps 
+// so are only compiled if you've added values to them.
 $enable-custom-color-forms:         true !default;
 $enable-custom-color-buttons:       true !default;
 $enable-custom-color-accordions:    true !default;
 $enable-custom-color-alerts:        true !default;
 $enable-custom-color-badges:        true !default;
 $enable-custom-color-cards:         true !default;
-$enable-custom-color-dropdowns:     true !default;
 $enable-custom-color-list-groups:   true !default;
+$enable-custom-color-dropdowns:     true !default;
 $enable-custom-color-dialogs:       true !default;
 $enable-custom-color-popovers:      true !default;
+$enable-custom-color-disclosures:   true !default;
+$enable-custom-color-toasts:        true !default;
 $enable-custom-color-backgrounds:   true !default;
 $enable-custom-color-borders:       true !default;
 
@@ -43,7 +51,6 @@ $enable-radius:                     true !default;
 $enable-gradients:                  true !default;
 $enable-shadows:                    true !default;
 $enable-opacity:                    true !default;
-$enable-icons:                      true !default;
 
 // Layouts
 $enable-containers:                 true !default;

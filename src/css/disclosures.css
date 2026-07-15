@@ -1,0 +1,79 @@
+.disclosure,
+[class*=disclosure-]:not(.disclosure-flush) {
+  --disclosure-inner: calc(var(--disclosure-radius, 0.188rem) - var(--disclosure-bd-width, 1px));
+  color: var(--disclosure-fg, contrast-color(var(--disclosure-bg, var(--canvas))));
+  margin-block-end: var(--disclosure-mb, 1rem);
+  border: var(--disclosure-bd-width, 1px) solid var(--disclosure-bd-color, var(--surf-3));
+  border-radius: var(--disclosure-radius, 0.188rem);
+  background-color: var(--disclosure-bg, var(--canvas));
+  
+  summary {
+    --svg: url("data:image/svg+xml,<svg viewBox='0 0 8 16' fill='currentColor' xmlns='http://www.w3.org/2000/svg'><path d='m4 10-4-4h8z'/></svg>");
+    --ico: var(--disclosure-fg, CurrentColor);
+    list-style-type: "";
+    position: relative;
+      
+    &:first-child {
+      padding-inline-end: 2rem;
+    }
+      
+    &:after {
+      display: inline-block;
+      content: "";
+      block-size: 1em;
+      inline-size: 0.5em;
+      background-color: var(--ico);
+      mask: var(--svg) no-repeat;
+      position: absolute;
+      inset-block-start: var(--disclosure-ico-top, 0.75rem);
+      inset-inline-end: var(--disclosure-ico-right, 1rem);
+    }
+      
+    &:focus-visible {
+      outline: none;
+      background-color: var(--disclosure-bg-focus, var(--surf-2));
+    }
+  }
+    
+  summary::-webkit-details-marker {
+    display: none;
+  }
+    
+  :is([open] summary) {
+    --svg: url("data:image/svg+xml,<svg viewBox='0 0 8 16' fill='currentColor' xmlns='http://www.w3.org/2000/svg'><path d='m4 6 4 4-8 1e-6z'/></svg>");
+    margin-block-end: 0;
+    border-block-end: var(--disclosure-bd-width, 1px) solid var(--disclosure-bd-color, var(--surf-3));
+  }
+    
+  :last-child {
+    margin-block-end: 0;
+  }
+
+  summary {
+    padding-block: var(--disclosure-py, 0.5rem);
+    padding-inline: var(--disclosure-px, 1rem);
+  }
+}
+
+.disclosure[open]::details-content,
+[class*=disclosure-][open]::details-content {
+  padding-block: var(--disclosure-py, 0.5rem);
+  padding-inline: var(--disclosure-px, 1rem);
+  background-color: var(--disclosure-content-bg, var(--disclosure-bg, var(--canvas)));
+}
+
+.disclosure-flush[open]::details-content {
+  padding: 0;
+  &:is(.disclosure-flush-border) {
+    border: none;
+  }
+}
+
+.disclosure-code[open]::details-content {
+  padding-block: 0;
+  padding-inline: 0;
+}
+
+.disclosure-code[open] pre {
+  border: none;
+}

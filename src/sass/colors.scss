@@ -5,8 +5,9 @@
 
 // Theme utilities
 @if $enable-colors {
-  @each $name, $s1, $s2, $s3, $s4, $s5 in $color-modifiers {
+  @each $name, $scheme, $s1, $s2, $s3, $s4, $s5 in $color-modifiers {
     .theme-#{$name} {
+      color-scheme: #{$scheme};
       --canvas: #{$s1};
       --surf-1: #{$s1};
       --surf-2: #{$s2};
@@ -17,8 +18,9 @@
   }
 }
 
-@each $name, $s1, $s2, $s3, $s4, $s5 in $custom-color-modifiers {
+@each $name, $scheme, $s1, $s2, $s3, $s4, $s5 in $custom-color-modifiers {
   .theme-#{$name} {
+    color-scheme: #{$scheme};
     --canvas: #{$s1};
     --surf-1: #{$s1};
     --surf-2: #{$s2};
@@ -104,8 +106,9 @@
 // Color modifiers
 @if $enable-colors {
   @if $enable-color-forms {
-    @each $name, $background, $border in $color-modifiers {
+    @each $name, $scheme, $background, $border in $color-modifiers {
       .form-#{$name} {
+        color-scheme: #{$scheme};
         --form-bg: #{$background};
         --form-bd-color: #{$border};
         --form-outline-color: #{$border};
@@ -114,8 +117,9 @@
   }
   
   @if $enable-color-buttons {
-    @each $name, $background, $hover, $border in $color-modifiers {
+    @each $name, $scheme, $background, $hover, $border in $color-modifiers {
       .btn-#{$name} {
+        color-scheme: #{$scheme};
         --btn-bg: #{$background};
         --btn-bg-hover: #{$hover};
         --btn-bd-color: #{$border};
@@ -125,8 +129,9 @@
   }
   
   @if $enable-color-tables {
-    @each $name, $background, $thead, $border in $color-tables {
+    @each $name, $scheme, $background, $thead, $border in $color-tables {
       .table-#{$name} {
+        color-scheme: #{$scheme};
         --table-bg: #{$background};
         --thead-bg: #{$thead};
         --table-bd-color: #{$border};
@@ -137,8 +142,9 @@
   }
   
   @if $enable-color-accordions {
-    @each $name, $background, $focus, $border in $color-modifiers {
+    @each $name, $scheme, $background, $focus, $border in $color-modifiers {
       .accordion-#{$name} {
+        color-scheme: #{$scheme};
         --accordion-bg: #{$background};
         --accordion-bd-color: #{$border};
         --accordion-bg-focus: #{$focus};
@@ -146,9 +152,21 @@
     }
   }
   
+  @if $enable-color-disclosures {
+    @each $name, $scheme, $background, $focus, $border in $color-modifiers {
+      .disclosure-#{$name} {
+        color-scheme: #{$scheme};
+        --disclosure-bg: #{$background};
+        --disclosure-bd-color: #{$border};
+        --disclosure-bg-focus: #{$focus};
+      }
+    }  
+  }
+  
   @if $enable-color-alerts {
-    @each $name, $background, $border in $color-modifiers {
+    @each $name, $scheme, $background, $border in $color-modifiers {
       .alert-#{$name} {
+        color-scheme: #{$scheme};
         --alert-bg: #{$background};
         --alert-bd-color: #{$border};
       }
@@ -156,8 +174,9 @@
   }
   
   @if $enable-color-badges {
-    @each $name, $background, $border in $color-modifiers {
+    @each $name, $scheme, $background, $border in $color-modifiers {
       .badge-#{$name} {
+        color-scheme: #{$scheme};
         --badge-bg: #{$background};
         --badge-bd-color: #{$border};
       }
@@ -165,19 +184,24 @@
   }
   
   @if $enable-color-cards {
-    @each $name, $background, $hover, $border in $color-modifiers {
+    @each $name, $scheme, $background, $accent, $border in $color-modifiers {
       .card-#{$name}, .card-link-#{$name} {
+        color-scheme: #{$scheme};
+        --card-links-fg: contrast-color(#{$background});
         --card-bg: #{$background};
         --card-bd-color: #{$border};
-        --card-bg-hover: #{$hover};
+        --card-header-bg: #{$accent};
+        --card-footer-bg: #{$accent};
+        --card-bg-hover: #{$accent};
         --card-outline-color: #{$border};
       }
     }
   }
   
   @if $enable-color-dropdowns {
-    @each $name, $background, $hover, $border in $color-modifiers {
+    @each $name, $scheme, $background, $hover, $border in $color-modifiers {
       .dropdown-#{$name} {
+        color-scheme: #{$scheme};
         --dropdown-links-fg: contrast-color(#{$background});
         --dropdown-bg: #{$background};
         --dropdown-bd-color: #{$border};
@@ -187,8 +211,9 @@
   }
   
   @if $enable-color-list-groups {
-    @each $name, $background, $hover, $border in $color-modifiers {
-      .list-group-#{$name}, .list-links-#{$name} {
+    @each $name, $scheme, $background, $hover, $border in $color-modifiers {
+      .list-group-#{$name} {
+        color-scheme: #{$scheme};
         --list-links-fg: contrast-color(#{$background});
         --list-group-bg: #{$background};
         --list-group-bd-color: #{$border};
@@ -198,8 +223,9 @@
   }
   
   @if $enable-color-dialogs {
-    @each $name, $background, $border in $color-modifiers {
+    @each $name, $scheme, $background, $border in $color-modifiers {
       .dialog-#{$name} {
+        color-scheme: #{$scheme};
         --dialog-bg: #{$background};
         --dialog-bd-color: #{$border};
       }
@@ -207,10 +233,22 @@
   }
   
   @if $enable-color-popovers {
-    @each $name, $background, $border in $color-modifiers {
+    @each $name, $scheme, $background, $border in $color-modifiers {
       .popover-#{$name} {
+        color-scheme: #{$scheme};
         --popover-bg: #{$background};
         --popover-bd-color: #{$border};
+      }
+    }
+  }
+  
+  @if $enable-color-toasts {
+    @each $name, $scheme, $background, $header, $border in $color-modifiers {
+      .toast-#{$name} {
+        color-scheme: #{$scheme};
+        --toast-bg: #{$background};
+        --toast-header-bg: #{$header};
+        --toast-bd-color: #{$border};
       }
     }
   }
@@ -256,8 +294,9 @@
 
 // Custom color modifiers
 @if $enable-custom-color-forms {
-  @each $name, $background, $border in $custom-color-modifiers {
+  @each $name, $scheme, $background, $border in $custom-color-modifiers {
     .form-#{$name} {
+      color-scheme: #{$scheme};
       --form-bg: #{$background};
       --form-bd-color: #{$border};
       --form-outline-color: #{$border};
@@ -266,8 +305,9 @@
 }
 
 @if $enable-custom-color-buttons {
-  @each $name, $background, $hover, $border in $custom-color-modifiers {
+  @each $name, $scheme, $background, $hover, $border in $custom-color-modifiers {
     .btn-#{$name} {
+      color-scheme: #{$scheme};
       --btn-bg: #{$background};
       --btn-bg-hover: #{$hover};
       --btn-bd-color: #{$border};
@@ -276,8 +316,9 @@
   }
 }
 
-@each $name, $background, $thead, $border in $custom-color-tables {
+@each $name, $scheme, $background, $thead, $border in $custom-color-tables {
   .table-#{$name} {
+    color-scheme: #{$scheme};
     --table-bg: #{$background};
     --thead-bg: #{$thead};
     --table-bd-color: #{$border};
@@ -287,8 +328,9 @@
 }
 
 @if $enable-custom-color-accordions {
-  @each $name, $background, $focus, $border in $custom-color-modifiers {
+  @each $name, $scheme, $background, $focus, $border in $custom-color-modifiers {
     .accordion-#{$name} {
+      color-scheme: #{$scheme};
       --accordion-bg: #{$background};
       --accordion-bd-color: #{$border};
       --accordion-bg-focus: #{$focus};
@@ -296,9 +338,21 @@
   }
 }
 
+@if $enable-custom-color-disclosures {
+  @each $name, $scheme, $background, $focus, $border in $custom-color-modifiers {
+    .disclosure-#{$name} {
+      color-scheme: #{$scheme};
+      --disclosure-bg: #{$background};
+      --disclosure-bd-color: #{$border};
+      --disclosure-bg-focus: #{$focus};
+    }
+  }  
+}
+
 @if $enable-custom-color-alerts {
-  @each $name, $background, $border in $custom-color-modifiers {
+  @each $name, $scheme, $background, $border in $custom-color-modifiers {
     .alert-#{$name} {
+      color-scheme: #{$scheme};
       --alert-bg: #{$background};
       --alert-bd-color: #{$border};
     }
@@ -306,8 +360,9 @@
 }
 
 @if $enable-custom-color-badges {
-  @each $name, $background, $border in $custom-color-modifiers {
+  @each $name, $scheme, $background, $border in $custom-color-modifiers {
     .badge-#{$name} {
+      color-scheme: #{$scheme};
       --badge-bg: #{$background};
       --badge-bd-color: #{$border};
     }
@@ -315,8 +370,9 @@
 }
 
 @if $enable-custom-color-cards {
-  @each $name, $background, $hover, $border in $custom-color-modifiers {
+  @each $name, $scheme, $background, $hover, $border in $custom-color-modifiers {
     .card-#{$name}, .card-link-#{$name} {
+      color-scheme: #{$scheme};
       --card-bg: #{$background};
       --card-bd-color: #{$border};
       --card-bg-hover: #{$hover};
@@ -326,8 +382,9 @@
 }
 
 @if $enable-custom-color-dropdowns {
-  @each $name, $background, $hover, $border in $custom-color-modifiers {
+  @each $name, $scheme, $background, $hover, $border in $custom-color-modifiers {
     .dropdown-#{$name} {
+      color-scheme: #{$scheme};
       --dropdown-links-fg: contrast-color(#{$background});
       --dropdown-bg: #{$background};
       --dropdown-bd-color: #{$border};
@@ -337,8 +394,9 @@
 }
 
 @if $enable-custom-color-list-groups {
-  @each $name, $background, $hover, $border in $custom-color-modifiers {
+  @each $name, $scheme, $background, $hover, $border in $custom-color-modifiers {
     .list-group-#{$name}, .list-links-#{$name} {
+      color-scheme: #{$scheme};
       --list-links-fg: contrast-color(#{$background});
       --list-group-bg: #{$background};
       --list-group-bd-color: #{$border};
@@ -348,8 +406,9 @@
 }
 
 @if $enable-custom-color-dialogs {
-  @each $name, $background, $border in $custom-color-modifiers {
+  @each $name, $scheme, $background, $border in $custom-color-modifiers {
     .dialog-#{$name} {
+      color-scheme: #{$scheme};
       --dialog-bg: #{$background};
       --dialog-bd-color: #{$border};
     }
@@ -357,10 +416,22 @@
 }
 
 @if $enable-custom-color-popovers {
-  @each $name, $background, $border in $custom-color-modifiers {
+  @each $name, $scheme, $background, $border in $custom-color-modifiers {
     .popover-#{$name} {
+      color-scheme: #{$scheme};
       --popover-bg: #{$background};
       --popover-bd-color: #{$border};
+    }
+  }
+}
+
+@if $enable-custom-color-toasts {
+  @each $name, $scheme, $background, $header, $border in $custom-color-modifiers {
+    .toast-#{$name} {
+      color-scheme: #{$scheme};
+      --toast-bg: #{$background};
+      --toast-header-bg: #{$header};
+      --toast-bd-color: #{$border};
     }
   }
 }

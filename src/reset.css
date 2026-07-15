@@ -28,7 +28,7 @@
   overflow-wrap: break-word;
   
   &:visited {
-    color: var(--link-visited, revert);
+    color: var(--link-visited, var(--link, revert));
   }
   
   &:focus-visible {
@@ -37,7 +37,7 @@
   }
   
   &:is(:hover, :focus) {
-    color: var(--link-hover, revert);
+    color: var(--link-hover, color-mix(var(--link, revert) 75%, #fff));
     text-decoration: var(--link-hover-decoration, none);
   }
 }
@@ -54,29 +54,30 @@
 }
 
 :where(h1) {
-  font-size: var(--h1-fs);
+  font-size: var(--h1-fs, var(--fs-10));
 }
 
 :where(h2) {
-  font-size: var(--h2-fs);
+  font-size: var(--h2-fs, var(--fs-9));
 }
 
 :where(h3) {
-  font-size: var(--h3-fs);
+  font-size: var(--h3-fs, var(--fs-8));
 }
 
 :where(h4) {
-  font-size: var(--h4-fs);
+  font-size: var(--h4-fs, var(--fs-7));
 }
 
 :where(h5) {
-  font-size: var(--h5-fs);
+  font-size: var(--h5-fs, var(--fs-6));
 }
 
 :where(h6) {
   --heading-lh: 1.25;
-  font-size: var(--h6-fs);
+  font-size: var(--h6-fs, var(--fs-3));
 }
+
 
 :where(p) {
   font-size: var(--para-fs, inherit);
@@ -89,11 +90,11 @@
 }
 
 :where(small) {
-  font-size: var(--sml-fs);
+  font-size: var(--sml-fs, 0.875em);
 }
 
 :where(h1, h2, h3, h4, h5, h6) small {
-  font-size: var(--sml-fs-heading);
+  font-size: var(--sml-fs-heading, 0.75em);
 }
 
 :where(ol, ul, dl) {
@@ -171,7 +172,7 @@
   padding: var(--pre-pad, 1rem);
   margin-block-end: var(--pre-mb, 1rem);
   border: var(--pre-bd-width, 1px) solid var(--pre-bd-color, var(--surf-3));
-  background-color: var(--pre-bg, var(--surf-1));
+  background-color: var(--pre-bg, var(--canvas));
 
   &:focus-visible {
     outline: 1px solid var(--pre-bd-color, var(--surf-3));

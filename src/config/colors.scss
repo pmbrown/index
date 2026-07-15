@@ -1,5 +1,5 @@
 // ------------------------------------------------------------
-// indexcss colors
+// Colors
 // ------------------------------------------------------------
 $blue:              oklch(50% 0.25 250) !default;
 $green:             oklch(50% 0.22 160) !default;
@@ -38,24 +38,24 @@ $color-tokens: (
   "gray": $gray,
 ) !default;
 
-// "name" | bg-base | bg-accent | border | lighter | darker
+// "name" | color-scheme | bg-base | bg-accent | border | lighter | darker
 $color-modifiers: (
-  "blue" var(--blue-5) var(--blue-6) var(--blue-4) var(--blue-3) var(--blue-7),
-  "green" var(--green-5) var(--green-6) var(--green-4) var(--green-3) var(--green-7),   
-  "red" var(--red-5) var(--red-6) var(--red-4) var(--red-3) var(--red-7),
-  "cyan" var(--cyan-5) var(--cyan-4) var(--cyan-6) var(--cyan-3) var(--cyan-7),
-  "yellow" var(--yellow-5) var(--yellow-4) var(--yellow-6) var(--yellow-3) var(--yellow-7),
-  "gray" var(--gray-5) var(--gray-4) var(--gray-6) var(--gray-3) var(--gray-7),
+  "blue" dark var(--blue-5) var(--blue-6) var(--blue-4) var(--blue-3) var(--blue-7),
+  "green" dark var(--green-5) var(--green-6) var(--green-4) var(--green-3) var(--green-7),   
+  "red" dark var(--red-5) var(--red-6) var(--red-4) var(--red-3) var(--red-7),
+  "cyan" light var(--cyan-5) var(--cyan-4) var(--cyan-6) var(--cyan-3) var(--cyan-7),
+  "yellow" light var(--yellow-5) var(--yellow-4) var(--yellow-6) var(--yellow-3) var(--yellow-7),
+  "gray" light var(--gray-5) var(--gray-4) var(--gray-6) var(--gray-3) var(--gray-7),
 ) !default;
 
-// "name" | bg-base | bg-thead | border
+// "name" | color-scheme | bg-base | bg-thead | border
 $color-tables: (
-  "blue" var(--blue-5) var(--blue-6) var(--blue-4),
-  "green" var(--green-5) var(--green-6) var(--green-4), 
-  "red" var(--red-5) var(--red-6) var(--red-4),
-  "cyan" var(--cyan-4) var(--cyan-5) var(--cyan-6),
-  "yellow" var(--yellow-4) var(--yellow-5) var(--yellow-6),
-  "gray" var(--gray-4) var(--gray-5) var(--gray-6),
+  "blue" dark var(--blue-5) var(--blue-6) var(--blue-4),
+  "green" dark var(--green-5) var(--green-6) var(--green-4), 
+  "red" dark var(--red-5) var(--red-6) var(--red-4),
+  "cyan" light var(--cyan-4) var(--cyan-5) var(--cyan-6),
+  "yellow" light var(--yellow-4) var(--yellow-5) var(--yellow-6),
+  "gray" light var(--gray-4) var(--gray-5) var(--gray-6),
 ) !default;
 
 $blue-gradient:     linear-gradient(180deg, var(--blue-4), var(--blue-5), var(--blue-6)) !default;

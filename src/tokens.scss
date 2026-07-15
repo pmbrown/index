@@ -2,12 +2,16 @@
 // indexcss tokens
 // ------------------------------------------------------------
 @use "config" as *;
-@include version;
+@include index-version;
 
 #{$root-tokens} {
-  @each $name, $value in $theme-tokens {
+  @each $name, $value in $reset-tokens {
     --#{$name}: #{$value};
   }
+  
+  @each $name, $value in $font-sizes {
+    --fs-#{$name}: #{$value};
+  }  
 
   @each $name, $value in $surface-colors {
     --#{$name}: #{$value};
@@ -55,12 +59,6 @@
   
   @each $name, $color, $value in $custom-color-gradients {
     --#{$name}-gradient: #{$value};
-  }
-  
-  @if $enable-font-sizes {
-    @each $name, $value in $font-sizes {
-      --fs-#{$name}: #{$value};
-    }  
   }
 
   @if $enable-gradients {

@@ -1,0 +1,64 @@
+.toast,
+[class*=toast-]:not(.toast-header, .toast-body, .toast-footer) {
+  --toast-inner: calc(var(--toast-radius, 0.188rem) - var(--toast-bd-width, 1px));
+  color: var(--toast-fg, contrast-color(var(--toast-bg, var(--canvas))));
+  position: relative;
+  margin: initial;
+  margin-block-end: var(--toast-mb, 1rem);  
+  inline-size: var(--toast-width, 350px);
+  max-inline-size: 100%;
+  margin-block-end: var(--toast-mb, 1rem);
+  padding: 0;
+  border: var(--toast-bd-width, 1px) solid var(--toast-bd-color, var(--surf-3));
+  border-radius: var(--toast-radius, 0.188rem);
+  background-color: var(--toast-bg, var(--canvas));
+  z-index: 400;
+  
+  .toast-header, .toast-body {
+    padding-block: var(--toast-py, 0.5rem);
+    padding-inline: var(--toast-px, 1rem);
+  }
+  
+  .toast-header {
+    display: flex;
+    align-items: center;
+    column-gap: 0.75rem;
+    border-block-end: var(--toast-bd-width, 1px) solid var(--toast-bd-color, var(--surf-3));
+    border-start-start-radius: var(--toast-inner);
+    border-start-end-radius: var(--toast-inner);
+    background-color: var(--toast-header-bg, var(--surf-1));
+    
+    small {
+      margin-inline-start: auto;
+    }
+    
+    button:not(small + button) {
+      margin-inline-start: auto;
+    }
+  }
+  
+  .toast-body *:last-child {
+    margin-block-end: 0;
+  }
+  
+  .close-toast {
+    --svg: url("data:image/svg+xml,<svg viewBox='0 0 16 16' fill='currentColor' xmlns='http://www.w3.org/2000/svg'><path d='m2.47 3.53 1.06-1.06 4.47 4.47 4.47-4.47 1.06 1.06-4.47 4.47 4.47 4.47-1.06 1.06-4.47-4.47-4.47 4.47-1.06-1.06 4.47-4.47z'/></svg>");
+    --btn-py: 0.15rem;
+    --btn-px: 0.375rem;
+    --btn-bg: var(--toast-bg, var(--surf-1));
+    --btn-bg-hover: var(--toast-header-bg, var(--canvas));
+    --btn-bd-color: var(--toast-bd-color, var(--surf-3));
+    --btn-outline-color: var(--toast-bd-color, var(--surf-3));
+    --btn-fs: 0.75rem;
+    
+    &:before {
+      display: inline-block;
+      content: "";
+      block-size: var(--ico-xy, 1em);
+      inline-size: var(--ico-xy, 1em);  
+      vertical-align: var(--ico-va, -.115em);
+      background-color: var(--ico, CurrentColor);
+      mask: var(--svg) no-repeat;
+    }
+  }
+}

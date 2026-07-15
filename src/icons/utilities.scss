@@ -1,0 +1,195 @@
+// ----------------------------------------------------------
+// Icon utilities
+// ----------------------------------------------------------
+@use "config" as *;
+
+@if $enable-custom-icon-classes or $enable-default-icon-classes {
+  @if $enable-default-icon-tokens or $enable-custom-icon-tokens {}
+  @else {
+    @include icons-version;
+  }
+}
+
+@if $enable-custom-icon-classes or $enable-default-icon-classes or $enable-default-icon-tokens or $enable-custom-icon-tokens {}
+@else {
+  @include icons-version;
+}
+
+:is(.ico, .ico-b, .ico-block, .ico-block-center, .ico-btn):before, .ico-a:after {
+  @include icon-mask;
+}
+
+%icon-mask {
+  @include icon-mask;
+}
+
+.ico-b:before {
+  margin-inline-end: var(--ico-me, 0.25em);
+}
+
+.ico-a:after {
+  margin-inline-start: var(--ico-ms, 0.25em);
+}
+
+.ico-block:before, .ico-block-center:before {
+  --ico-va: initial;
+  display: block;
+  margin-block-end: var(--ico-mb);
+}
+
+.ico-block-center:before {
+  margin-inline: auto;
+}
+
+.ico-btn {
+  --btn-px: 0.66em;
+}
+
+// ----------------------------------------------------------
+// Icon classes
+// ----------------------------------------------------------
+@if $enable-custom-icon-classes {
+  @each $name, $value in $custom-icons {
+    @if $enable-custom-icon-tokens {
+      .#{$name}-ico {
+        --svg: var(--#{$name}-ico);
+      }
+    }
+    @else {
+      .#{$name}-ico {
+        --svg: #{$value};
+      }
+    }
+  }
+}
+
+@if $enable-default-icon-classes {
+  @if $enable-basic-icon-classes {
+    @each $name, $value in $basic-icons {
+      @if $enable-default-icon-tokens and $enable-basic-icon-tokens {
+        .#{$name}-ico {
+          --svg: var(--#{$name}-ico);
+        }
+      }
+      @else {
+        .#{$name}-ico {
+          --svg: #{$value};
+        }
+      }
+    }
+  }
+
+  @if $enable-scheme-icon-classes {
+    @each $name, $value in $scheme-icons {
+      @if $enable-default-icon-tokens and $enable-scheme-icon-tokens {
+        .#{$name}-ico {
+          --svg: var(--#{$name}-ico);
+        }
+      }
+      @else {
+        .#{$name}-ico {
+          --svg: #{$value};
+        }
+      }
+    }
+  }
+
+  @if $enable-extended-icon-classes {
+    @each $name, $value in $extended-icons {
+      @if $enable-default-icon-tokens and $enable-extended-icon-tokens {
+        .#{$name}-ico {
+          --svg: var(--#{$name}-ico);
+        }
+      }
+      @else {
+        .#{$name}-ico {
+          --svg: #{$value};
+        }
+      }
+    }
+  }
+
+  @if $enable-caret-icon-classes {
+    @each $name, $value in $caret-icons {
+      @if $enable-default-icon-tokens and $enable-caret-icon-tokens {
+        .#{$name}-ico {
+          --svg: var(--#{$name}-ico);
+        }
+      }
+      @else {
+        .#{$name}-ico {
+          --svg: #{$value};
+        }
+      }
+    }
+  }
+
+  @if $enable-boxes-icon-classes {
+    @each $name, $value in $box-icons {
+      @if $enable-default-icon-tokens and $enable-boxes-icon-tokens {
+        .#{$name}-ico {
+          --svg: var(--#{$name}-ico);
+        }
+      }
+      @else {
+        .#{$name}-ico {
+          --svg: #{$value};
+        }
+      }
+    }
+  }
+
+  @if $enable-circles-icon-classes {
+    @each $name, $value in $circle-icons {
+      @if $enable-default-icon-tokens and $enable-circles-icon-tokens {
+        .#{$name}-ico {
+          --svg: var(--#{$name}-ico);
+        }
+      }
+      @else {
+        .#{$name}-ico {
+          --svg: #{$value};
+        }
+      }
+    }
+  }
+
+  @if $enable-social-icon-classes {
+    @each $name, $value in $social-icons {
+      @if $enable-default-icon-tokens and $enable-social-icon-tokens {
+        .#{$name}-ico {
+          --svg: var(--#{$name}-ico);
+        }
+      }
+      @else {
+        .#{$name}-ico {
+          --svg: #{$value};
+        }
+      }
+    }
+  }
+
+  @if $enable-developer-icon-classes {
+    @each $name, $value in $developer-icons {
+      @if $enable-default-icon-tokens and $enable-developer-icon-tokens {
+        .#{$name}-ico {
+          --svg: var(--#{$name}-ico);
+        }
+      }
+      @else {
+        .#{$name}-ico {
+          --svg: #{$value};
+        }
+      }
+    }
+  }
+}
+
+// ----------------------------------------------------------
+// Icon color utilities
+// ----------------------------------------------------------
+@each $name, $value in $icon-colors {
+  .ico-#{$name} {
+    --ico: #{$value};
+  }
+}
