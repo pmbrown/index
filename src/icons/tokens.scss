@@ -10,56 +10,56 @@
 #{$root-tokens} {
   @if $enable-custom-icon-tokens {
     @each $name, $value in $custom-icons {
-      --#{$name}-ico: #{$value};
+      --ico-#{$name}: #{$value};
     }
   }
 
   @if $enable-default-icon-tokens {
     @if $enable-basic-icon-tokens {
       @each $name, $value in $basic-icons {
-        --#{$name}-ico: #{$value};
+        --ico-#{$name}: #{$value};
       }
     }
 
     @if $enable-scheme-icon-tokens {
       @each $name, $value in $scheme-icons {
-        --#{$name}-ico: #{$value};
+        --ico-#{$name}: #{$value};
       }
     }
 
     @if $enable-extended-icon-tokens {
       @each $name, $value in $extended-icons {
-        --#{$name}-ico: #{$value};
+        --ico-#{$name}: #{$value};
       }
     }
 
     @if $enable-caret-icon-tokens {
       @each $name, $value in $caret-icons {
-        --#{$name}-ico: #{$value};
+        --ico-#{$name}: #{$value};
       }
     }
 
     @if $enable-boxes-icon-tokens {
       @each $name, $value in $box-icons {
-        --#{$name}-ico: #{$value};
+        --ico-#{$name}: #{$value};
       }
     }
 
     @if $enable-circles-icon-tokens {
       @each $name, $value in $circle-icons {
-        --#{$name}-ico: #{$value};
+        --ico-#{$name}: #{$value};
       }
     }
 
     @if $enable-social-icon-tokens {
       @each $name, $value in $social-icons {
-        --#{$name}-ico: #{$value};
+        --ico-#{$name}: #{$value};
       }
     }
 
     @if $enable-developer-icon-tokens {
       @each $name, $value in $developer-icons {
-        --#{$name}-ico: #{$value};
+        --ico-#{$name}: #{$value};
       }
     }
   }

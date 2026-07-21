@@ -11,8 +11,12 @@
   
   @each $name, $value in $font-sizes {
     --fs-#{$name}: #{$value};
-  }  
-
+  }
+  
+  @each $name, $value in $line-heights {
+    --#{$name}: #{$value};
+  }
+  
   @each $name, $value in $surface-colors {
     --#{$name}: #{$value};
   }

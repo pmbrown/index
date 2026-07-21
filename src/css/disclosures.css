@@ -8,8 +8,6 @@
   background-color: var(--disclosure-bg, var(--canvas));
   
   summary {
-    --svg: url("data:image/svg+xml,<svg viewBox='0 0 8 16' fill='currentColor' xmlns='http://www.w3.org/2000/svg'><path d='m4 10-4-4h8z'/></svg>");
-    --ico: var(--disclosure-fg, CurrentColor);
     list-style-type: "";
     position: relative;
       
@@ -18,6 +16,8 @@
     }
       
     &:after {
+      --svg: url("data:image/svg+xml,<svg viewBox='0 0 8 16' fill='currentColor' xmlns='http://www.w3.org/2000/svg'><path d='m4 10-4-4h8z'/></svg>");
+      --ico: var(--disclosure-fg, CurrentColor);
       display: inline-block;
       content: "";
       block-size: 1em;
@@ -40,9 +40,11 @@
   }
     
   :is([open] summary) {
-    --svg: url("data:image/svg+xml,<svg viewBox='0 0 8 16' fill='currentColor' xmlns='http://www.w3.org/2000/svg'><path d='m4 6 4 4-8 1e-6z'/></svg>");
     margin-block-end: 0;
     border-block-end: var(--disclosure-bd-width, 1px) solid var(--disclosure-bd-color, var(--surf-3));
+    &:after {
+      --svg: url("data:image/svg+xml,<svg viewBox='0 0 8 16' fill='currentColor' xmlns='http://www.w3.org/2000/svg'><path d='m4 6 4 4-8 1e-6z'/></svg>");    
+    }
   }
     
   :last-child {

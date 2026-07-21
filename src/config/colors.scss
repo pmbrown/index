@@ -8,10 +8,7 @@ $cyan:              oklch(82% 0.18 185) !default;
 $yellow:            oklch(92% 0.20 99) !default;
 $gray:              oklch(80% 0.02 245) !default;
 
-// Change formula to suit default color values
 $color-mix:         lab !default;
-
-// Change values to suit lighten and darken maps
 $middle-token:      5 !default;
 $color-utilities:   9 !default;
 
@@ -38,6 +35,9 @@ $color-tokens: (
   "gray": $gray,
 ) !default;
 
+$custom-color-tokens: () !default; // see $color-tokens map
+
+// Color modifiers
 // "name" | color-scheme | bg-base | bg-accent | border | lighter | darker
 $color-modifiers: (
   "blue" dark var(--blue-5) var(--blue-6) var(--blue-4) var(--blue-3) var(--blue-7),
@@ -47,6 +47,8 @@ $color-modifiers: (
   "yellow" light var(--yellow-5) var(--yellow-4) var(--yellow-6) var(--yellow-3) var(--yellow-7),
   "gray" light var(--gray-5) var(--gray-4) var(--gray-6) var(--gray-3) var(--gray-7),
 ) !default;
+
+$custom-color-modifiers: () !default;
 
 // "name" | color-scheme | bg-base | bg-thead | border
 $color-tables: (
@@ -58,6 +60,9 @@ $color-tables: (
   "gray" light var(--gray-4) var(--gray-5) var(--gray-6),
 ) !default;
 
+$custom-color-tables: () !default;
+
+// Color gradients
 $blue-gradient:     linear-gradient(180deg, var(--blue-4), var(--blue-5), var(--blue-6)) !default;
 $green-gradient:    linear-gradient(180deg, var(--green-4), var(--green-5), var(--green-6)) !default;
 $red-gradient:      linear-gradient(180deg, var(--red-4), var(--red-5), var(--red-6)) !default;
@@ -74,8 +79,4 @@ $color-gradients: (
   "gray" #000 $gray-gradient,
 ) !default;
 
-// Custom colors - include with overrides
-$custom-color-tokens: () !default; // Replicate $color-tokens map
-$custom-color-modifiers: () !default; // Replicate $color-modifiers map
-$custom-color-tables: () !default; // Replicate $color-tables map
-$custom-color-gradients: () !default; // Replicate $color-gradients map
+$custom-color-gradients: () !default;

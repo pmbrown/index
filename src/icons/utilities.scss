@@ -51,12 +51,12 @@
 @if $enable-custom-icon-classes {
   @each $name, $value in $custom-icons {
     @if $enable-custom-icon-tokens {
-      .#{$name}-ico {
-        --svg: var(--#{$name}-ico);
+      .ico-#{$name} {
+        --svg: var(--ico-#{$name});
       }
     }
     @else {
-      .#{$name}-ico {
+      .ico-#{$name} {
         --svg: #{$value};
       }
     }
@@ -67,12 +67,12 @@
   @if $enable-basic-icon-classes {
     @each $name, $value in $basic-icons {
       @if $enable-default-icon-tokens and $enable-basic-icon-tokens {
-        .#{$name}-ico {
-          --svg: var(--#{$name}-ico);
+        .ico-#{$name} {
+          --svg: var(--ico-#{$name});
         }
       }
       @else {
-        .#{$name}-ico {
+        .ico-#{$name} {
           --svg: #{$value};
         }
       }
@@ -82,12 +82,12 @@
   @if $enable-scheme-icon-classes {
     @each $name, $value in $scheme-icons {
       @if $enable-default-icon-tokens and $enable-scheme-icon-tokens {
-        .#{$name}-ico {
-          --svg: var(--#{$name}-ico);
+        .ico-#{$name} {
+          --svg: var(--ico-#{$name});
         }
       }
       @else {
-        .#{$name}-ico {
+        .ico-#{$name} {
           --svg: #{$value};
         }
       }
@@ -97,12 +97,12 @@
   @if $enable-extended-icon-classes {
     @each $name, $value in $extended-icons {
       @if $enable-default-icon-tokens and $enable-extended-icon-tokens {
-        .#{$name}-ico {
-          --svg: var(--#{$name}-ico);
+        .ico-#{$name} {
+          --svg: var(--ico-#{$name});
         }
       }
       @else {
-        .#{$name}-ico {
+        .ico-#{$name} {
           --svg: #{$value};
         }
       }
@@ -112,12 +112,12 @@
   @if $enable-caret-icon-classes {
     @each $name, $value in $caret-icons {
       @if $enable-default-icon-tokens and $enable-caret-icon-tokens {
-        .#{$name}-ico {
-          --svg: var(--#{$name}-ico);
+        .ico-#{$name} {
+          --svg: var(--ico-#{$name});
         }
       }
       @else {
-        .#{$name}-ico {
+        .ico-#{$name} {
           --svg: #{$value};
         }
       }
@@ -127,12 +127,12 @@
   @if $enable-boxes-icon-classes {
     @each $name, $value in $box-icons {
       @if $enable-default-icon-tokens and $enable-boxes-icon-tokens {
-        .#{$name}-ico {
-          --svg: var(--#{$name}-ico);
+        .ico-#{$name} {
+          --svg: var(--ico-#{$name});
         }
       }
       @else {
-        .#{$name}-ico {
+        .ico-#{$name} {
           --svg: #{$value};
         }
       }
@@ -142,12 +142,12 @@
   @if $enable-circles-icon-classes {
     @each $name, $value in $circle-icons {
       @if $enable-default-icon-tokens and $enable-circles-icon-tokens {
-        .#{$name}-ico {
-          --svg: var(--#{$name}-ico);
+        .ico-#{$name} {
+          --svg: var(--ico-#{$name});
         }
       }
       @else {
-        .#{$name}-ico {
+        .ico-#{$name} {
           --svg: #{$value};
         }
       }
@@ -157,12 +157,12 @@
   @if $enable-social-icon-classes {
     @each $name, $value in $social-icons {
       @if $enable-default-icon-tokens and $enable-social-icon-tokens {
-        .#{$name}-ico {
-          --svg: var(--#{$name}-ico);
+        .ico-#{$name} {
+          --svg: var(--ico-#{$name});
         }
       }
       @else {
-        .#{$name}-ico {
+        .ico-#{$name} {
           --svg: #{$value};
         }
       }
@@ -172,12 +172,12 @@
   @if $enable-developer-icon-classes {
     @each $name, $value in $developer-icons {
       @if $enable-default-icon-tokens and $enable-developer-icon-tokens {
-        .#{$name}-ico {
-          --svg: var(--#{$name}-ico);
+        .ico-#{$name} {
+          --svg: var(--ico-#{$name});
         }
       }
       @else {
-        .#{$name}-ico {
+        .ico-#{$name} {
           --svg: #{$value};
         }
       }

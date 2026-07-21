@@ -9,15 +9,14 @@
 :where(html) {
   color-scheme: light dark;
   color: var(--text);
-  font-size: var(--html-fs);
   block-size: 100%;
   background-color: var(--canvas);
 }
 
 :where(body) {
-  font-family: var(--font-family);
-  font-size: var(--body-fs);
-  line-height: var(--body-lh);
+  font-family: var(--font);
+  font-size: var(--body-fs, var(--fs-3));
+  line-height: var(--body-lh, var(--lh-3));
 }
 
 :where(a) {
@@ -48,7 +47,7 @@
 
 :where(h1, h2, h3, h4, h5, h6) {
   font-weight: var(--heading-fw, bold);
-  line-height: var(--heading-lh, 1.2);
+  line-height: var(--heading-lh, var(--lh-1));
   text-wrap: var(--heading-tw, pretty);
   margin-block-end: var(--heading-mb, 0.85rem);
 }
@@ -74,8 +73,8 @@
 }
 
 :where(h6) {
-  --heading-lh: 1.25;
-  font-size: var(--h6-fs, var(--fs-3));
+  --heading-lh: var(--lh-2);
+  font-size: var(--h6-fs, var(--fs-4));
 }
 
 

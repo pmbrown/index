@@ -42,6 +42,12 @@
   }
 }
 
+@each $name, $value in $line-heights {
+  .#{$name} {
+    line-height: #{$value};
+  }
+}
+
 @if $enable-font-weights {
   @each $name, $value in $font-weights {
     .fw-#{$name} {
@@ -153,7 +159,7 @@
   
   @for $value from 1 through $backdrop-blur-values {
     .backdrop-blur-#{$value} {
-      backdrop-filter: #{$value};
+      backdrop-filter: blur(#{$value}px);
     }
   }
   

@@ -8,13 +8,11 @@
 
 [class*=fg-], [class*=fg-] * {
   --link: var(--fg);
-  --link-visited: var(--fg);
-  --link-hover: var(--fg);
   color: var(--fg);
 }
 
 .fg-text, .fg-text * {
-  --fg: CanvasText;
+  --fg: var(--text);
 }
 
 .fg-white, .fg-white * {
@@ -43,5 +41,6 @@
 }
 
 .bg-none {
+  --fg: var(--text);
   background: none;
 }

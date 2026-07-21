@@ -1,77 +1,14 @@
 // ------------------------------------------------------------
 // Utilities
 // ------------------------------------------------------------
-// Text
-$font-size-1:       0.75rem !default;
-$font-size-2:       0.875rem !default;;
-$font-size-3:       1rem !default;
-$font-size-4:       1.063rem !default;
-$font-size-5:       1.125rem !default;
-$font-size-6:       1.25rem !default;
-$font-size-7:       1.375rem !default;
-$font-size-8:       1.575rem !default;
-$font-size-9:       1.8rem !default;
-$font-size-10:      2.125rem !default;
-$font-size-11:      2.5rem !default;
-$font-size-12:      3rem !default;
+@use "resets" as *;
 
-$font-sizes: (
-  "1": $font-size-1,
-  "2": $font-size-2,
-  "3": $font-size-3,
-  "4": $font-size-4,
-  "5": $font-size-5,
-  "6": $font-size-6,
-  "7": $font-size-7,
-  "8": $font-size-8,
-  "9": $font-size-9,
-  "10": $font-size-10,
-  "11": $font-size-11,
-  "12": $font-size-12,
-) !default;
-
-$font-weights: (
-  "normal": normal,
-  "lighter": lighter,
-  "bold": bold, 
-  "semibold": 600,
-  "heavy": 800,
-) !default;
-
-$text-align-wrap: (
-  "text-center" text-align center,
-  "text-left" text-align left,
-  "text-right" text-align right,
-  "text-balance" text-wrap balance,
-  "text-pretty" text-wrap pretty,
-) !default;
-
-$text-styles: (
-  "text-caps" text-transform capitalize,
-  "text-uppercase" text-transform uppercase,
-  "text-lowercase" text-transform lowercase,
-  "font-smallcaps" font-variant small-caps,
-  "font-tabular-nums" font-variant tabular-nums,
-  "font-slashed-zero" font-variant slashed-zero,
-  "font-common-lig" font-variant common-ligatures,
-  "font-no-common-lig" font-variant no-common-ligatures,
-) !default;
-
-$variable-text-utilities: (
-  "font-family" font-family var(--ff),
-  "font-size" font-size var(--fs),
-  "font-weight" font-weight var(--fw),
-  "line-height" line-height var(--lh),
-  "letter-space" letter-spacing var(--ls),
-  "word-space" word-spacing var(--ws),
-) !default;
-
-// Button sizes
+// Buttons
 $button-sizes: (
   "xs" $font-size-1 0.25rem 0.65rem,
   "sm" $font-size-2 0.25rem 0.75rem,
-  "lg" $font-size-6 0.35rem 0.95rem,
-  "xl" $font-size-7 0.5rem 1.125rem,
+  "lg" $font-size-5 0.35rem 0.95rem,
+  "xl" $font-size-6 0.375rem 1.125rem,
 ) !default;
 
 // Gradients
@@ -150,6 +87,43 @@ $radius-props: (
   "b" border-end-start-radius border-end-end-radius,
   "s" border-start-start-radius border-end-start-radius,
   "e" border-start-end-radius border-end-end-radius,
+) !default;
+
+// Fonts and texts
+$font-weights: (
+  "normal": normal,
+  "lighter": lighter,
+  "bold": bold, 
+  "semibold": 600,
+  "heavy": 800,
+) !default;
+
+$text-align-wrap: (
+  "text-center" text-align center,
+  "text-left" text-align left,
+  "text-right" text-align right,
+  "text-balance" text-wrap balance,
+  "text-pretty" text-wrap pretty,
+) !default;
+
+$text-styles: (
+  "text-caps" text-transform capitalize,
+  "text-uppercase" text-transform uppercase,
+  "text-lowercase" text-transform lowercase,
+  "font-smallcaps" font-variant small-caps,
+  "font-tabular-nums" font-variant tabular-nums,
+  "font-slashed-zero" font-variant slashed-zero,
+  "font-common-lig" font-variant common-ligatures,
+  "font-no-common-lig" font-variant no-common-ligatures,
+) !default;
+
+$variable-text-utilities: (
+  "font-family" font-family var(--ff),
+  "font-size" font-size var(--fs),
+  "font-weight" font-weight var(--fw),
+  "line-height" line-height var(--lh),
+  "letter-space" letter-spacing var(--ls),
+  "word-space" word-spacing var(--ws),
 ) !default;
 
 // Opacity
