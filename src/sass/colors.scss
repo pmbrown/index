@@ -48,6 +48,30 @@
   --surf-5: #{$theme-surface-5};
 }
 
+.light {
+  color-scheme: light;
+}
+  
+.dark {
+  color-scheme: dark;
+}
+
+[class*=fg-] {
+  --link: var(--fg);
+  color: var(--fg);
+}
+
+[class*=bg-] {
+  color: var(--fg, contrast-color(var(--bg)));
+  background-color: var(--bg);
+}
+
+@each $name, $prop, $value in $color-classes {
+  .#{$name} {
+    #{$prop}: #{$value};
+  }
+}
+
 @each $name, $color in $surface-colors {
   .bg-#{$name} {
     color: contrast-color(var(--#{$name}));

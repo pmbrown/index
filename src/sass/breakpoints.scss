@@ -29,6 +29,14 @@
         }
       }
       
+      @if $enable-line-heights-breakpoints {
+        @each $name, $value in $line-heights {
+          .#{$name}-#{$breakpoint} {
+            line-height: #{$value};
+          }
+        }
+      }
+      
       @if $enable-font-weights-breakpoints {
         @each $name, $value in $font-weights {
           .fw-#{$name}-#{$breakpoint} {

@@ -1,5 +1,5 @@
 // ------------------------------------------------------------
-// Setup
+// Defaults
 // ------------------------------------------------------------
 $root-tokens: ':where(html)' !default;
 
@@ -23,8 +23,6 @@ $enable-color-borders:              true !default;
 $enable-color-gradients:            true !default;
 
 // Custom colors
-// Tables and gradient colors use their own custom maps 
-// so are only compiled values are added to them.
 $enable-custom-color-forms:         true !default;
 $enable-custom-color-buttons:       true !default;
 $enable-custom-color-accordions:    true !default;
@@ -43,6 +41,7 @@ $enable-custom-color-borders:       true !default;
 // Utilities
 $enable-font-sizes:                 true !default;
 $enable-font-weights:               true !default;
+$enable-line-heights:               true !default;
 $enable-text-align:                 true !default;
 $enable-text-styles:                true !default;
 $enable-text-variables:             true !default;
@@ -73,6 +72,7 @@ $enable-deco-none-breakpoints:      false !default;
 $enable-vis-hidden-breakpoints:     false !default;
 $enable-font-sizes-breakpoints:     false !default;
 $enable-font-weights-breakpoints:   false !default;
+$enable-line-heights-breakpoints:   false !default;
 $enable-text-align-breakpoints:     false !default;
 $enable-text-styles-breakpoints:    false !default;
 $enable-borders-breakpoints:        false !default;

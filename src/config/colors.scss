@@ -35,9 +35,9 @@ $color-tokens: (
   "gray": $gray,
 ) !default;
 
-$custom-color-tokens: () !default; // see $color-tokens map
+$custom-color-tokens: () !default;
 
-// Color modifiers
+// Shared color modifiers (forms, buttons, components, etc.)
 // "name" | color-scheme | bg-base | bg-accent | border | lighter | darker
 $color-modifiers: (
   "blue" dark var(--blue-5) var(--blue-6) var(--blue-4) var(--blue-3) var(--blue-7),
@@ -50,6 +50,7 @@ $color-modifiers: (
 
 $custom-color-modifiers: () !default;
 
+// Table color modifiers
 // "name" | color-scheme | bg-base | bg-thead | border
 $color-tables: (
   "blue" dark var(--blue-5) var(--blue-6) var(--blue-4),
@@ -80,3 +81,12 @@ $color-gradients: (
 ) !default;
 
 $custom-color-gradients: () !default;
+
+$color-classes: (
+  "fg-text" --fg var(--text),
+  "fg-white" --fg #fff,
+  "fg-black" --fg #000,
+  "bg-page" --bg var(--canvas),
+  "bg-white" --bg #fff,
+  "bg-black" --bg #000,
+) !default;

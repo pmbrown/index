@@ -4,6 +4,14 @@
 @use "../config" as *;
 @use "mixins" as *;
 
+.decoration-none, .decoration-none-group * {
+  @include decoration-none;
+}
+
+.vis-hidden, .vis-hidden-focus:not(:focus):not(:focus-within) {
+  @include vis-hidden;
+}
+
 // Buttons
 @each $name, $size, $py, $px in $button-sizes {
   .btn-#{$name} {
@@ -26,14 +34,6 @@
 }
 
 // Text
-.decoration-none, .decoration-none-group * {
-  @include decoration-none;
-}
-
-.vis-hidden, .vis-hidden-focus:not(:focus):not(:focus-within) {
-  @include vis-hidden;
-}
-
 @if $enable-font-sizes {
   @each $name, $value in $font-sizes {
     .fs-#{$name} {
@@ -42,9 +42,11 @@
   }
 }
 
-@each $name, $value in $line-heights {
-  .#{$name} {
-    line-height: #{$value};
+@if $enable-line-heights {
+  @each $name, $value in $line-heights {
+    .#{$name} {
+      line-height: #{$value};
+    }
   }
 }
 
