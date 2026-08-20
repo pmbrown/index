@@ -1,7 +1,7 @@
 // ------------------------------------------------------------
-// indexcss layouts
+// layouts
 // ------------------------------------------------------------
-@use "../config" as *;
+@use "config" as *;
 
 // Containers
 @if $enable-containers {

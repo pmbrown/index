@@ -1,0 +1,563 @@
+// ------------------------------------------------------------
+// Config
+// ------------------------------------------------------------
+@use "sass:map";
+$version: '0.5.0';
+$custom-tokens: () !default;
+
+$root-tokens: ':root, :host' !default;
+$enable-theme-switch: true !default; // Requires 'assets/js/index.theme-switch.js'
+
+// Colors
+$enable-color-tokens:               true !default; // Required for modifiers/utilities
+$enable-color-forms:                true !default;
+$enable-color-buttons:              true !default;
+$enable-color-tables:               true !default;
+$enable-color-backgrounds:          true !default;
+$enable-color-borders:              true !default;
+$enable-color-outlines:             true !default;
+$enable-color-texts:                true !default;
+
+// Utilities
+$enable-texts:                      true !default; // size, line-height, weight, align, wrap
+$enable-borders:                    true !default;
+$enable-radius:                     true !default;
+
+// Layouts
+$enable-containers:                 true !default; // max-width containers
+$enable-display:                    true !default; // block, flow-root, revert, none
+$enable-flex:                       true !default; // flex, direction, wrap, grow, shrink
+$enable-grid:                       true !default; // grid, autofit, columns/rows
+$enable-alignment:                  true !default; // align, justify, place
+$enable-ratios:                     true !default; // aspect-ratio, object-fit
+$enable-columns:                    true !default; // content columns (e.g. 'columns: 4')
+$enable-positioning:                true !default; // position, inset, z-index, order
+$enable-overflow:                   true !default; // overflow, overscroll, scrollbar width and gutter
+$enable-spacing:                    true !default; // gaps, margins, padding
+$enable-sizes:                      true !default; // heights and widths
+
+// Breakpoints
+$enable-global-breakpoints:         true !default;
+
+// Utilities
+$enable-vis-hidden-breakpoints:     false !default;
+$enable-texts-breakpoints:          true !default;
+$enable-borders-breakpoints:        true !default;
+$enable-radius-breakpoints:         true !default;
+
+// Layouts
+$enable-display-breakpoints:        true !default;
+$enable-flex-breakpoints:           true !default;
+$enable-grid-breakpoints:           true !default;
+$enable-alignment-breakpoints:      true !default;
+$enable-ratios-breakpoints:         true !default;
+$enable-columns-breakpoints:        true !default;
+$enable-positioning-breakpoints:    true !default;
+$enable-overflow-breakpoints:       true !default;
+$enable-spacing-breakpoints:        true !default;
+$enable-sizes-breakpoints:          true !default;
+
+// ------------------------------------------------------------
+// Reset tokens
+// ------------------------------------------------------------
+$font-family:       '-apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", "Noto Sans", "Liberation Sans", "Arial", sans-serif' !default;
+$text-color:        light-dark(#000, #fff) !default;
+$canvas-color:      light-dark(#f1f2f4, #1f2428) !default;
+$link-color:        light-dark(#1c3db5, #9fbfdf) !default;
+
+$reset-tokens: (
+  "font": #{$font-family},
+  "text": $text-color,
+  "link": $link-color,
+  "canvas": $canvas-color,
+) !default;
+
+$theme-surface-1:   color-mix(in srgb, CanvasText 5%, var(--canvas)) !default;
+$theme-surface-2:   color-mix(in srgb, CanvasText 10%, var(--canvas)) !default;
+$theme-surface-3:   color-mix(in srgb, CanvasText 20%, var(--canvas)) !default;
+$theme-surface-4:   color-mix(in srgb, CanvasText 30%, var(--canvas)) !default;
+$theme-surface-5:   color-mix(in srgb, CanvasText 40%, var(--canvas)) !default;
+
+$surface-colors: (
+  "surf-1": $theme-surface-1,
+  "surf-2": $theme-surface-2,
+  "surf-3": $theme-surface-3,
+  "surf-4": $theme-surface-4,
+  "surf-5": $theme-surface-5,
+) !default;
+
+// ------------------------------------------------------------
+// Font resets and text utilities
+// ------------------------------------------------------------
+$font-size-base:    1rem !default;
+$line-height-base:  1.5 !default;
+$font-size-1:       $font-size-base * 0.75 !default;
+$font-size-2:       $font-size-base * 0.875 !default;
+$font-size-3:       $font-size-base !default;
+$font-size-4:       $font-size-base * 1.063 !default;
+$font-size-5:       $font-size-base * 1.125 !default;
+$font-size-6:       $font-size-base * 1.25 !default;
+$font-size-7:       $font-size-base * 1.375 !default;
+$font-size-8:       $font-size-base * 1.575 !default;
+$font-size-9:       $font-size-base * 1.8 !default;
+$font-size-10:      $font-size-base * 2.125 !default;
+$font-size-11:      $font-size-base * 2.5 !default;
+$font-size-12:      $font-size-base * 3 !default;
+
+$font-sizes: (
+  "1": $font-size-1,
+  "2": $font-size-2,
+  "3": $font-size-3,
+  "4": $font-size-4,
+  "5": $font-size-5,
+  "6": $font-size-6,
+  "7": $font-size-7,
+  "8": $font-size-8,
+  "9": $font-size-9,
+  "10": $font-size-10,
+  "11": $font-size-11,
+  "12": $font-size-12,
+) !default;
+
+$line-heights: (
+  "lh-1": $line-height-base - 0.3,
+  "lh-2": $line-height-base - 0.2,
+  "lh-3": $line-height-base - 0.1,
+  "lh-4": $line-height-base,
+  "lh-5": $line-height-base + 0.1,
+) !default;
+
+$font-weights: (
+  "normal": normal,
+  "lighter": lighter,
+  "bold": bold, 
+  "semibold": 600,
+  "heavy": 800,
+) !default;
+
+$text-align-wrap: (
+  "text-center" text-align center,
+  "text-left" text-align left,
+  "text-right" text-align right,
+  "text-balance" text-wrap balance,
+  "text-pretty" text-wrap pretty,
+) !default;
+
+// ------------------------------------------------------------
+// Colors
+// ------------------------------------------------------------
+$blue:              oklch(50% 0.25 250) !default;
+$green:             oklch(50% 0.22 160) !default;
+$red:               oklch(52% 0.25 26) !default;
+$cyan:              oklch(82% 0.18 185) !default;
+$yellow:            oklch(92% 0.20 99) !default;
+$gray:              oklch(80% 0.02 245) !default;
+
+$color-mix:         lab !default;
+$middle-token:      5 !default;
+$color-utilities:   9 !default;
+
+$lighten-values: (
+  "1": 70%,
+  "2": 55%,
+  "3": 40%,
+  "4": 20%,
+) !default;
+
+$darken-values: (
+  "6": 12%,
+  "7": 25%,
+  "8": 37%,
+  "9": 45%,
+) !default;
+
+$color-tokens: (
+  "blue": $blue,
+  "green": $green,
+  "red": $red,
+  "cyan": $cyan,
+  "yellow": $yellow,
+  "gray": $gray,
+) !default;
+
+// Forms and buttons
+// "name" | background | hover/focus | border/outline
+$color-modifiers: (
+  "blue" var(--blue-5) var(--blue-6) var(--blue-4),
+  "green" var(--green-5) var(--green-6) var(--green-4),   
+  "red" var(--red-5) var(--red-6) var(--red-4),
+  "cyan" var(--cyan-5) var(--cyan-4) var(--cyan-6),
+  "yellow" var(--yellow-5) var(--yellow-4) var(--yellow-6),
+  "gray" var(--gray-5) var(--gray-4) var(--gray-6),
+) !default;
+
+// Table color modifiers
+// "name" | background | thead | border
+$color-tables: (
+  "blue" var(--blue-5) var(--blue-6) var(--blue-4),
+  "green" var(--green-5) var(--green-6) var(--green-4), 
+  "red" var(--red-5) var(--red-6) var(--red-4),
+  "cyan" var(--cyan-4) var(--cyan-5) var(--cyan-6),
+  "yellow" var(--yellow-4) var(--yellow-5) var(--yellow-6),
+  "gray" var(--gray-4) var(--gray-5) var(--gray-6),
+) !default;
+
+// ------------------------------------------------------------
+// Button sizes
+// "name" | font-size | padding-block | padding-inline
+// ------------------------------------------------------------
+$button-sizes: (
+  "btn-xs" var(--fs-1) 0.25rem 0.5rem,
+  "btn-sm" var(--fs-2) 0.25rem 0.75rem,
+  "btn-lg" var(--fs-5) 0.375rem 1rem,
+  "btn-xl" var(--fs-6) 0.5rem 1.25rem,
+) !default;
+
+// ------------------------------------------------------------
+// Borders
+// ------------------------------------------------------------
+$border-width:    var(--bd-width, 1px) !default;
+$border-color:    var(--bd-color, var(--surf-3)) !default;
+$border-style:    var(--bd-style, solid) !default;
+
+$border-style-values: (
+  "bd": border-style,
+  "bd-t": border-block-start-style,
+  "bd-b": border-block-end-style,
+  "bd-s": border-inline-start-style,
+  "bd-e": border-inline-end-style,
+  "bd-y": border-block-style,
+  "bd-x": border-inline-style,
+) !default;
+
+// ------------------------------------------------------------
+// Radius
+// ------------------------------------------------------------
+$border-radius-values: (
+  "rd-0": 0,
+  "rd-1": 0.188rem,
+  "rd-2": 0.25rem,
+  "rd-3": 0.313rem,
+  "rd-4": 0.5rem,
+  "rd-5": 0.75rem,
+  "rd-6": 1rem,
+) !default;
+
+$border-radius-single-values: (
+  "rd-pill": calc(infinity * 1px),
+  "rd-circle": 50%,
+) !default;
+
+$radius-props: (
+  "t" border-start-start-radius border-start-end-radius,
+  "b" border-end-start-radius border-end-end-radius,
+  "s" border-start-start-radius border-end-start-radius,
+  "e" border-start-end-radius border-end-end-radius,
+) !default;
+
+// Breakpoints
+$breakpoint-query:  'width <' !default; 
+
+$breakpoint-sizes: (
+  "xl": 1536px,
+  "lg": 1280px,
+  "md": 1024px,
+  "sm": 768px,
+  "xs": 480px,
+) !default;
+
+// Containers
+$container-sizes:  $breakpoint-sizes !default;
+
+// Gaps, margins, padding
+$space-1:   0.25rem !default;
+$space-2:   0.5rem !default;
+$space-3:   0.75rem !default;
+$space-4:   1rem !default;
+$space-5:   1.25rem !default;
+$space-6:   1.5rem !default;
+$space-7:   2rem !default;
+$space-8:   2.5rem !default;
+$space-9:   3rem !default;
+
+$spacing-values: (
+  "auto": auto,
+  "0": 0,
+  "1": $space-1,
+  "2": $space-2,
+  "3": $space-3,
+  "4": $space-4,
+  "5": $space-5,
+  "6": $space-6,
+  "7": $space-7,
+  "8": $space-8,
+  "9": $space-9,
+) !default;
+
+$gap-values:       map.remove($spacing-values, "auto") !default;
+$padding-values:   map.remove($spacing-values, "auto") !default;
+$margin-values:    $spacing-values !default;
+
+$gap-props: (
+  "gap": gap,
+  "gap-c": column-gap,
+  "gap-r": row-gap,
+) !default;
+
+$margin-props: (
+  "m": margin,
+  "mt": margin-block-start,
+  "mb": margin-block-end,
+  "ms": margin-inline-start,
+  "me": margin-inline-end,
+  "my": margin-block,
+  "mx": margin-inline,
+) !default;
+
+$padding-props: (
+  "p": padding,
+  "pt": padding-block-start,
+  "pb": padding-block-end,
+  "ps": padding-inline-start,
+  "pe": padding-inline-end,
+  "py": padding-block,
+  "px": padding-inline,
+) !default;
+
+// Grids
+$grid-column-values:    12 !default;
+$grid-row-values:       6 !default;
+$grid-autofit-value:    300px !default;
+$grid-columns:          repeat(var(--cols, #{$grid-column-values}), minmax(0, var(--gmax, 1fr))) !default;
+$grid-autofit:          repeat(auto-fit, minmax(var(--gmin, #{$grid-autofit-value}), 1fr)) !default;
+
+$grid-utility-values: (
+  "grid" display grid,
+  "grid-inline" display inline-grid,
+  "grid-revert" display revert,
+  "grid-columns" grid-template-columns #{$grid-columns},
+  "grid-autofit" grid-template-columns #{$grid-autofit},
+) !default;
+
+$grid-column-props: (
+  "col" grid-column auto / span,
+  "col-start" grid-column-start null,
+  "col-end" grid-column-end null,
+) !default;
+
+$grid-row-props: (
+  "row" grid-row auto / span,
+  "row-start" grid-row-start null,
+  "row-end" grid-row-end null,
+) !default;
+
+// Display
+$display-values: (
+  "block": block,
+  "block-inline": inline-block,
+  "flow-root": flow-root,
+  "display-revert": revert,
+  "display-none": none,
+) !default;
+
+// Flex
+$flex-utility-values: (
+  "flex" display flex,
+  "flex-inline" display inline-flex,
+  "flex-revert" display revert,
+  "flex-row" flex-direction row,
+  "flex-column" flex-direction column,
+  "flex-row-reverse" flex-direction row-reverse,
+  "flex-column-reverse" flex-direction column-reverse,
+  "flex-wrap" flex-wrap wrap,
+  "flex-nowrap" flex-wrap nowrap,
+  "flex-grow-0" flex-grow 0,
+  "flex-grow-1" flex-grow 1,
+  "flex-shrink-0" flex-shrink 0,
+  "flex-shrink-1" flex-shrink 1,
+) !default;
+
+// Alignment - align, justify, place
+$content-items-values: (
+  "start": start,
+  "end": end,
+  "center": center,
+) !default;
+
+$content-items-space-values: (
+  "around": space-around,
+  "between": space-between,
+  "evenly": space-evenly,
+) !default;
+
+$content-space-values:  map.merge($content-items-values, $content-items-space-values);
+
+$content-props: (
+  "align-content": align-content,
+  "justify-content": justify-content,
+  "place-content": place-content,
+) !default;
+
+$items-props: (
+  "align-items": align-items,
+  "justify-items": justify-items,
+  "place-items": place-items,
+) !default;
+
+// Columns, e.g. 'columns: 6' (unrelated to grid columns)
+$column-values:   6 !default;
+
+// Aspect-ratio and object-fit
+$aspect-ratio-values: (
+  "auto": auto,
+  "1x1": #{"1 / 1"},
+  "16x9": #{"16 / 9"},
+  "5x2": #{"5 / 2"},
+  "4x1": #{"4 / 1"},
+  "3x4": #{"3 / 4"},
+) !default;
+
+$object-fit-values: (
+  "contain": contain,
+  "cover": cover,
+  "fill": fill,
+  "scale": scale-down,
+  "none": none,
+) !default;
+
+// Position, inset, z-index
+$position-values: (
+  "absolute": absolute,
+  "fixed": fixed,
+  "relative": relative,
+  "sticky": sticky,
+  "revert": revert,
+) !default;
+
+$inset-values: (
+  "inset": inset,
+  "inset-block": inset-block,
+  "inset-inline": inset-inline,
+  "inset-top": inset-block-start,
+  "inset-bottom": inset-block-end,
+  "inset-start": inset-inline-start,
+  "inset-end": inset-inline-end,
+) !default;
+
+$inset-reset-values: (
+  "revert": revert,
+) !default;  
+
+$zindex-values: (
+  "z-neg": calc(0 - var(--zmin, 1)),
+  "z-0": 0,
+  "z-1": 100,
+  "z-2": 200,
+  "z-3": 300,
+  "z-4": 400,
+  "z-5": 500,
+  "z-var": var(--z),
+  "z-top": calc(infinity), 
+  "z-revert": revert,
+) !default;
+
+$order-values: (
+  "order": var(--order),
+  "order-0": 0,
+  "order-1": 1,
+  "order-2": 2,
+  "order-3": 3,
+  "order-4": 4,
+  "order-5": 5,
+  "order-revert": revert,
+) !default;
+
+// Overflow, overscroll, scrollbar width and color
+$overflow-values: (
+  "auto": auto,
+  "scroll": scroll,
+  "hidden": hidden,
+  "visible": visible,
+  "clip": clip,
+  "revert": revert,
+) !default;
+
+$overflow-props: (
+  "overflow": overflow,
+  "overflow-x": overflow-x,
+  "overflow-y": overflow-y,
+) !default;
+
+$overscroll-values: (
+  "overscroll-auto": auto,
+  "overscroll-contain": contain,
+  "overscroll-revert": revert,
+) !default;
+
+$scrollbar-widths: (
+  "scroll-width-auto": auto,
+  "scroll-width-thin": thin,
+  "scroll-width-revert": revert,
+) !default;
+
+$scrollbar-gutter: (
+  "scroll-gutter-stable": stable,
+  "scroll-gutter-stable-edges": stable both-edges,
+  "scroll-gutter-auto": auto,
+  "scroll-gutter-revert": revert,
+) !default;
+
+// Sizing
+$sizing-values: (
+  "auto": auto,
+  "fit-content": fit-content,
+  "min-content": min-content,
+  "max-content": max-content,
+  "100": 100%,
+) !default;
+
+$viewport-heights: (
+  "100vh": 100vh,
+  "100dvh": 100dvh,
+) !default;
+
+$viewport-widths: (
+  "100vw": 100vw,
+  "100dvw": 100dvw,
+) !default;
+
+$height-values:   map.merge($sizing-values, $viewport-heights);
+$width-values:    map.merge($sizing-values, $viewport-widths);
+
+$height-props: (
+  "height": block-size,
+  "min-height": min-block-size,
+  "max-height": max-block-size,
+) !default;
+
+$width-props: (
+  "width": inline-size,
+  "min-width": min-inline-size,
+  "max-width": max-inline-size,
+) !default;
+
+$height-calc:   calc(var(--h, 100dvh) - var(--h-sub)) !default;
+$width-calc:    calc(var(--w, 100dvw) - var(--w-sub)) !default;
+
+$variable-heights: (
+  "height" block-size var(--height),
+  "min-height" min-block-size var(--min-height),
+  "max-height" max-block-size var(--max-height),
+  "height-calc" block-size $height-calc,
+  "min-height-calc" min-block-size $height-calc,
+  "max-height-calc" max-block-size $height-calc,
+) !default;
+
+$variable-widths: (
+  "width" inline-size var(--width),
+  "min-width" min-inline-size var(--min-width),
+  "max-width" max-inline-size var(--max-width),
+  "width-calc" inline-size $width-calc,
+  "min-width-calc" min-inline-size $width-calc,
+  "max-width-calc" max-inline-size $width-calc,
+) !default;

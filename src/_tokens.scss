@@ -1,0 +1,43 @@
+// ------------------------------------------------------------
+// indexcss tokens
+// ------------------------------------------------------------
+@use "config" as *;
+/*! index.css v#{$version} - Copyright (c) 2026 Phil Brown - MIT license (https://github.com/pmbrown/index/blob/main/LICENSE) */
+
+#{$root-tokens} {
+  @each $name, $value in $reset-tokens {
+    --#{$name}: #{$value};
+  }
+  
+  @each $name, $value in $font-sizes {
+    --fs-#{$name}: #{$value};
+  }
+  
+  @each $name, $value in $line-heights {
+    --#{$name}: #{$value};
+  }
+  
+  @each $name, $value in $surface-colors {
+    --#{$name}: #{$value};
+  }
+  
+  @each $name, $value in $custom-tokens {
+    --#{$name}: #{$value};
+  }
+
+  @if $enable-color-tokens {
+    @each $color, $value in $color-tokens {
+      --#{$color}: #{$value};
+      
+      @each $token, $percent in $lighten-values {
+        --#{$color}-#{$token}: color-mix(in #{$color-mix}, var(--#{$color}), #fff #{$percent});
+      }
+      
+      --#{$color}-#{$middle-token}: var(--#{$color});
+      
+      @each $token, $percent in $darken-values {
+        --#{$color}-#{$token}: color-mix(in #{$color-mix}, var(--#{$color}), #000 #{$percent});
+      }
+    }
+  }
+}

@@ -1,0 +1,160 @@
+// ------------------------------------------------------------
+// Colors 
+// ------------------------------------------------------------
+@use "config" as *;
+
+.fg, .fg-text, .fg-white, .fg-black {
+  --link: var(--fg);
+  color: var(--fg);
+}
+
+.fg-active:is(:focus-within, :hover) {
+  --link: var(--fg-active);
+  color: var(--fg-active);
+}
+
+.fg-text, .fg-text-active:is(:focus-within, :hover) {
+  --fg: var(--text);
+}
+
+.fg-white, .fg-white-active:is(:focus-within, :hover) {
+  --fg: #fff;
+}
+
+.fg-black, .fg-black-active:is(:focus-within, :hover) {
+  --fg: #000;
+}
+
+.bg {
+  color: var(--fg, contrast-color(var(--bg)));
+  background-color: var(--bg);
+}
+
+.bg-active:is(:focus-within, :hover) {
+  color: var(--fg-active, contrast-color(var(--bg-active)));
+  background-color: var(--bg-active);
+}
+
+.bg-page, .bg-page-active:is(:focus-within, :hover) {
+  background-color: var(--canvas);
+}
+
+.bg-white, .bg-white-active:is(:focus-within, :hover) {
+  color: var(--fg, contrast-color(#fff));
+  background-color: #fff;
+}
+
+.bg-black, .bg-black-active:is(:focus-within, :hover) {
+  color: var(--fg, contrast-color(#000));
+  background-color: #000;
+}
+
+.focus-outline:focus {
+  outline-color: var(--outline);
+}
+
+@each $name, $color in $surface-colors {
+  .bg-#{$name}, .bg-#{$name}-active:is(:focus-within, :hover) {
+    color: contrast-color(var(--#{$name}));
+    background-color: var(--#{$name});
+  }
+}
+
+@each $name, $color in $surface-colors {
+  .bd-#{$name}, .bd-#{$name}-active:is(:focus-within, :hover) {
+    border-color: var(--#{$name});
+  }
+}
+
+// Color modifiers
+@if $enable-color-tokens {
+  @if $enable-color-forms {
+    @each $name, $background, $null, $border in $color-modifiers {
+      .form-#{$name} {
+        --form-bg: #{$background};
+        --form-bd-color: #{$border};
+      }
+    }
+  }
+  
+  @if $enable-color-buttons {
+    @each $name, $background, $hover, $border in $color-modifiers {
+      .btn-#{$name} {
+        --btn-bg: #{$background};
+        --btn-bg-hover: #{$hover};
+        --btn-bd-color: #{$border};
+      }
+    }
+  }
+  
+  @if $enable-color-tables {
+    @each $name, $background, $thead, $border in $color-tables {
+      .table-#{$name} {
+        --table-bg: #{$background};
+        --thead-bg: #{$thead};
+        --table-bd-color: #{$border};
+      }
+    }
+  }
+}
+
+// Color utilities
+@if $enable-color-tokens {
+  @if $enable-color-backgrounds {
+    @each $name, $token in $color-tokens {
+      .bg-#{$name}, .bg-#{$name}-active:is(:focus-within, :hover) {
+        color: contrast-color(var(--#{$name}));
+        background-color: var(--#{$name});
+      }    
+    
+      @for $value from 1 through $color-utilities { 
+        .bg-#{$name}-#{$value}, .bg-#{$name}-#{$value}-active:is(:focus-within, :hover) {
+          color: contrast-color(var(--#{$name}-#{$value}));
+          background-color: var(--#{$name}-#{$value});
+        }    
+      }
+    }
+  }
+  
+  @if $enable-color-borders {
+    @each $name, $token in $color-tokens {
+      .bd-#{$name}, .bd-#{$name}-active:is(:focus-within, :hover) {
+        border-color: var(--#{$name});
+      } 
+      
+      @for $value from 1 through $color-utilities { 
+        .bd-#{$name}-#{$value}, .bd-#{$name}-#{$value}-active:is(:focus-within, :hover) {
+          border-color: var(--#{$name}-#{$value});
+        }    
+      }
+    }
+  }
+
+  @if $enable-color-outlines {
+    @each $name, $token in $color-tokens {
+      .outline-#{$name}:focus {
+        outline-color: var(--#{$name});
+      } 
+      
+      @for $value from 1 through $color-utilities { 
+        .outline-#{$name}-#{$value}:focus {
+          outline-color: var(--#{$name}-#{$value});
+        }    
+      }
+    }
+  }
+  
+  @if $enable-color-texts {
+    @each $name, $token in $color-tokens {
+      .fg-#{$name}, .fg-#{$name}-active:is(:focus, :hover) {
+        color: var(--#{$name});
+      }    
+    
+      @for $value from 1 through $color-utilities { 
+        .fg-#{$name}-#{$value}, .fg-#{$name}-#{$value}-active:is(:focus, :hover) {
+          color: var(--#{$name}-#{$value});
+        }    
+      }
+    }
+  }
+}

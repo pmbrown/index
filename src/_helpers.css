@@ -1,0 +1,57 @@
+.decoration-none, .decoration-none-group * {
+  text-decoration: none;
+}
+
+.vis-hidden, .vis-hidden-focus:not(:focus):not(:focus-within) {
+  position: absolute;
+  block-size: 1px;
+  inline-size: 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.light, .light-active:is(:focus-within, :hover) {
+  color-scheme: light;
+}
+  
+.dark, .dark-active:is(:focus-within, :hover) {
+  color-scheme: dark;
+}
+
+.link-box {
+  position: relative;
+  cursor: pointer;
+  
+  a:after {
+    content: "";
+    display: block;
+    position: absolute;
+    inset: 0;
+  }
+  
+  a:focus-visible {
+    outline: none;
+  }
+}
+
+.search {
+  display: flex;
+  align-items: center;
+  
+  input {
+    border-start-end-radius: 0;
+    border-end-end-radius: 0;
+  }
+  
+  button {
+    margin-inline-start: -1px;
+    border-start-start-radius: 0;
+    border-end-start-radius: 0;
+  }
+  
+  :focus {
+    outline: none;
+  }
+}

@@ -1,3 +1,6 @@
+// Originally adapted from Adam Argyle's theme-toggle.js
+// See https://github.com/argyleink/gui-challenges/blob/main/theme-switch/public/theme-toggle.js
+
 const storageKey = "theme-preference",
 
 onClick = () => {

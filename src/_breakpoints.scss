@@ -1,60 +1,49 @@
 // ------------------------------------------------------------
-// indexcss breakpoints
+// breakpoints
 // ------------------------------------------------------------
-@use "../config" as *;
-@use "mixins" as *;
+@use "config" as *;
 
 @each $breakpoint, $width in $breakpoint-sizes {
-  @if $enable-breakpoints {
+  @if $enable-global-breakpoints {
     @media (#{$breakpoint-query} #{$width}) {
-
-      // Text utilities
-      @if $enable-deco-none-breakpoints {
-        .decoration-none-#{$breakpoint}, .decoration-none-group-#{$breakpoint} * {
-          @include decoration-none;
-        }
-      }
-
+    
       @if $enable-vis-hidden-breakpoints {
         .vis-hidden-#{$breakpoint}, .vis-hidden-focus-#{$breakpoint}:not(:focus):not(:focus-within) {
-          @include vis-hidden;
+          position: absolute;
+          block-size: 1px;
+          inline-size: 1px;
+          margin: -1px;
+          overflow: hidden;
+          clip-path: inset(50%);
+          white-space: nowrap;
         }
       }
 
-      @if $enable-font-sizes-breakpoints {
+      // Text utilities
+      @if $enable-texts-breakpoints {
+        .decoration-none-#{$breakpoint}, .decoration-none-group-#{$breakpoint} * {
+          text-decoration: none;
+        }
+        
         @each $name, $value in $font-sizes {
           .fs-#{$name}-#{$breakpoint} {
             font-size: #{$value};
           }
         }
-      }
-      
-      @if $enable-line-heights-breakpoints {
+
         @each $name, $value in $line-heights {
           .#{$name}-#{$breakpoint} {
             line-height: #{$value};
           }
         }
-      }
-      
-      @if $enable-font-weights-breakpoints {
+
         @each $name, $value in $font-weights {
           .fw-#{$name}-#{$breakpoint} {
             font-weight: #{$value};
           }
         }
-      }
-      
-      @if $enable-text-align-breakpoints {
+
         @each $name, $prop, $value in $text-align-wrap {
-          .#{$name}-#{$breakpoint}, .#{$name}-group-#{$breakpoint} * {
-            #{$prop}: #{$value};
-          }
-        }
-      }
-      
-      @if $enable-text-styles-breakpoints {
-        @each $name, $prop, $value in $text-styles {
           .#{$name}-#{$breakpoint}, .#{$name}-group-#{$breakpoint} * {
             #{$prop}: #{$value};
           }
@@ -78,6 +67,10 @@
   
       // Radius
       @if $enable-radius-breakpoints {
+        .rd-#{$breakpoint} {
+          border-radius: var(--rd-#{$breakpoint});
+        }
+        
         @each $name, $value in $border-radius-values {
           .#{$name}-#{$breakpoint} {
             border-radius: #{$value};
