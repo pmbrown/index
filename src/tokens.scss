@@ -2,7 +2,7 @@
 // Tokens
 // ------------------------------------------------------------
 @use "config" as *;
-/*! index.css v#{$version} - Copyright (c) 2026 Phil Brown - MIT license (https://github.com/pmbrown/index/blob/main/LICENSE) */
+/*! content.css v#{$version} - Copyright (c) 2026 Phil Brown - MIT license (https://github.com/pmbrown/content/blob/main/LICENSE) */
 
 :root, :host {
   @each $name, $value in $reset-tokens {

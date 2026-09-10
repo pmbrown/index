@@ -1,6 +1,6 @@
 # Content styles for web design
 
-index.css provides select styles for web content summarised as follows: 
+Select content specific styles for web design summarised as follows: 
 
 - Theme variables and HTML content reset styles. 
 - Primary color variables and smart multi-use utilities. 
