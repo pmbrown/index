@@ -78,7 +78,7 @@
 
 :where(h6) {
   --heading-lh: var(--lh-2);
-  font-size: var(--h6-fs, var(--fs-4));
+  font-size: var(--h6-fs, var(--fs-5));
 }
 
 :where(p) {
@@ -378,6 +378,51 @@
   background-color: var(--btn-hover, var(--surf-2));
 }
 
+.btn-sm {
+  --btn-fs: var(--fs-2);
+  --btn-py: 0.25rem;
+  --btn-px: 0.75rem;
+}
+
+.btn-lg {
+  --btn-fs: var(--fs-5);
+  --btn-py: 0.375rem;
+  --btn-px: 1rem;
+}
+
+.btn-outline {
+  --btn-fg: CanvasText;
+  --btn-bg: transparent;
+}
+
+.btn-none {
+  --btn-fg: CanvasText;
+  --btn-bg: transparent;
+  --btn-bg-hover: transparent;
+  --btn-outline-color: var(--surf-3);
+  --btn-bd-color: transparent;
+}
+
+.search {
+  display: flex;
+  align-items: center;
+  
+  input {
+    border-start-end-radius: 0;
+    border-end-end-radius: 0;
+  }
+  
+  button {
+    margin-inline-start: -1px;
+    border-start-start-radius: 0;
+    border-end-start-radius: 0;
+  }
+  
+  :focus {
+    outline: none;
+  }
+}
+
 :where(table) {
   color-scheme: var(--table-scheme, inherit);
   color: var(--table-fg, contrast-color(var(--table-bg, var(--canvas))));
@@ -426,4 +471,90 @@
   :is(.table-hover tbody tr, .table-combo tbody tr):hover {
     background-color: var(--table-hover, color-mix(in srgb, var(--thead-bg, var(--surf-1)), transparent 20%));
   }
+}
+
+.decoration-none, .decoration-none-group * {
+  text-decoration: none;
+}
+
+.vis-hidden, .vis-hidden-focus:not(:focus):not(:focus-within) {
+  position: absolute;
+  block-size: 1px;
+  inline-size: 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.light, .light-active:is(:focus-within, :hover) {
+  color-scheme: light;
+}
+  
+.dark, .dark-active:is(:focus-within, :hover) {
+  color-scheme: dark;
+}
+
+.fg {
+  --link: var(--fg);
+  color: var(--fg);
+}
+
+.fg-active:is(:focus-within, :hover) {
+  --link: var(--fg-active);
+  color: var(--fg-active);
+}
+
+.bg {
+  color: var(--fg, contrast-color(var(--bg)));
+  background-color: var(--bg);
+}
+
+.bg-active:is(:focus-within, :hover) {
+  color: var(--fg-active, contrast-color(var(--bg-active)));
+  background-color: var(--bg-active);
+}
+
+.fg-text {
+  --link: var(--text);
+  color: var(--text);
+}
+
+.bg-page {
+  background-color: var(--canvas);
+}
+
+.focus-outline:focus {
+  outline-color: var(--outline);
+}
+
+.link-box {
+  position: relative;
+  cursor: pointer;
+  
+  a:after {
+    content: "";
+    display: block;
+    position: absolute;
+    inset: 0;
+  }
+  
+  a:focus-visible {
+    outline: none;
+  }
+}
+
+.modal {
+  block-size: var(--modal-block, fit-content);
+  max-block-size: var(--modal-height, calc(100dvh - 2rem));
+  inline-size: var(--modal-inline, calc(100% - 6px - 2em));
+  max-inline-size: var(--modal-width, 24rem);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.backdrop::backdrop {
+  --backdrop-light: color-mix(in srgb, #000 10%, transparent);
+  --backdrop-dark: color-mix(in srgb, #000 40%, transparent);
+  background-color: light-dark(var(--backdrop-light), var(--backdrop-dark));
 }

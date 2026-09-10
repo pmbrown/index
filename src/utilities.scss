@@ -1,0 +1,283 @@
+// ------------------------------------------------------------
+// Utilities
+// ------------------------------------------------------------
+@use "config" as *;
+
+// Text
+@if $enable-texts {
+  @each $name, $value in $font-sizes {
+    .fs-#{$name} {
+      font-size: var(--fs-#{$name});
+    }
+  }
+
+  @each $name, $value in $line-heights {
+    .#{$name} {
+      line-height: var(--#{$name});
+    }
+  }
+
+  @each $name, $value in $font-weights {
+    .fw-#{$name} {
+      font-weight: #{$value};
+    }
+  }
+
+  @each $name, $prop, $value in $text-align-wrap {
+    .#{$name}, .#{$name}-group * {
+      #{$prop}: #{$value};
+    }
+  }
+}
+
+// ------------------------------------------------------------
+// Colors
+// ------------------------------------------------------------
+@if $enable-surface-backgrounds {
+  @each $name, $color in $surface-colors {
+    .bg-#{$name}, .bg-#{$name}-active:is(:focus-within, :hover) {
+      color: var(--fg, contrast-color(var(--#{$name})));
+      background-color: var(--#{$name});
+    }
+  }
+}
+
+@if $enable-surface-borders {
+  @each $name, $color in $surface-colors {
+    .bd-#{$name}, .bd-#{$name}-active:is(:focus-within, :hover) {
+      border-color: var(--#{$name});
+    }
+  }
+}
+
+// Primary color utilities
+@if $enable-color-backgrounds {
+  @each $name, $token in $color-tokens {
+    .bg-#{$name}, .bg-#{$name}-active:is(:focus-within, :hover) {
+      color: var(--fg, contrast-color(var(--#{$name})));
+      background-color: var(--#{$name});
+    }    
+    
+    @for $value from 1 through $color-utilities { 
+      .bg-#{$name}-#{$value}, .bg-#{$name}-#{$value}-active:is(:focus-within, :hover) {
+        color: var(--fg, contrast-color(var(--#{$name})));
+        background-color: var(--#{$name}-#{$value});
+      }    
+    }
+  }
+}
+
+@if $enable-color-borders {
+  @each $name, $token in $color-tokens {
+    .bd-#{$name}, .bd-#{$name}-active:is(:focus-within, :hover) {
+      border-color: var(--#{$name});
+    } 
+    
+    @for $value from 1 through $color-utilities { 
+      .bd-#{$name}-#{$value}, .bd-#{$name}-#{$value}-active:is(:focus-within, :hover) {
+        border-color: var(--#{$name}-#{$value});
+      }    
+    }
+  }
+}
+
+@if $enable-color-outlines {
+  @each $name, $token in $color-tokens {
+    .outline-#{$name}:focus {
+      outline-color: var(--#{$name});
+    } 
+    
+    @for $value from 1 through $color-utilities { 
+      .outline-#{$name}-#{$value}:focus {
+        outline-color: var(--#{$name}-#{$value});
+      }    
+    }
+  }
+}
+
+@if $enable-color-texts {
+  @each $name, $token in $color-tokens {
+    .fg-#{$name}, .fg-#{$name}-active:is(:focus, :hover) {
+      color: var(--#{$name});
+    }    
+    
+    @for $value from 1 through $color-utilities { 
+      .fg-#{$name}-#{$value}, .fg-#{$name}-#{$value}-active:is(:focus, :hover) {
+        color: var(--#{$name}-#{$value});
+      }    
+    }
+  }
+}
+
+// Primary color modifiers
+@if $enable-color-forms {
+  @each $name, $background, $null, $border in $color-modifiers {
+    .form-#{$name} {
+      --form-bg: #{$background};
+      --form-bd-color: #{$border};
+    }
+  }
+}
+
+@if $enable-color-buttons {
+  @each $name, $background, $hover, $border in $color-modifiers {
+    .btn-#{$name} {
+      --btn-bg: #{$background};
+      --btn-bg-hover: #{$hover};
+      --btn-bd-color: #{$border};
+    }
+  }
+}
+
+@if $enable-color-tables {
+  @each $name, $background, $thead, $border in $color-tables {
+    .table-#{$name} {
+      --table-bg: #{$background};
+      --thead-bg: #{$thead};
+      --table-bd-color: #{$border};
+    }
+  }
+}
+
+// Borders
+@if $enable-borders {
+  .bd, 
+  [class*=bd-] {
+    border-width: $border-width;
+    border-color: $border-color;
+  }
+        
+  @each $name, $value in $border-style-values {
+    .#{$name} {
+      #{$value}: $border-style;        
+    }
+  }
+        
+  @each $name, $value in $border-style-values { 
+    .#{$name}-none {
+      #{$value}: none;        
+    }
+  }
+}
+
+// Radius
+@if $enable-radius {
+  .rd {
+    border-radius: var(--rd);
+  }
+  
+  @each $name, $value in $border-radius-values {
+    .#{$name} {
+      border-radius: #{$value};
+    }
+  }
+  
+  @each $name, $value in $border-radius-single-values {
+    .#{$name} {
+      border-radius: #{$value};
+    }
+  }
+  
+  @each $name, $value in $border-radius-values {
+    @each $class, $start, $end in $radius-props {
+      .#{$name}-#{$class} {
+        #{$start}: #{$value};
+        #{$end}: #{$value};
+      }
+    }
+  }
+}
+
+// ------------------------------------------------------------
+// Breakpoints
+// ------------------------------------------------------------
+@each $breakpoint, $width in $breakpoint-sizes {
+  @media (#{$breakpoint-query} #{$width}) {
+    
+    @if $enable-vis-hidden-breakpoints {
+      .vis-hidden-#{$breakpoint}, .vis-hidden-focus-#{$breakpoint}:not(:focus):not(:focus-within) {
+        position: absolute;
+        block-size: 1px;
+        inline-size: 1px;
+        margin: -1px;
+        overflow: hidden;
+        clip-path: inset(50%);
+        white-space: nowrap;
+      }
+    }
+
+    // Text utilities
+    @if $enable-texts-breakpoints {
+      .decoration-none-#{$breakpoint}, .decoration-none-group-#{$breakpoint} * {
+        text-decoration: none;
+      }
+      
+      @each $name, $value in $font-sizes {
+        .fs-#{$name}-#{$breakpoint} {
+          font-size: #{$value};
+        }
+      }
+      
+      @each $name, $value in $line-heights {
+        .#{$name}-#{$breakpoint} {
+          line-height: #{$value};
+        }
+      }
+
+      @each $name, $value in $font-weights {
+        .fw-#{$name}-#{$breakpoint} {
+          font-weight: #{$value};
+        }
+      }
+
+      @each $name, $prop, $value in $text-align-wrap {
+        .#{$name}-#{$breakpoint}, .#{$name}-group-#{$breakpoint} * {
+          #{$prop}: #{$value};
+          }
+        }
+      }
+      
+      // Borders
+      @if $enable-borders-breakpoints {
+        @each $name, $value in $border-style-values {
+          .#{$name}-#{$breakpoint} {
+            #{$value}: $border-style;        
+          }
+        }
+              
+        @each $name, $value in $border-style-values { 
+          .#{$name}-none-#{$breakpoint} {
+            #{$value}: none;        
+          }
+        }
+      }
+  
+      // Radius
+      @if $enable-radius-breakpoints {
+        .rd-#{$breakpoint} {
+          border-radius: var(--rd-#{$breakpoint});
+        }
+        
+        @each $name, $value in $border-radius-values {
+          .#{$name}-#{$breakpoint} {
+            border-radius: #{$value};
+          }
+        }
+        
+        @each $name, $value in $border-radius-single-values {
+          .#{$name}-#{$breakpoint} {
+            border-radius: #{$value};
+          }
+        }
+        
+        @each $name, $value in $border-radius-values {
+          @each $class, $start, $end in $radius-props {
+            .#{$name}-#{$class}-#{$breakpoint} {
+              #{$start}: #{$value};
+              #{$end}: #{$value};
+            }
+          }
+        }
+      }
+  } // end-media
+} // end-breakpoints

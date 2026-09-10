@@ -1,10 +1,10 @@
 // ------------------------------------------------------------
-// indexcss tokens
+// Tokens
 // ------------------------------------------------------------
 @use "config" as *;
 /*! index.css v#{$version} - Copyright (c) 2026 Phil Brown - MIT license (https://github.com/pmbrown/index/blob/main/LICENSE) */
 
-#{$root-tokens} {
+:root, :host {
   @each $name, $value in $reset-tokens {
     --#{$name}: #{$value};
   }
